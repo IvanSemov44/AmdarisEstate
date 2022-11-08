@@ -17,16 +17,9 @@ namespace Estate.Presentation.Controllers
         [HttpGet]
         public IActionResult GetCompanies()
         {
-            try
-            {
                 var companies = _serviceManager.CompanyService.GetAllCompany(trackChanges: false);
 
-                return Ok(companies);
-            }
-            catch
-            {
-                return StatusCode(500, "Internal service error");
-            }
+                return Ok(companies);   
         }
     }
 }
