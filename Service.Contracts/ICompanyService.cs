@@ -1,9 +1,9 @@
-﻿using Entitities.Models;
+﻿using Shared.DataTransferObject;
 
 namespace Service.Contracts
 {
     public interface ICompanyService
     {
-        IEnumerable<Company> GetAllCompany(bool trackChanges);
+        IEnumerable<CompanyDto> GetAllCompany(bool trackChanges);
     }
 }
