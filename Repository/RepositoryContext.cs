@@ -1,6 +1,5 @@
-﻿using Entitities.Models;
+﻿using Entities.Models;
 using Microsoft.EntityFrameworkCore;
-using Repository.Configuration;
 
 namespace Repository
 {

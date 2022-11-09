@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Entitities.Models;
+using Entities.Models;
 using Shared.DataTransferObject;
 using System.Collections.Generic;
 

@@ -1,6 +1,6 @@
 ﻿using Contracts;
-using Entitities.ErrorModel;
-using Entitities.Exceptions;
+using Entities.ErrorModel;
+using Entities.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 
 namespace Estate.Extensions

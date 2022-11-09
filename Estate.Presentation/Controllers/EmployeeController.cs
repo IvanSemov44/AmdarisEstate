@@ -22,5 +22,13 @@ namespace Estate.Presentation.Controllers
 
             return Ok(employee);
         }
+
+        [HttpGet("{id:guid}")]
+        public IActionResult GetEmployeeForCompany(Guid companyId, Guid id)
+        {
+            var employee = _serviceManager.EmployeeService.GetEmployee(companyId, id, trackChanges: false);
+
+            return Ok(employee);
+        }
     }
 }
