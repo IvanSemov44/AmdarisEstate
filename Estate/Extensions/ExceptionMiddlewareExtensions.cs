@@ -2,8 +2,6 @@
 using Entitities.ErrorModel;
 using Entitities.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Http;
-using System.Net;
 
 namespace Estate.Extensions
 {
