@@ -17,9 +17,17 @@ namespace Estate.Presentation.Controllers
         [HttpGet]
         public IActionResult GetCompanies()
         {
-                var companies = _serviceManager.CompanyService.GetAllCompany(trackChanges: false);
+            var companies = _serviceManager.CompanyService.GetAllCompany(trackChanges: false);
 
-                return Ok(companies);   
+            return Ok(companies);
+        }
+
+        [HttpGet("{id:guid}")]
+        public IActionResult GetCompny(Guid id)
+        {
+            var company = _serviceManager.CompanyService.GetCompany(id, trackChanges: false);
+
+            return Ok(company);
         }
     }
 }
