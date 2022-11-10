@@ -68,6 +68,15 @@ namespace Service
             return companyForReturn;
         }
 
+        public void DeleteCompany(Guid id, bool trackChanges)
+        {
+            var company = _repositoryManager.Company.GetCompany(id, trackChanges: false);
+            if (company is null)
+                throw new CompanyNotFoundException(id);
+
+            _repositoryManager.Company.DeleteCompany(company);
+            _repositoryManager.Save();
+        }
         public(IEnumerable<CompanyDto> companies, string ids) CreateCompanyCollection
             (IEnumerable<CompanyForCreationDto> companyCollection)
         {

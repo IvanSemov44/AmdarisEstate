@@ -12,6 +12,8 @@ namespace Service.Contracts
 
         CompanyDto CreateCompany(CompanyForCreationDto company);
 
+        void DeleteCompany(Guid companyId, bool trackChanges);
+
         (IEnumerable<CompanyDto> companies, string ids) 
             CreateCompanyCollection(IEnumerable<CompanyForCreationDto> companyCollection);
     }
