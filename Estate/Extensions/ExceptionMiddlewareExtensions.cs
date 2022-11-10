@@ -7,7 +7,7 @@ namespace Estate.Extensions
 {
     public static class ExceptionMiddlewareExtensions
     {
-        public static void ConfigureExceptionHendler(this WebApplication app,ILoggerManager logger)
+        public static void ConfigureExceptionHendler(this WebApplication app, ILoggerManager logger)
         {
             app.UseExceptionHandler(appError =>
             {
@@ -21,6 +21,7 @@ namespace Estate.Extensions
                         context.Response.StatusCode = contextFeature.Error switch
                         {
                             NotFoundException => StatusCodes.Status404NotFound,
+                            BadRequestException => StatusCodes.Status400BadRequest,
                             _ => StatusCodes.Status500InternalServerError
                         };
 
