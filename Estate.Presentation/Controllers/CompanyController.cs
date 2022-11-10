@@ -32,7 +32,7 @@ namespace Estate.Presentation.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateCompany(CompanyForCreationDto company)
+        public IActionResult CreateCompany([FromBody]CompanyForCreationDto company)
         {
             if (company is null)
                 return BadRequest("CompanyForCreationDto is null");
