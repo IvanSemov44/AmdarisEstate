@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
+using Shared.DataTransferObject;
 
 namespace Estate.Presentation.Controllers
 {
@@ -22,12 +23,23 @@ namespace Estate.Presentation.Controllers
             return Ok(companies);
         }
 
-        [HttpGet("{id:guid}")]
+        [HttpGet("{id:guid}", Name = "CompanyById")]
         public IActionResult GetCompny(Guid id)
         {
             var company = _serviceManager.CompanyService.GetCompany(id, trackChanges: false);
 
             return Ok(company);
+        }
+
+        [HttpPost]
+        public IActionResult CreateCompany(CompanyForCreationDto company)
+        {
+            if (company is null)
+                return BadRequest("CompanyForCreationDto is null");
+
+            var createdCompany = _serviceManager.CompanyService.CreateCompany(company);
+
+            return CreatedAtRoute("CompanyById", new { id = createdCompany.Id }, createdCompany);
         }
     }
 }
