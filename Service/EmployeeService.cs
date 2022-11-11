@@ -13,7 +13,7 @@ namespace Service
         private readonly ILoggerManager _loggerManager;
         private readonly IMapper _mapper;
 
-        public EmployeeService(IRepositoryManager repositoryManager, ILoggerManager loggerManager,IMapper mapper)
+        public EmployeeService(IRepositoryManager repositoryManager, ILoggerManager loggerManager, IMapper mapper)
         {
             _repositoryManager = repositoryManager;
             _loggerManager = loggerManager;
@@ -75,8 +75,23 @@ namespace Service
             var employee = _repositoryManager.Employee.GetEmployee(companyId, id, trackChanges);
             if (employee is null)
                 throw new EmployeeNotFoundException(id);
-            
+
             _repositoryManager.Employee.DeleteEmployee(employee);
+            _repositoryManager.Save();
+        }
+
+        public void UpdateEmployeeForCompany(Guid companyId, Guid id, EmployeeForUpdateDto employee,
+            bool campTrackChanges, bool empTrackChanges)
+        {
+            var company = _repositoryManager.Company.GetCompany(companyId, campTrackChanges);
+            if (company is null)
+                throw new CompanyNotFoundException(companyId);
+
+            var employeeEntity = _repositoryManager.Employee.GetEmployee(companyId,id, empTrackChanges);
+            if (employeeEntity is null)
+                throw new EmployeeNotFoundException(id);
+
+            _mapper.Map(employee, employeeEntity);
             _repositoryManager.Save();
         }
     }

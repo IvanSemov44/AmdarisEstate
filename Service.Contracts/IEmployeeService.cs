@@ -13,5 +13,12 @@ namespace Service.Contracts
             bool trackChanges);
 
         void DeleteEmployeeForCompany(Guid companyId, Guid id, bool trackChanges);
+
+        void UpdateEmployeeForCompany(
+            Guid companyId,
+            Guid id,
+            EmployeeForUpdateDto employee, 
+            bool compTrackChanges, 
+            bool empTrackChanges);
     }
 }

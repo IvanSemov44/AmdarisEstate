@@ -68,6 +68,17 @@ namespace Service
             return companyForReturn;
         }
 
+        public void UpdateCompany(Guid id,CompanyForUpdateDto companyForUpdateDto,bool trackChanges)
+        {
+            var company =_repositoryManager.Company.GetCompany(id, trackChanges);
+
+            if (company is null)
+                throw new CompanyNotFoundException(id);
+
+            _mapper.Map(companyForUpdateDto,company);
+            _repositoryManager.Save();
+        }
+
         public void DeleteCompany(Guid id, bool trackChanges)
         {
             var company = _repositoryManager.Company.GetCompany(id, trackChanges: false);

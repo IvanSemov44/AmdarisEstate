@@ -17,6 +17,10 @@ namespace Estate
             CreateMap<Employee,EmployeeDto>();
 
             CreateMap<EmployeeForCreationDto, Employee>();
+
+            CreateMap<EmployeeForUpdateDto, Employee>();
+
+            CreateMap<CompanyForUpdateDto, Company>();
         }
     }
 }

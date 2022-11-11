@@ -58,6 +58,18 @@ namespace Estate.Presentation.Controllers
             return CreatedAtRoute("CompanyCollection", new { result.ids }, result.companies);
         }
 
+        [HttpPut("{id:guid}")]
+        public IActionResult UpdateCompany(Guid id, [FromBody] CompanyForUpdateDto companyForUpdate)
+        {
+            if (companyForUpdate is null)
+                return BadRequest("CompanyForUpdateDto object is null");
+
+            _serviceManager.CompanyService.UpdateCompany(id, companyForUpdate, trackChanges: true);
+
+
+            return NoContent();
+        }
+
         [HttpDelete("{id:guid}")]
         public IActionResult DeleteCompany(Guid id)
         {
