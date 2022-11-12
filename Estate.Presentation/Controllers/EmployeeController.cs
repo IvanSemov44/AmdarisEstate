@@ -55,6 +55,9 @@ namespace Estate.Presentation.Controllers
             if (employeeForUpdate is null)
                 return BadRequest("EmployeeForUpdateDto object is null");
 
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
+
             _serviceManager.EmployeeService.UpdateEmployeeForCompany(
                 companyId, 
                 id, 

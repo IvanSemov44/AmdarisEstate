@@ -67,6 +67,9 @@ namespace Estate.Presentation.Controllers
             if (companyForUpdate is null)
                 return BadRequest("CompanyForUpdateDto object is null");
 
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
+
             _serviceManager.CompanyService.UpdateCompany(id, companyForUpdate, trackChanges: true);
 
 
