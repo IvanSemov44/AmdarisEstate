@@ -38,6 +38,9 @@ namespace Estate.Presentation.Controllers
             if (employee is null)
                 return BadRequest("EmployeeForCreationDto object is null");
 
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
+
             var employeeForReturn = _serviceManager.EmployeeService
                 .CreateEmployeeForCompany(companyId, employee, trackChanges: false);
 
