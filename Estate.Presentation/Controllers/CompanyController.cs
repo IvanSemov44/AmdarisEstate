@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Estate.Presentation.ActionFilter;
+using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Shared.DataTransferObject;
 
@@ -24,7 +25,7 @@ namespace Estate.Presentation.Controllers
         }
 
         [HttpGet("{id:guid}", Name = "CompanyById")]
-        public async Task<IActionResult> GetCompny(Guid id)
+        public async Task<IActionResult> GetCompany(Guid id)
         {
             var company = await _serviceManager.CompanyService.GetCompanyAsync(id, trackChanges: false);
 
@@ -40,14 +41,9 @@ namespace Estate.Presentation.Controllers
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateCompany([FromBody] CompanyForCreationDto company)
         {
-            if (company is null)
-                return BadRequest("CompanyForCreationDto is null");
-
-            if (!ModelState.IsValid)
-                return UnprocessableEntity(ModelState);
-
             var createdCompany = await _serviceManager.CompanyService.CreateCompanyAsync(company);
 
             return CreatedAtRoute("CompanyById", new { id = createdCompany.Id }, createdCompany);
@@ -62,16 +58,10 @@ namespace Estate.Presentation.Controllers
         }
 
         [HttpPut("{id:guid}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateCompany(Guid id, [FromBody] CompanyForUpdateDto companyForUpdate)
         {
-            if (companyForUpdate is null)
-                return BadRequest("CompanyForUpdateDto object is null");
-
-            if (!ModelState.IsValid)
-                return UnprocessableEntity(ModelState);
-
             await _serviceManager.CompanyService.UpdateCompanyAsync(id, companyForUpdate, trackChanges: true);
-
 
             return NoContent();
         }

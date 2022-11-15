@@ -1,4 +1,5 @@
 ﻿
+using Estate.Presentation.ActionFilter;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Shared.DataTransferObject;
@@ -33,6 +34,7 @@ namespace Estate.Presentation.Controllers
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateEmployeeForCompany(Guid companyId, [FromBody] EmployeeForCreationDto employee)
         {
             if (employee is null)
@@ -49,6 +51,7 @@ namespace Estate.Presentation.Controllers
         }
 
         [HttpPut("{id:guid}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateEmployeeForCompny(
             Guid companyId, Guid id, [FromBody] EmployeeForUpdateDto employeeForUpdate)
         {
