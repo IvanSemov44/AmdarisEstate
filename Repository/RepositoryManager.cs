@@ -18,6 +18,6 @@ namespace Repository
 
         public IEmployeeRepository Employee => _employeeRepository.Value;
 
-        public void Save() => _repositoryContex.SaveChanges();
+        public async Task SaveAsync() => await _repositoryContex.SaveChangesAsync();
     }
 }

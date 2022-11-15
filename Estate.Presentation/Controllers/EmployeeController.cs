@@ -17,23 +17,23 @@ namespace Estate.Presentation.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetEmployeeForCompany(Guid companyId)
+        public async Task<IActionResult> GetEmployeeForCompany(Guid companyId)
         {
-            var employee = _serviceManager.EmployeeService.GetEmployees(companyId, trackChanges: false);
+            var employee =await  _serviceManager.EmployeeService.GetEmployeesAsync(companyId, trackChanges: false);
 
             return Ok(employee);
         }
 
-        [HttpGet("{id:guid}",Name = "GetEmployeeForCompany")]
-        public IActionResult GetEmployeeForCompany(Guid companyId, Guid id)
+        [HttpGet("{id:guid}", Name = "GetEmployeeForCompany")]
+        public async Task<IActionResult> GetEmployeeForCompany(Guid companyId, Guid id)
         {
-            var employee = _serviceManager.EmployeeService.GetEmployee(companyId, id, trackChanges: false);
+            var employee =await  _serviceManager.EmployeeService.GetEmployeeAsync(companyId, id, trackChanges: false);
 
             return Ok(employee);
         }
 
         [HttpPost]
-        public IActionResult CreateEmployeeForCompany(Guid companyId, [FromBody] EmployeeForCreationDto employee)
+        public async Task<IActionResult> CreateEmployeeForCompany(Guid companyId, [FromBody] EmployeeForCreationDto employee)
         {
             if (employee is null)
                 return BadRequest("EmployeeForCreationDto object is null");
@@ -41,15 +41,15 @@ namespace Estate.Presentation.Controllers
             if (!ModelState.IsValid)
                 return UnprocessableEntity(ModelState);
 
-            var employeeForReturn = _serviceManager.EmployeeService
-                .CreateEmployeeForCompany(companyId, employee, trackChanges: false);
+            var employeeForReturn =await _serviceManager.EmployeeService
+                .CreateEmployeeForCompanyAsync(companyId, employee, trackChanges: false);
 
             return CreatedAtRoute("GetEmployeeForCompany",
                 new { companyId, id = employeeForReturn.Id }, employeeForReturn);
         }
 
         [HttpPut("{id:guid}")]
-        public IActionResult UpdateEmployeeForCompny(
+        public async Task<IActionResult> UpdateEmployeeForCompny(
             Guid companyId, Guid id, [FromBody] EmployeeForUpdateDto employeeForUpdate)
         {
             if (employeeForUpdate is null)
@@ -58,9 +58,9 @@ namespace Estate.Presentation.Controllers
             if (!ModelState.IsValid)
                 return UnprocessableEntity(ModelState);
 
-            _serviceManager.EmployeeService.UpdateEmployeeForCompany(
-                companyId, 
-                id, 
+            await _serviceManager.EmployeeService.UpdateEmployeeForCompanyAsync(
+                companyId,
+                id,
                 employeeForUpdate,
                 compTrackChanges: false,
                 empTrackChanges: true);
@@ -69,9 +69,9 @@ namespace Estate.Presentation.Controllers
         }
 
         [HttpDelete("{id:guid}")]
-        public IActionResult DeleteEmployeeForCompany(Guid companyId,Guid id)
+        public async Task<IActionResult> DeleteEmployeeForCompany(Guid companyId, Guid id)
         {
-            _serviceManager.EmployeeService.DeleteEmployeeForCompany(companyId, id, trackChanges: false);
+            await _serviceManager.EmployeeService.DeleteEmployeeForCompanyAsync(companyId, id, trackChanges: false);
 
             return NoContent();
         }
