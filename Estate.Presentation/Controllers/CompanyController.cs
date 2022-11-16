@@ -1,4 +1,7 @@
-﻿using Estate.Presentation.ActionFilter;
+﻿using Application.Commands;
+using Application.Queries;
+using Estate.Presentation.ActionFilter;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Shared.DataTransferObject;
@@ -10,16 +13,19 @@ namespace Estate.Presentation.Controllers
     public class CompanyController : ControllerBase
     {
         private readonly IServiceManager _serviceManager;
+        private readonly ISender _sender;
 
-        public CompanyController(IServiceManager serviceManager)
+        public CompanyController(IServiceManager serviceManager,ISender sender)
         {
+            this._sender = sender;
             this._serviceManager = serviceManager;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetCompanies()
         {
-            var companies = await _serviceManager.CompanyService.GetAllCompanyAsync(trackChanges: false);
+            //var companies = await _serviceManager.CompanyService.GetAllCompanyAsync(trackChanges: false);
+            var companies = await _sender.Send(new GetCompaniesQuery(TrackChanges: false));
 
             return Ok(companies);
         }
@@ -27,7 +33,8 @@ namespace Estate.Presentation.Controllers
         [HttpGet("{id:guid}", Name = "CompanyById")]
         public async Task<IActionResult> GetCompany(Guid id)
         {
-            var company = await _serviceManager.CompanyService.GetCompanyAsync(id, trackChanges: false);
+            //var company = await _serviceManager.CompanyService.GetCompanyAsync(id, trackChanges: false);
+            var company = await _sender.Send(new GetCompanyQuery(id, TrackChanges: false));
 
             return Ok(company);
         }
@@ -44,7 +51,9 @@ namespace Estate.Presentation.Controllers
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateCompany([FromBody] CompanyForCreationDto company)
         {
-            var createdCompany = await _serviceManager.CompanyService.CreateCompanyAsync(company);
+            //var createdCompany = await _serviceManager.CompanyService.CreateCompanyAsync(company);
+
+            var createdCompany = await _sender.Send<CompanyDto>(new CreateCompanyCommand(company));
 
             return CreatedAtRoute("CompanyById", new { id = createdCompany.Id }, createdCompany);
         }
@@ -61,7 +70,8 @@ namespace Estate.Presentation.Controllers
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateCompany(Guid id, [FromBody] CompanyForUpdateDto companyForUpdate)
         {
-            await _serviceManager.CompanyService.UpdateCompanyAsync(id, companyForUpdate, trackChanges: true);
+            //await _serviceManager.CompanyService.UpdateCompanyAsync(id, companyForUpdate, trackChanges: true);
+            await _sender.Send(new UpdateCompanyCommand(id, companyForUpdate, TrackChanges: true));
 
             return NoContent();
         }
@@ -69,7 +79,8 @@ namespace Estate.Presentation.Controllers
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteCompany(Guid id)
         {
-            await _serviceManager.CompanyService.DeleteCompanyAsync(id, trackChanges: false);
+            // await _serviceManager.CompanyService.DeleteCompanyAsync(id, trackChanges: false);
+            await _sender.Send(new DeleteCompanyCommand(id,TrackChanges:false));
 
             return NoContent();
         }

@@ -6,6 +6,7 @@ using NLog;
 using Estate.Extensions;
 using Contracts;
 using Estate.Presentation.ActionFilter;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,8 @@ builder.Services.AddControllers(config =>
     config.ReturnHttpNotAcceptable = true;
 }).AddXmlDataContractSerializerFormatters()
   .AddApplicationPart(typeof(Estate.Presentation.AssemblyReference).Assembly);
+
+builder.Services.AddMediatR(typeof(Application.AssemblyReference).Assembly);
 
 var app = builder.Build();
 
