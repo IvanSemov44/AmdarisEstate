@@ -3,7 +3,6 @@ using Application.Queries.CompanyQueries;
 using Estate.Presentation.ActionFilter;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Service.Contracts;
 using Shared.DataTransferObject;
 
 namespace Estate.Presentation.Controllers
@@ -12,13 +11,11 @@ namespace Estate.Presentation.Controllers
     [ApiController]
     public class CompanyController : ControllerBase
     {
-        private readonly IServiceManager _serviceManager;
         private readonly ISender _sender;
 
-        public CompanyController(IServiceManager serviceManager,ISender sender)
+        public CompanyController(ISender sender)
         {
             this._sender = sender;
-            this._serviceManager = serviceManager;
         }
 
         [HttpGet]
@@ -37,13 +34,13 @@ namespace Estate.Presentation.Controllers
             return Ok(company);
         }
 
-        [HttpGet("collection/{ids}", Name = "CompanyCollection")]
-        public async Task<IActionResult> GetCompanyCollection([ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
-        {
-            var companies = await _serviceManager.CompanyService.GetByIdsAsync(ids, trackChanges: false);
+        //[HttpGet("collection/{ids}", Name = "CompanyCollection")]
+        //public async Task<IActionResult> GetCompanyCollection([ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
+        //{
+        //    var companies = await _serviceManager.CompanyService.GetByIdsAsync(ids, trackChanges: false);
 
-            return Ok(companies);
-        }
+        //    return Ok(companies);
+        //}
 
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
@@ -54,13 +51,14 @@ namespace Estate.Presentation.Controllers
             return CreatedAtRoute("CompanyById", new { id = createdCompany.Id }, createdCompany);
         }
 
-        [HttpPost("collection")]
-        public async Task<IActionResult> CreateCompanyCollection([FromBody] IEnumerable<CompanyForCreationDto> companyCollection)
-        {
-            var result = await _serviceManager.CompanyService.CreateCompanyCollectionAsync(companyCollection);
+        //[HttpPost("collection")]
+        //public async Task<IActionResult> CreateCompanyCollection([FromBody] IEnumerable<CompanyForCreationDto> companyCollection)
+        //{
+        //    var result = await _serviceManager.CompanyService.CreateCompanyCollectionAsync(companyCollection);
 
-            return CreatedAtRoute("CompanyCollection", new { result.ids }, result.companies);
-        }
+
+        //    return CreatedAtRoute("CompanyCollection", new { result.ids }, result.companies);
+        //}
 
         [HttpPut("{id:guid}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]

@@ -3,7 +3,6 @@ using Application.Queries.EmployeeForCompanyQueries;
 using Estate.Presentation.ActionFilter;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Service.Contracts;
 using Shared.DataTransferObject;
 
 namespace Estate.Presentation.Controllers
@@ -12,13 +11,11 @@ namespace Estate.Presentation.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        private readonly IServiceManager _serviceManager;
         private readonly ISender _sender;
 
-        public EmployeeController(IServiceManager serviceManager, ISender sender)
+        public EmployeeController(ISender sender)
         {
             _sender = sender;
-            _serviceManager = serviceManager;
         }
 
         [HttpGet]
