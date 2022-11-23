@@ -1,20 +1,20 @@
-﻿using Application.Queries;
+﻿using Application.Queries.CompanyQueries;
 using AutoMapper;
 using Contracts;
 using MediatR;
 using Shared.DataTransferObject;
 
-namespace Application.Handlers
+namespace Application.Handlers.CompanyHandlers
 {
     internal sealed class GetCompaniesHandler : IRequestHandler<GetCompaniesQuery, IEnumerable<CompanyDto>>
     {
         private readonly IRepositoryManager _repositoryManager;
         private readonly IMapper _mapper;
 
-        public GetCompaniesHandler(IRepositoryManager repositoryManager,IMapper mapper)
+        public GetCompaniesHandler(IRepositoryManager repositoryManager, IMapper mapper)
         {
-            this._mapper = mapper;
-            this._repositoryManager = repositoryManager;
+            _mapper = mapper;
+            _repositoryManager = repositoryManager;
         }
 
         public async Task<IEnumerable<CompanyDto>> Handle(GetCompaniesQuery request, CancellationToken cancellationToken)

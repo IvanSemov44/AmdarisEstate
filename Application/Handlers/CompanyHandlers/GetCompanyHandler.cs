@@ -1,16 +1,16 @@
-﻿using Application.Queries;
+﻿using Application.Queries.CompanyQueries;
 using AutoMapper;
 using Contracts;
 using Entities.Exceptions;
 using MediatR;
 using Shared.DataTransferObject;
 
-namespace Application.Handlers
+namespace Application.Handlers.CompanyHandlers
 {
     internal sealed class GetCompanyHandler : IRequestHandler<GetCompanyQuery, CompanyDto>
     {
-        public readonly IRepositoryManager _repositoryManager;
-        public readonly IMapper _mapper;
+        private readonly IRepositoryManager _repositoryManager;
+        private readonly IMapper _mapper;
 
         public GetCompanyHandler(IRepositoryManager repositoryManager, IMapper mapper)
         {

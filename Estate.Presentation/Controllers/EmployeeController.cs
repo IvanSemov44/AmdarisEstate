@@ -1,5 +1,7 @@
-﻿
+﻿using Application.Commands.EmployeeForCompanyCommands;
+using Application.Queries.EmployeeForCompanyQueries;
 using Estate.Presentation.ActionFilter;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Shared.DataTransferObject;
@@ -11,16 +13,18 @@ namespace Estate.Presentation.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly IServiceManager _serviceManager;
+        private readonly ISender _sender;
 
-        public EmployeeController(IServiceManager serviceManager)
+        public EmployeeController(IServiceManager serviceManager, ISender sender)
         {
+            _sender = sender;
             _serviceManager = serviceManager;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetEmployeeForCompany(Guid companyId)
+        public async Task<IActionResult> GetEmployeesForCompany(Guid companyId)
         {
-            var employee =await  _serviceManager.EmployeeService.GetEmployeesAsync(companyId, trackChanges: false);
+            var employee = await _sender.Send(new GetEmployeesForCompanyQuery(companyId, TrackChanges: false));
 
             return Ok(employee);
         }
@@ -28,7 +32,8 @@ namespace Estate.Presentation.Controllers
         [HttpGet("{id:guid}", Name = "GetEmployeeForCompany")]
         public async Task<IActionResult> GetEmployeeForCompany(Guid companyId, Guid id)
         {
-            var employee =await  _serviceManager.EmployeeService.GetEmployeeAsync(companyId, id, trackChanges: false);
+
+            var employee = await _sender.Send(new GetEmployeeForCompanyQuery(companyId, id, TrackChanges: false));
 
             return Ok(employee);
         }
@@ -43,8 +48,7 @@ namespace Estate.Presentation.Controllers
             if (!ModelState.IsValid)
                 return UnprocessableEntity(ModelState);
 
-            var employeeForReturn =await _serviceManager.EmployeeService
-                .CreateEmployeeForCompanyAsync(companyId, employee, trackChanges: false);
+            var employeeForReturn = await _sender.Send(new CreateEmployeeForCompanyCommand(companyId, employee, TrackChanges: false));
 
             return CreatedAtRoute("GetEmployeeForCompany",
                 new { companyId, id = employeeForReturn.Id }, employeeForReturn);
@@ -61,12 +65,12 @@ namespace Estate.Presentation.Controllers
             if (!ModelState.IsValid)
                 return UnprocessableEntity(ModelState);
 
-            await _serviceManager.EmployeeService.UpdateEmployeeForCompanyAsync(
+            await _sender.Send(new UpdateEmployeeForCompanyCommand(
                 companyId,
                 id,
                 employeeForUpdate,
-                compTrackChanges: false,
-                empTrackChanges: true);
+                CompanyTrackChanges: false,
+                EmployeeTrackChanges: true));
 
             return NoContent();
         }
@@ -74,7 +78,7 @@ namespace Estate.Presentation.Controllers
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteEmployeeForCompany(Guid companyId, Guid id)
         {
-            await _serviceManager.EmployeeService.DeleteEmployeeForCompanyAsync(companyId, id, trackChanges: false);
+            await _sender.Send(new DeleteEmployeeForCompanyCommand(companyId, id, TrackChanges: false));
 
             return NoContent();
         }

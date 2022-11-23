@@ -1,16 +1,11 @@
-﻿using Application.Commands;
+﻿using Application.Commands.CompanyCommands;
 using AutoMapper;
 using Contracts;
 using Entities.Models;
 using MediatR;
 using Shared.DataTransferObject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Application.Handlers
+namespace Application.Handlers.CompanyHandlers
 {
     internal sealed class CreateCompanyHandler : IRequestHandler<CreateCompanyCommand, CompanyDto>
     {
@@ -19,8 +14,8 @@ namespace Application.Handlers
 
         public CreateCompanyHandler(IRepositoryManager repositoryManager, IMapper mapper)
         {
-            this._mapper = mapper;
-            this._repositoryManager = repositoryManager;
+            _mapper = mapper;
+            _repositoryManager = repositoryManager;
         }
 
         public async Task<CompanyDto> Handle(CreateCompanyCommand request, CancellationToken cancellationToken)

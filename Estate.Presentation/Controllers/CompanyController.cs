@@ -1,5 +1,5 @@
-﻿using Application.Commands;
-using Application.Queries;
+﻿using Application.Commands.CompanyCommands;
+using Application.Queries.CompanyQueries;
 using Estate.Presentation.ActionFilter;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +24,6 @@ namespace Estate.Presentation.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCompanies()
         {
-            //var companies = await _serviceManager.CompanyService.GetAllCompanyAsync(trackChanges: false);
             var companies = await _sender.Send(new GetCompaniesQuery(TrackChanges: false));
 
             return Ok(companies);
@@ -33,7 +32,6 @@ namespace Estate.Presentation.Controllers
         [HttpGet("{id:guid}", Name = "CompanyById")]
         public async Task<IActionResult> GetCompany(Guid id)
         {
-            //var company = await _serviceManager.CompanyService.GetCompanyAsync(id, trackChanges: false);
             var company = await _sender.Send(new GetCompanyQuery(id, TrackChanges: false));
 
             return Ok(company);
@@ -51,8 +49,6 @@ namespace Estate.Presentation.Controllers
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateCompany([FromBody] CompanyForCreationDto company)
         {
-            //var createdCompany = await _serviceManager.CompanyService.CreateCompanyAsync(company);
-
             var createdCompany = await _sender.Send<CompanyDto>(new CreateCompanyCommand(company));
 
             return CreatedAtRoute("CompanyById", new { id = createdCompany.Id }, createdCompany);
@@ -70,7 +66,6 @@ namespace Estate.Presentation.Controllers
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateCompany(Guid id, [FromBody] CompanyForUpdateDto companyForUpdate)
         {
-            //await _serviceManager.CompanyService.UpdateCompanyAsync(id, companyForUpdate, trackChanges: true);
             await _sender.Send(new UpdateCompanyCommand(id, companyForUpdate, TrackChanges: true));
 
             return NoContent();
@@ -79,7 +74,6 @@ namespace Estate.Presentation.Controllers
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteCompany(Guid id)
         {
-            // await _serviceManager.CompanyService.DeleteCompanyAsync(id, trackChanges: false);
             await _sender.Send(new DeleteCompanyCommand(id,TrackChanges:false));
 
             return NoContent();

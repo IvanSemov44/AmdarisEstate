@@ -1,10 +1,10 @@
-﻿using Application.Commands;
+﻿using Application.Commands.CompanyCommands;
 using AutoMapper;
 using Contracts;
 using Entities.Exceptions;
 using MediatR;
 
-namespace Application.Handlers
+namespace Application.Handlers.CompanyHandlers
 {
     internal sealed class UpdateCompanyHandler : IRequestHandler<UpdateCompanyCommand, Unit>
     {
@@ -13,17 +13,17 @@ namespace Application.Handlers
 
         public UpdateCompanyHandler(IRepositoryManager repositoryManager, IMapper mapper)
         {
-            this._repositoryManager = repositoryManager;
-            this._mapper = mapper;
+            _repositoryManager = repositoryManager;
+            _mapper = mapper;
         }
 
         public async Task<Unit> Handle(UpdateCompanyCommand request, CancellationToken cancellationToken)
         {
-            var companyEntity = _repositoryManager.Company.GetCompanyAsync(request.Id, request.TrackChanges);
+            var companyEntity = await _repositoryManager.Company.GetCompanyAsync(request.Id, request.TrackChanges);
             if (companyEntity is null)
                 throw new CompanyNotFoundException(request.Id);
 
-            await _mapper.Map(request.CompanyForUpdate, companyEntity);
+            _mapper.Map(request.CompanyForUpdate, companyEntity);
             await _repositoryManager.SaveAsync();
 
             return Unit.Value;
