@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository;
 
@@ -11,9 +12,10 @@ using Repository;
 namespace Estate.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20221125131549_UpdateImagesToNullable")]
+    partial class UpdateImagesToNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,20 +23,6 @@ namespace Estate.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("Entities.Models.City", b =>
-                {
-                    b.Property<Guid>("CityId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CityName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CityId");
-
-                    b.ToTable("Cities");
-                });
 
             modelBuilder.Entity("Entities.Models.Company", b =>
                 {
@@ -75,35 +63,6 @@ namespace Estate.Migrations
                             Country = "USA",
                             Name = "Admin_Solutions Ltd"
                         });
-                });
-
-            modelBuilder.Entity("Entities.Models.Country", b =>
-                {
-                    b.Property<Guid>("CountryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CountryName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CountryId");
-
-                    b.ToTable("Countries");
-                });
-
-            modelBuilder.Entity("Entities.Models.Curency", b =>
-                {
-                    b.Property<Guid>("CurencyId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CurencyName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CurencyId");
-
-                    b.ToTable("Curencies");
                 });
 
             modelBuilder.Entity("Entities.Models.Employee", b =>
@@ -162,7 +121,7 @@ namespace Estate.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Entities.Models.Estate", b =>
+            modelBuilder.Entity("Entities.Models.Estate.Estate", b =>
                 {
                     b.Property<Guid>("EstateId")
                         .ValueGeneratedOnAdd()
@@ -176,25 +135,23 @@ namespace Estate.Migrations
                     b.Property<DateTime?>("Changed")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("CityId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
-                    b.Property<Guid>("CountryId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime?>("Created")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid>("CurencyId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<Guid>("EstateTypeId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Extras")
                         .HasColumnType("nvarchar(max)");
@@ -215,6 +172,9 @@ namespace Estate.Migrations
                     b.Property<bool>("Sell")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("YearOfCreation")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -222,32 +182,10 @@ namespace Estate.Migrations
 
                     b.HasKey("EstateId");
 
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("CountryId");
-
-                    b.HasIndex("CurencyId");
-
-                    b.HasIndex("EstateTypeId");
-
                     b.ToTable("Estates");
                 });
 
-            modelBuilder.Entity("Entities.Models.EstateType", b =>
-                {
-                    b.Property<Guid>("EstateTypeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("TypeName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("EstateTypeId");
-
-                    b.ToTable("EstateTypes");
-                });
-
-            modelBuilder.Entity("Entities.Models.Image", b =>
+            modelBuilder.Entity("Entities.Models.Estate.Image", b =>
                 {
                     b.Property<Guid>("ImageId")
                         .ValueGeneratedOnAdd()
@@ -277,44 +215,9 @@ namespace Estate.Migrations
                     b.Navigation("Company");
                 });
 
-            modelBuilder.Entity("Entities.Models.Estate", b =>
+            modelBuilder.Entity("Entities.Models.Estate.Image", b =>
                 {
-                    b.HasOne("Entities.Models.City", "City")
-                        .WithMany("Estate")
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entities.Models.Country", "Country")
-                        .WithMany("Estates")
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entities.Models.Curency", "Currency")
-                        .WithMany("Estate")
-                        .HasForeignKey("CurencyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entities.Models.EstateType", "EstateType")
-                        .WithMany("Estates")
-                        .HasForeignKey("EstateTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("City");
-
-                    b.Navigation("Country");
-
-                    b.Navigation("Currency");
-
-                    b.Navigation("EstateType");
-                });
-
-            modelBuilder.Entity("Entities.Models.Image", b =>
-                {
-                    b.HasOne("Entities.Models.Estate", "Estate")
+                    b.HasOne("Entities.Models.Estate.Estate", "Estate")
                         .WithMany("Images")
                         .HasForeignKey("EstateId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -323,34 +226,14 @@ namespace Estate.Migrations
                     b.Navigation("Estate");
                 });
 
-            modelBuilder.Entity("Entities.Models.City", b =>
-                {
-                    b.Navigation("Estate");
-                });
-
             modelBuilder.Entity("Entities.Models.Company", b =>
                 {
                     b.Navigation("Employees");
                 });
 
-            modelBuilder.Entity("Entities.Models.Country", b =>
-                {
-                    b.Navigation("Estates");
-                });
-
-            modelBuilder.Entity("Entities.Models.Curency", b =>
-                {
-                    b.Navigation("Estate");
-                });
-
-            modelBuilder.Entity("Entities.Models.Estate", b =>
+            modelBuilder.Entity("Entities.Models.Estate.Estate", b =>
                 {
                     b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("Entities.Models.EstateType", b =>
-                {
-                    b.Navigation("Estates");
                 });
 #pragma warning restore 612, 618
         }

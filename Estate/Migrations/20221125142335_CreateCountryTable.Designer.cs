@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository;
 
@@ -11,9 +12,10 @@ using Repository;
 namespace Estate.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20221125142335_CreateCountryTable")]
+    partial class CreateCountryTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -193,9 +195,6 @@ namespace Estate.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<Guid>("EstateTypeId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Extras")
                         .HasColumnType("nvarchar(max)");
 
@@ -215,6 +214,9 @@ namespace Estate.Migrations
                     b.Property<bool>("Sell")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("YearOfCreation")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -228,23 +230,7 @@ namespace Estate.Migrations
 
                     b.HasIndex("CurencyId");
 
-                    b.HasIndex("EstateTypeId");
-
                     b.ToTable("Estates");
-                });
-
-            modelBuilder.Entity("Entities.Models.EstateType", b =>
-                {
-                    b.Property<Guid>("EstateTypeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("TypeName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("EstateTypeId");
-
-                    b.ToTable("EstateTypes");
                 });
 
             modelBuilder.Entity("Entities.Models.Image", b =>
@@ -297,19 +283,11 @@ namespace Estate.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Entities.Models.EstateType", "EstateType")
-                        .WithMany("Estates")
-                        .HasForeignKey("EstateTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("City");
 
                     b.Navigation("Country");
 
                     b.Navigation("Currency");
-
-                    b.Navigation("EstateType");
                 });
 
             modelBuilder.Entity("Entities.Models.Image", b =>
@@ -346,11 +324,6 @@ namespace Estate.Migrations
             modelBuilder.Entity("Entities.Models.Estate", b =>
                 {
                     b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("Entities.Models.EstateType", b =>
-                {
-                    b.Navigation("Estates");
                 });
 #pragma warning restore 612, 618
         }

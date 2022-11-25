@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Repository.Configuration
 {
-    public class EmployeeConfiguration : IEntityTypeConfiguration<Company>
+    public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
     {
         public void Configure(EntityTypeBuilder<Employee> builder)
         {
@@ -35,9 +35,9 @@ namespace Repository.Configuration
                 });
         }
 
-        public void Configure(EntityTypeBuilder<Company> builder)
-        {
-            throw new NotImplementedException();
-        }
+        //public void Configure(EntityTypeBuilder<Company> builder)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
