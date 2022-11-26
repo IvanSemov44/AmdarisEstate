@@ -18,12 +18,12 @@ namespace Repository
         }
 
 
-        public DbSet<Estate> Estates { get; set; }
-        public DbSet<Image> Images { get; set; }
-        public DbSet<City> Cities { get; set; }
-        public DbSet<Curency> Curencies { get; set; }
-        public DbSet<Country> Countries { get; set; }
-        public DbSet<EstateType> EstateTypes { get; set; }
+        public DbSet<Estate>? Estates { get; set; }
+        public DbSet<Image>? Images { get; set; }
+        public DbSet<City>? Cities { get; set; }
+        public DbSet<Curency>? Curencies { get; set; }
+        public DbSet<Country>? Countries { get; set; }
+        public DbSet<EstateType>? EstateTypes { get; set; }
 
         public DbSet<Employee>? Employees { get; set; }
         public DbSet<Company>? Companies { get; set; }

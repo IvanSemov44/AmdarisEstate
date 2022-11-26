@@ -23,6 +23,7 @@ namespace Application.Handlers.CompanyHandlers
             var companyEntity = _mapper.Map<Company>(request.CompanyForCreation);
 
             _repositoryManager.Company.CreateCompany(companyEntity);
+
             await _repositoryManager.SaveAsync();
 
             var companyForReturn = _mapper.Map<CompanyDto>(companyEntity);

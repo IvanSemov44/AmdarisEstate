@@ -2,6 +2,7 @@
 using AutoMapper;
 using Contracts;
 using Entities.Exceptions;
+using Entities.Models;
 using MediatR;
 using Shared.DataTransferObject;
 

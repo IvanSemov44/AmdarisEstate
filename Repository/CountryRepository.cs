@@ -14,12 +14,12 @@ namespace Repository
 
         public void DeleteCountry(Country country) => Delete(country);
 
-        public async Task<IEnumerable<Country>> GetCountries(bool trackChanges) =>
+        public async Task<IEnumerable<Country>> GetCountriesAsync(bool trackChanges) =>
             await FindAll(trackChanges)
             .OrderBy(c => c.CountryName)
             .ToListAsync();
 
-        public async Task<Country> GetCountry(Guid id, bool trackChanges) =>
+        public async Task<Country> GetCountryAsync(Guid id, bool trackChanges) =>
             await FindByCondition(c => c.CountryId.Equals(id), trackChanges)
             .SingleOrDefaultAsync();
     }
