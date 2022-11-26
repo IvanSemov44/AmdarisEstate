@@ -1,6 +1,4 @@
-﻿
-
-namespace Entities.Exceptions
+﻿namespace Entities.Exceptions
 {
     public sealed class CompanyNotFoundException : NotFoundException
     {

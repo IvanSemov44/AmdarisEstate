@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Entities.Models;
 using Shared.DataTransferObject;
+using Shared.DataTransferObject.City;
+using Shared.DataTransferObject.Estate;
 
 namespace Estate
 {
@@ -21,6 +23,12 @@ namespace Estate
             CreateMap<EmployeeForUpdateDto, Employee>();
 
             CreateMap<CompanyForUpdateDto, Company>();
+
+            CreateMap<EstateForCreationDto, Entities.Models.Estate >();
+
+            CreateMap<CityForCreationDto, City>();
+
+            CreateMap<City, CityDto>();
         }
     }
 }
