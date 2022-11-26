@@ -24,5 +24,8 @@ namespace Repository
 
         public async Task<City> GetCityAsync(Guid cityId,bool trackChanges) =>
             await FindByCondition(c => c.CityId.Equals(cityId),trackChanges).SingleOrDefaultAsync();
+
+        public async Task<City> GetCityByNameAsync(string cityName, bool trackChanges) =>
+            await FindByCondition(c => c.CityName.Equals(cityName), trackChanges).SingleOrDefaultAsync();
     }
 }

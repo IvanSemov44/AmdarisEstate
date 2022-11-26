@@ -8,26 +8,22 @@ namespace Entities.Models
         [Required]
         public Guid EstateId { get; set; }
 
-        //[Required(ErrorMessage ="City is a required field.")]
-        //[MaxLength(100,ErrorMessage ="Maximum length for the City is 100 characters.  ")]
-        //public string? City { get; set; }
-
-        [MaxLength(100, ErrorMessage = "Maximum length for the Neighborhood is 100 characters.  ")]
+        [MaxLength(100, ErrorMessage = "Maximum length for the Neighborhood is 100 characters.")]
         public string? Neighborhood { get; set; }
 
-        [Required(ErrorMessage = "City is a required field.")]
-        [MaxLength(100, ErrorMessage = "Maximum length for the Address is 100 characters.  ")]
+        [Required(ErrorMessage = "Address is a required field.")]
+        [MaxLength(100, ErrorMessage = "Maximum length for the Address is 100 characters.")]
         public string? Address { get; set; }
 
-        [Required(ErrorMessage = "City is a required field.")]
-        [MaxLength(100, ErrorMessage = "Maximum length for the City is 100 characters.  ")]
+        [Required(ErrorMessage = "Description is a required field.")]
+        [MaxLength(100, ErrorMessage = "Maximum length for the City is 100 characters.")]
         public string? Description { get; set; }
 
         [Required(ErrorMessage = "City is a required field.")]
-        [MaxLength(100, ErrorMessage = "Maximum length for the City is 100 characters.  ")]
-        public string? YearOfCreation { get; set; }
+        [MaxLength(100, ErrorMessage = "Maximum length for the City is 100 characters.")]
+        public int YearOfCreation { get; set; }
 
-        public decimal Price { get; set; }
+        public double Price { get; set; }
 
         public int Floоr { get; set; }
 

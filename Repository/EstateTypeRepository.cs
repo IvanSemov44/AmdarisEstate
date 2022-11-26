@@ -19,5 +19,8 @@ namespace Repository
 
         public async Task<IEnumerable<EstateType>> GetEstateTypesAsync(bool trackChanges) =>
             await FindAll(trackChanges).OrderBy(e => e.TypeName).ToListAsync();
+
+        public async Task<EstateType> GetEstateTypeByNameAsync(string estateTypeName, bool trackChanges) =>
+            await FindByCondition(e => e.TypeName.Equals(estateTypeName), trackChanges).SingleOrDefaultAsync();
     }
 }

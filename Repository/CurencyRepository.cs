@@ -20,5 +20,8 @@ namespace Repository
 
         public async Task<Curency> GetCurencyAsync(Guid curencyId, bool trackChanges) =>
             await FindByCondition(c => c.CurencyId.Equals(curencyId), trackChanges).SingleOrDefaultAsync();
+
+        public async Task<Curency> GetCurencyByNameAsync(string curencyName, bool trackChanges) =>
+                await FindByCondition(c => c.CurencyName.Equals(curencyName), trackChanges).SingleOrDefaultAsync();
     }
 }

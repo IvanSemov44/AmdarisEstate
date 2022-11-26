@@ -22,5 +22,8 @@ namespace Repository
         public async Task<Country> GetCountryAsync(Guid id, bool trackChanges) =>
             await FindByCondition(c => c.CountryId.Equals(id), trackChanges)
             .SingleOrDefaultAsync();
+
+        public async Task<Country> GetCountryByNameAsync(string countryName, bool trackChanges) =>
+            await FindByCondition(c => c.CountryName.Equals(countryName), trackChanges).SingleOrDefaultAsync();
     }
 }
