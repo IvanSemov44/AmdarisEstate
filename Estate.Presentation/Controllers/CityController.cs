@@ -25,6 +25,14 @@ namespace Estate.Presentation.Controllers
             return Ok(city);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetCities()
+        {
+            var cities = await _sender.Send(new GetCitiesQuery(TrackChanges: false));
+
+            return Ok(cities);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateCity([FromBody] CityForCreationDto cityForCreationDto)
         {
