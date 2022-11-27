@@ -40,5 +40,12 @@ namespace Estate.Presentation.Controllers
 
             return CreatedAtRoute("CityById", new { id = createdCity.CityId }, createdCity);
         }
+
+        [HttpPut("{id:guid}",Name ="UpdateCityById")]
+        public async Task<IActionResult> UpdateCityById(Guid id, [FromBody] CityForUpdateDto cityForUpdateDto)
+        {
+            await _sender.Send(new UpdateCityCommand(id, cityForUpdateDto, TrackChanges: true));
+            return NoContent();
+        }
     }
 }

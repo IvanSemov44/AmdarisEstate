@@ -29,6 +29,8 @@ namespace Estate
             CreateMap<CityForCreationDto, City>();
 
             CreateMap<City, CityDto>();
+
+            CreateMap<CityForUpdateDto, City>();
         }
     }
 }
