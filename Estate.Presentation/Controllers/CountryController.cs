@@ -48,5 +48,13 @@ namespace Estate.Presentation.Controllers
 
             return NoContent();
         }
+
+        [HttpDelete("{countryId:guid}")]
+        public async Task<IActionResult> DeleteCountry(Guid countryId)
+        {
+            await _sender.Send(new DeleteCountryCommand(countryId, TrackChanges: false));
+
+            return NoContent();
+        }
     }
 }
