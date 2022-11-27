@@ -47,5 +47,13 @@ namespace Estate.Presentation.Controllers
             await _sender.Send(new UpdateCityCommand(id, cityForUpdateDto, TrackChanges: true));
             return NoContent();
         }
+
+        [HttpDelete("{id:guid}",Name = "DeleteCityById")]
+        public async Task<IActionResult> DeleteCityById(Guid id)
+        {
+            await _sender.Send(new DeleteCityCommand(id, TrackChanges: false));
+
+            return NoContent();
+        }
     }
 }
