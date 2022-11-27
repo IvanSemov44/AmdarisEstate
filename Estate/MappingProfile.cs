@@ -2,6 +2,7 @@
 using Entities.Models;
 using Shared.DataTransferObject;
 using Shared.DataTransferObject.City;
+using Shared.DataTransferObject.Country;
 using Shared.DataTransferObject.Estate;
 
 namespace Estate
@@ -26,11 +27,19 @@ namespace Estate
 
             CreateMap<EstateForCreationDto, Entities.Models.Estate >();
 
+            //--------City Mapper------
             CreateMap<CityForCreationDto, City>();
 
             CreateMap<City, CityDto>();
 
             CreateMap<CityForUpdateDto, City>();
+
+            //--------Country Mapper------
+            CreateMap<Country, CountryDto>();
+
+            CreateMap<CountryForCreationDto, Country>();
+
+            CreateMap<CountryForUpdateDto, Country>();
         }
     }
 }
