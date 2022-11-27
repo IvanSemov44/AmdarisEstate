@@ -19,10 +19,18 @@ namespace Estate.Presentation.Controllers
 
         [HttpGet("{countryId:guid}", Name = "GetCountryById")]
         public async Task<IActionResult> GetCountryById(Guid countryId)
-        {
+        {   
             var country = await _sender.Send(new GetCountryQuery(countryId, TrackChanges: false));
 
             return Ok(country);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetCountries()
+        {
+            var countries = await _sender.Send(new GetCountriesQuiry(TrackChanges:false));
+
+            return Ok(countries);
         }
 
         [HttpPost]
@@ -30,7 +38,7 @@ namespace Estate.Presentation.Controllers
         {
             var createdCountry = await _sender.Send<CountryDto>(new CreateCountryCommand(countryForCreationDto));
 
-            return CreatedAtRoute("GetCountryById", new {id = createdCountry.CountryId},createdCountry);
+            return CreatedAtRoute("GetCountryById", new { countryId = createdCountry.CountryId},createdCountry);
         }
     }
 }
