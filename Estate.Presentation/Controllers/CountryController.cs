@@ -1,4 +1,5 @@
 ﻿using Application.Commands.CountryCommands;
+using Application.Queries.CountryQueries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DataTransferObject.Country;
@@ -16,12 +17,20 @@ namespace Estate.Presentation.Controllers
             _sender = sender;
         }
 
+        [HttpGet("{countryId:guid}", Name = "GetCountryById")]
+        public async Task<IActionResult> GetCountryById(Guid countryId)
+        {
+            var country = await _sender.Send(new GetCountryQuery(countryId, TrackChanges: false));
+
+            return Ok(country);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateCountry(CountryForCreationDto countryForCreationDto)
         {
-           var createdCountry =  await _sender.Send<CountryDto>(new CreateCountryCommand(countryForCreationDto));
+            var createdCountry = await _sender.Send<CountryDto>(new CreateCountryCommand(countryForCreationDto));
 
-            return Ok(createdCountry);
+            return CreatedAtRoute("GetCountryById", new {id = createdCountry.CountryId},createdCountry);
         }
     }
 }
