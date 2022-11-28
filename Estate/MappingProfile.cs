@@ -5,6 +5,7 @@
     using IvanRealEstate.Shared.DataTransferObject;
     using IvanRealEstate.Shared.DataTransferObject.City;
     using IvanRealEstate.Shared.DataTransferObject.Country;
+    using IvanRealEstate.Shared.DataTransferObject.Currency;
     using IvanRealEstate.Shared.DataTransferObject.Estate;
 
     public class MappingProfile : Profile
@@ -27,19 +28,27 @@
 
             CreateMap<EstateForCreationDto, Entities.Models.Estate >();
 
-            //--------City Mapper------
+            //----City Mapper------
             CreateMap<CityForCreationDto, City>();
 
             CreateMap<City, CityDto>();
 
             CreateMap<CityForUpdateDto, City>();
 
-            //--------Country Mapper------
+            //----Country Mapper------
             CreateMap<Country, CountryDto>();
 
             CreateMap<CountryForCreationDto, Country>();
 
             CreateMap<CountryForUpdateDto, Country>();
+
+            //----Curency Mapper
+
+            CreateMap<Currency, CurrencyDto>();
+
+            CreateMap<CurrencyForCreationDto, Currency>();
+
+            CreateMap<CurrencyForUpdateDto, Currency>();
         }
     }
 }

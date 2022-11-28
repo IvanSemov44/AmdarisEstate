@@ -10,7 +10,7 @@
         IEstateRepository Estate { get; }
         ICityRepository City { get;}
         ICountryRepository Country { get;}
-        ICurencyRepository Curency { get; }
+        ICurrencyRepository Currency { get; }
         IEstateTypeRepository EstateType { get; }
         IImageRepository Image { get; }
 

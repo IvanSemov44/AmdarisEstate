@@ -12,7 +12,7 @@
         private Lazy<IEstateRepository> _estateRepository;
         private Lazy<ICountryRepository> _countryRepository;
         private Lazy<ICityRepository> _cityRepository;
-        private Lazy<ICurencyRepository> _curencyRepository;
+        private Lazy<ICurrencyRepository> _currencyRepository;
         private Lazy<IEstateTypeRepository> _estateTypeRepository;
         private Lazy<IImageRepository> _imageRepository;
 
@@ -26,7 +26,7 @@
             _estateRepository = new Lazy<IEstateRepository>(() => new EstateRepository(repositoryContext));
             _countryRepository = new Lazy<ICountryRepository>(() => new CountryRepository(repositoryContext));
             _cityRepository = new Lazy<ICityRepository> (() => new CityRepository(repositoryContext));
-            _curencyRepository = new Lazy<ICurencyRepository>(() => new CurencyRepository(repositoryContext));
+            _currencyRepository = new Lazy<ICurrencyRepository>(() => new CurrencyRepository(repositoryContext));
             _estateTypeRepository = new Lazy<IEstateTypeRepository>(() => new EstateTypeRepository(repositoryContext));
             _imageRepository = new Lazy<IImageRepository> (()=>new ImageRepository(repositoryContext));
         }
@@ -41,7 +41,7 @@
 
         public ICityRepository City => _cityRepository.Value;
 
-        public ICurencyRepository Curency => _curencyRepository.Value;
+        public ICurrencyRepository Currency => _currencyRepository.Value;
 
         public IEstateTypeRepository EstateType => _estateTypeRepository.Value;
 

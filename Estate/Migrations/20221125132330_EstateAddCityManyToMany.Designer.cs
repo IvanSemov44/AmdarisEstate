@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Estate.Migrations
+namespace IvanRealEstate.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
     [Migration("20221125132330_EstateAddCityManyToMany")]

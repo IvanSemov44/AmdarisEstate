@@ -1,11 +1,12 @@
 ﻿namespace IvanRealEstate.Application.Handlers.EstateHandlers
 {
-    using Application.Commands.EstateCommands;
-    using AutoMapper;
-    using Contracts;
-    using Entities.Models;
     using MediatR;
-    using Shared.DataTransferObject.Estate;
+    using AutoMapper;
+
+    using IvanRealEstate.Shared.DataTransferObject.Estate;
+    using IvanRealEstate.Application.Commands.EstateCommands;
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.Models;
 
     public sealed class CreateEstateHandler : IRequestHandler<CreateEstateCommand, EstateDto>
     {

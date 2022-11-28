@@ -9,7 +9,7 @@ using IvanRealEstate.Repository;
 
 #nullable disable
 
-namespace Estate.Migrations
+namespace IvanRealEstate.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
     [Migration("20221125143000_CreateTypeTable")]

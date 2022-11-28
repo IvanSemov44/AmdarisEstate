@@ -42,7 +42,7 @@
         public City? City { get; set; }
 
         public Guid CurencyId { get; set; }
-        public Curency? Currency { get; set; }
+        public Currency? Currency { get; set; }
 
         public Guid CountryId { get; set; }
         public Country? Country { get; set; }

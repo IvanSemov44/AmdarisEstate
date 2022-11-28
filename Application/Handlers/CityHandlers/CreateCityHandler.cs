@@ -5,7 +5,7 @@
     using Contracts;
     using Entities.Models;
     using MediatR;
-    using Shared.DataTransferObject.City;
+    using IvanRealEstate.Shared.DataTransferObject.City;
 
     public sealed class CreateCityHandler:IRequestHandler<CreateCityCommand,CityDto>
     {

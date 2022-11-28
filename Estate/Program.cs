@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.HttpOverrides;
 
+using MediatR;
 using NLog;
 
 using IvanRealEstate.Contracts;
-using MediatR;
 using IvanRealEstate.Extensions;
 using IvanRealEstate.Estate.Presentation.ActionFilter;
 

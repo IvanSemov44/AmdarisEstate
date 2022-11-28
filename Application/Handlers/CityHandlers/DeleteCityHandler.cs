@@ -1,10 +1,11 @@
 ﻿namespace IvanRealEstate.Application.Handlers.CityHandlers
 {
-    using IvanRealEstate.Application.Commands.CityCommands;
     using AutoMapper;
-    using Contracts;
-    using Entities.Exceptions;
     using MediatR;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.Exceptions;
+    using IvanRealEstate.Application.Commands.CityCommands;
 
     public sealed class DeleteCityHandler : IRequestHandler<DeleteCityCommand, Unit>
     {

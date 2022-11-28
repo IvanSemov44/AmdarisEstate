@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Estate.Migrations
+namespace IvanRealEstate.Migrations
 {
     public partial class UpdateYearOfCreationToIntAndPriceToDoubleTypeInDatabase : Migration
     {

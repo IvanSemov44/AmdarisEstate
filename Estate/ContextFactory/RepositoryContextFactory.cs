@@ -14,7 +14,7 @@
                 .Build();
 
             var builder = new DbContextOptionsBuilder<RepositoryContext>()
-                .UseSqlServer(configuration.GetConnectionString("sqlConnection"),b=>b.MigrationsAssembly("Estate"));
+                .UseSqlServer(configuration.GetConnectionString("sqlConnection"),b=>b.MigrationsAssembly("IvanRealEstate"));
 
             return new RepositoryContext(builder.Options);
         }
