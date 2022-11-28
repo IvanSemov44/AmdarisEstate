@@ -6,7 +6,7 @@ using Shared.DataTransferObject.City;
 
 namespace Application.Handlers.CityHandlers
 {
-    public class GetCitiesHandler : IRequestHandler<GetCitiesQuery, IEnumerable<CityDto>>
+    public sealed class GetCitiesHandler : IRequestHandler<GetCitiesQuery, IEnumerable<CityDto>>
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;

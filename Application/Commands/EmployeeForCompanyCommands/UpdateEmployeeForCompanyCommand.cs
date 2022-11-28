@@ -3,7 +3,7 @@ using Shared.DataTransferObject;
 
 namespace Application.Commands.EmployeeForCompanyCommands
 {
-    public record UpdateEmployeeForCompanyCommand(
+    public sealed record UpdateEmployeeForCompanyCommand(
         Guid CompanyId,
         Guid EmployeeId,
         EmployeeForUpdateDto Employee,

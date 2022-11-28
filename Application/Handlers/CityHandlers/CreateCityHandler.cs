@@ -1,5 +1,4 @@
-﻿
-using Application.Commands.CityCommands;
+﻿using Application.Commands.CityCommands;
 using AutoMapper;
 using Contracts;
 using Entities.Models;
@@ -8,7 +7,7 @@ using Shared.DataTransferObject.City;
 
 namespace Application.Handlers.CityHandlers
 {
-    internal class CreateCityHandler:IRequestHandler<CreateCityCommand,CityDto>
+    public sealed class CreateCityHandler:IRequestHandler<CreateCityCommand,CityDto>
     {
         private readonly IRepositoryManager _repositoryManager;
         private readonly IMapper _mapper;

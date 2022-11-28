@@ -2,5 +2,5 @@
 
 namespace Application.Commands.CountryCommands
 {
-    public record DeleteCountryCommand(Guid CountryId,bool TrackChanges):IRequest;
+    public sealed record DeleteCountryCommand(Guid CountryId,bool TrackChanges):IRequest;
 }

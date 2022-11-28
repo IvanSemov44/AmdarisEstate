@@ -8,7 +8,7 @@ using Shared.DataTransferObject.Country;
 
 namespace Application.Handlers.CountryHandlers
 {
-    public class GetCountryHandler : IRequestHandler<GetCountryQuery, CountryDto>
+    public sealed class GetCountryHandler : IRequestHandler<GetCountryQuery, CountryDto>
     {
 
         private readonly IMapper _mapper;

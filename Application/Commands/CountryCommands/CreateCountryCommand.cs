@@ -4,5 +4,5 @@ using Shared.DataTransferObject.Country;
 
 namespace Application.Commands.CountryCommands
 {
-    public record CreateCountryCommand(CountryForCreationDto CountryForCreationDto) : IRequest<CountryDto>;
+    public sealed record CreateCountryCommand(CountryForCreationDto CountryForCreationDto) : IRequest<CountryDto>;
 }

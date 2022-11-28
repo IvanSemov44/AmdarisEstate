@@ -3,5 +3,5 @@ using Shared.DataTransferObject.City;
 
 namespace Application.Commands.CityCommands
 {
-    public record CreateCityCommand(CityForCreationDto CityForCreationDto):IRequest<CityDto>;
+    public sealed record CreateCityCommand(CityForCreationDto CityForCreationDto):IRequest<CityDto>;
 }

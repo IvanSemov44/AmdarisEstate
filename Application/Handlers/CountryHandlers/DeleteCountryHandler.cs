@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Application.Handlers.CountryHandlers
 {
-    public class DeleteCountryHandler : IRequestHandler<DeleteCountryCommand, Unit>
+    public sealed class DeleteCountryHandler : IRequestHandler<DeleteCountryCommand, Unit>
     {
 
         private readonly IMapper _mapper;

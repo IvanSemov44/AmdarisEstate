@@ -6,7 +6,7 @@ using Shared.DataTransferObject.Country;
 
 namespace Application.Handlers.CountryHandlers
 {
-    public class GetCountriesHandler : IRequestHandler<GetCountriesQuiry, IEnumerable<CountryDto>>
+    public sealed class GetCountriesHandler : IRequestHandler<GetCountriesQuiry, IEnumerable<CountryDto>>
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;

@@ -5,7 +5,7 @@
   "Extensions": ".png, .jpg, .gif, .bmp",
   "ImageBackgroundType": 0,
   "ImageFadeAnimationInterval": "PT5S",
-  "ImageStretch": 3,
+  "ImageStretch": 2,
   "IsLimitToMainlyEditorWindow": true,
   "LoopSlideshow": true,
   "MaxHeight": 0,

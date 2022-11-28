@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Application.Handlers.CityHandlers
 {
-    public class UpdateCityHandler : IRequestHandler<UpdateCityCommand, Unit>
+    public sealed class UpdateCityHandler : IRequestHandler<UpdateCityCommand, Unit>
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;

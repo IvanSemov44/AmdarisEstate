@@ -7,7 +7,7 @@ using Shared.DataTransferObject.Estate;
 
 namespace Application.Handlers.EstateHandlers
 {
-    public class CreateEstateHandler : IRequestHandler<CreateEstateCommand, EstateDto>
+    public sealed class CreateEstateHandler : IRequestHandler<CreateEstateCommand, EstateDto>
     {
         private readonly IRepositoryManager _repositoryManager;
         private readonly IMapper _mapper;

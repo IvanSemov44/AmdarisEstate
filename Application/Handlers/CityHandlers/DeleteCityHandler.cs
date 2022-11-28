@@ -7,7 +7,7 @@ using MediatR;
 
 namespace Application.Handlers.CityHandlers
 {
-    public class DeleteCityHandler : IRequestHandler<DeleteCityCommand, Unit>
+    public sealed class DeleteCityHandler : IRequestHandler<DeleteCityCommand, Unit>
     {
 
         private readonly IMapper _mapper;

@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Application.Handlers.CountryHandlers
 {
-    public class UpdateCountryHandler : IRequestHandler<UpdateCountryCommand, Unit>
+    public sealed class UpdateCountryHandler : IRequestHandler<UpdateCountryCommand, Unit>
     {
 
         private readonly IMapper _mapper;

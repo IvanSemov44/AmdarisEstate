@@ -2,5 +2,5 @@
 
 namespace Application.Commands.EmployeeForCompanyCommands
 {
-    public record DeleteEmployeeForCompanyCommand(Guid CompanyId, Guid EmployeeId, bool TrackChanges) : IRequest;
+    public sealed record DeleteEmployeeForCompanyCommand(Guid CompanyId, Guid EmployeeId, bool TrackChanges) : IRequest;
 }
