@@ -7,6 +7,7 @@
     using IvanRealEstate.Shared.DataTransferObject.Country;
     using IvanRealEstate.Shared.DataTransferObject.Currency;
     using IvanRealEstate.Shared.DataTransferObject.Estate;
+    using IvanRealEstate.Shared.DataTransferObject.EstateType;
 
     public class MappingProfile : Profile
     {
@@ -49,6 +50,14 @@
             CreateMap<CurrencyForCreationDto, Currency>();
 
             CreateMap<CurrencyForUpdateDto, Currency>();
+
+            //----EstateType Mapper
+
+            CreateMap<EstateType, EstateTypeDto>();
+
+            CreateMap<EstateTypeForCreationDto, EstateType>();
+
+            CreateMap<EstateTypeForUpdateDto, EstateType>();
         }
     }
 }
