@@ -1,10 +1,10 @@
-﻿using Contracts;
-using LoggerService;
-using Microsoft.EntityFrameworkCore;
-using Repository;
-
-namespace Estate.Extensions
+﻿namespace Estate.Extensions
 {
+    using Contracts;
+    using LoggerService;
+    using Microsoft.EntityFrameworkCore;
+    using Repository;
+
     public static class ServiceExtensions
     {
         public static void ConfigureCORS(this IServiceCollection services) =>

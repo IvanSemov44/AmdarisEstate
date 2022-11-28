@@ -1,10 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
-
-using Repository;
-
-namespace Estate.ContextFactory
+﻿namespace Estate.ContextFactory
 {
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Design;
+    using Repository;
+
     public class RepositoryContextFactory : IDesignTimeDbContextFactory<RepositoryContext>
     {
         public RepositoryContext CreateDbContext(string[] args)

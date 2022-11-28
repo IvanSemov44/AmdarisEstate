@@ -1,10 +1,10 @@
-﻿using Contracts;
-using Entities.ErrorModel;
-using Entities.Exceptions;
-using Microsoft.AspNetCore.Diagnostics;
-
-namespace Estate.Extensions
+﻿namespace Estate.Extensions
 {
+    using Contracts;
+    using Entities.ErrorModel;
+    using Entities.Exceptions;
+    using Microsoft.AspNetCore.Diagnostics;
+
     public static class ExceptionMiddlewareExtensions
     {
         public static void ConfigureExceptionHendler(this WebApplication app, ILoggerManager logger)

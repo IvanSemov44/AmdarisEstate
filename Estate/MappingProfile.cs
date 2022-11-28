@@ -1,12 +1,12 @@
-﻿using AutoMapper;
-using Entities.Models;
-using Shared.DataTransferObject;
-using Shared.DataTransferObject.City;
-using Shared.DataTransferObject.Country;
-using Shared.DataTransferObject.Estate;
-
-namespace Estate
+﻿namespace Estate
 {
+    using AutoMapper;
+    using Entities.Models;
+    using Shared.DataTransferObject;
+    using Shared.DataTransferObject.City;
+    using Shared.DataTransferObject.Country;
+    using Shared.DataTransferObject.Estate;
+
     public class MappingProfile : Profile
     {
         public MappingProfile()
