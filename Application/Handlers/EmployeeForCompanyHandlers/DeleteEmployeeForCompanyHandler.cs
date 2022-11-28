@@ -1,4 +1,4 @@
-﻿namespace Application.Handlers.EmployeeForCompanyHandlers
+﻿namespace IvanRealEstate.Application.Handlers.EmployeeForCompanyHandlers
 {
     using Application.Commands.EmployeeForCompanyCommands;
     using AutoMapper;

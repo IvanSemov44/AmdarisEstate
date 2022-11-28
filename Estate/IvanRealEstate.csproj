@@ -21,9 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Estate.Presentation\Estate.Presentation.csproj" />
-    <ProjectReference Include="..\LoggerService\LoggerService.csproj" />
-    <ProjectReference Include="..\Repository\Repository.csproj" />
+    <ProjectReference Include="..\Estate.Presentation\IvanRealEstate.Presentation.csproj" />
+    <ProjectReference Include="..\LoggerService\IvanRealEstate.LoggerService.csproj" />
+    <ProjectReference Include="..\Repository\IvanRealEstate.Repository.csproj" />
   </ItemGroup>
 
 </Project>

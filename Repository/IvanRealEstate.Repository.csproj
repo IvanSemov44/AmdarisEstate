@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Contracts\Contracts.csproj" />
-    <ProjectReference Include="..\Entitities\Entities.csproj" />
+    <ProjectReference Include="..\Contracts\IvanRealEstate.Contracts.csproj" />
+    <ProjectReference Include="..\Entitities\IvanRealEstate.Entities.csproj" />
   </ItemGroup>
 
 </Project>

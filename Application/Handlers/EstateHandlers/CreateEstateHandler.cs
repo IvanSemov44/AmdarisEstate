@@ -1,4 +1,4 @@
-﻿namespace Application.Handlers.EstateHandlers
+﻿namespace IvanRealEstate.Application.Handlers.EstateHandlers
 {
     using Application.Commands.EstateCommands;
     using AutoMapper;

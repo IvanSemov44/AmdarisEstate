@@ -1,4 +1,4 @@
-﻿namespace Contracts
+﻿namespace IvanRealEstate.Contracts
 {
     using System.Threading.Tasks;
 

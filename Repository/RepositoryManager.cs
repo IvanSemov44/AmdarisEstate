@@ -1,4 +1,4 @@
-﻿namespace Repository
+﻿namespace IvanRealEstate.Repository
 {
     using Contracts;
 

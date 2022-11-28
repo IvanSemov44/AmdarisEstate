@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.HttpOverrides;
 
 using NLog;
 
-using Estate.Extensions;
-using Contracts;
-using Estate.Presentation.ActionFilter;
+using IvanRealEstate.Contracts;
 using MediatR;
+using IvanRealEstate.Extensions;
+using IvanRealEstate.Estate.Presentation.ActionFilter;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,9 +33,9 @@ builder.Services.AddControllers(config =>
     config.RespectBrowserAcceptHeader = true;
     config.ReturnHttpNotAcceptable = true;
 }).AddXmlDataContractSerializerFormatters()
-  .AddApplicationPart(typeof(Estate.Presentation.AssemblyReference).Assembly);
+  .AddApplicationPart(typeof(IvanRealEstate.Presentation.AssemblyReference).Assembly);
 
-builder.Services.AddMediatR(typeof(Application.AssemblyReference).Assembly);
+builder.Services.AddMediatR(typeof(IvanRealEstate.Application.AssemblyReference).Assembly);
 
 var app = builder.Build();
 

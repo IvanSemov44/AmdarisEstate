@@ -1,7 +1,5 @@
-﻿namespace Service
+﻿namespace IvanRealEstate.Entities.Exceptions
 {
-    using Entities.Exceptions;
-
     public sealed class CollectionByIdsBadRequestException : BadRequestException
     {
         public CollectionByIdsBadRequestException()

@@ -1,4 +1,4 @@
-﻿namespace Shared.DataTransferObject.Estate
+﻿namespace IvanRealEstate.Shared.DataTransferObject.Estate
 {
     using System.ComponentModel.DataAnnotations;
 

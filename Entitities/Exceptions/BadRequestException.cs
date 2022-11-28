@@ -1,4 +1,4 @@
-﻿namespace Entities.Exceptions
+﻿namespace IvanRealEstate.Entities.Exceptions
 {
     public abstract class BadRequestException:Exception
     {

@@ -1,4 +1,4 @@
-﻿namespace Application.Queries.CityQueties
+﻿namespace IvanRealEstate.Application.Queries.CityQueties
 {
     using MediatR;
     using Shared.DataTransferObject.City;

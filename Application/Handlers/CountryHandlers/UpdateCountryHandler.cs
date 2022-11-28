@@ -1,4 +1,4 @@
-﻿namespace Application.Handlers.CountryHandlers
+﻿namespace IvanRealEstate.Application.Handlers.CountryHandlers
 {
     using Application.Commands.CountryCommands;
     using AutoMapper;

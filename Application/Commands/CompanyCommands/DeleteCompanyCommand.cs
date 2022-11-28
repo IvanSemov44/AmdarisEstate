@@ -1,4 +1,4 @@
-﻿namespace Application.Commands.CompanyCommands
+﻿namespace IvanRealEstate.Application.Commands.CompanyCommands
 {
     using MediatR;
 

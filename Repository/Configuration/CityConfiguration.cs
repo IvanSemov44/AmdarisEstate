@@ -1,6 +1,6 @@
-﻿namespace Repository.Configuration
+﻿namespace IvanRealEstate.Repository.Configuration
 {
-    using Entities.Models;
+    using IvanRealEstate.Entities.Models;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

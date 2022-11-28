@@ -1,8 +1,8 @@
-﻿namespace Application.Handlers.CityHandlers
+﻿namespace IvanRealEstate.Application.Handlers.CityHandlers
 {
-    using Application.Queries.CityQueties;
     using AutoMapper;
     using Contracts;
+    using IvanRealEstate.Application.Queries.CityQueties;
     using MediatR;
     using Shared.DataTransferObject.City;
 

@@ -1,4 +1,4 @@
-﻿namespace Estate.Presentation.ActionFilter
+﻿namespace IvanRealEstate.Estate.Presentation.ActionFilter
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Filters;

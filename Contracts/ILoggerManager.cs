@@ -1,4 +1,4 @@
-﻿namespace Contracts
+﻿namespace IvanRealEstate.Contracts
 {
     public interface ILoggerManager
     {

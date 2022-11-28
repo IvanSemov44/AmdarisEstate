@@ -1,4 +1,4 @@
-﻿namespace Application.Queries.CompanyQueries
+﻿namespace IvanRealEstate.Application.Queries.CompanyQueries
 {
     using MediatR;
     using Shared.DataTransferObject;

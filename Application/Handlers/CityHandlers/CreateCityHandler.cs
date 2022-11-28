@@ -1,6 +1,6 @@
-﻿namespace Application.Handlers.CityHandlers
+﻿namespace IvanRealEstate.Application.Handlers.CityHandlers
 {
-    using Application.Commands.CityCommands;
+    using IvanRealEstate.Application.Commands.CityCommands;
     using AutoMapper;
     using Contracts;
     using Entities.Models;

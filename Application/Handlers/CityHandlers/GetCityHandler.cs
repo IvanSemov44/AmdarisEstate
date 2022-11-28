@@ -1,6 +1,6 @@
-﻿namespace Application.Handlers.CityHandlers
+﻿namespace IvanRealEstate.Application.Handlers.CityHandlers
 {
-    using Application.Queries.CityQueties;
+    using IvanRealEstate.Application.Queries.CityQueties;
     using AutoMapper;
     using Contracts;
     using Entities.Exceptions;

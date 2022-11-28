@@ -1,4 +1,4 @@
-﻿namespace Application.Commands.CityCommands
+﻿namespace IvanRealEstate.Application.Commands.CityCommands
 {
     using MediatR;
     using Shared.DataTransferObject.City;

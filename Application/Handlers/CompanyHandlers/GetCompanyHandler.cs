@@ -1,4 +1,4 @@
-﻿namespace Application.Handlers.CompanyHandlers
+﻿namespace IvanRealEstate.Application.Handlers.CompanyHandlers
 {
     using Application.Queries.CompanyQueries;
     using AutoMapper;

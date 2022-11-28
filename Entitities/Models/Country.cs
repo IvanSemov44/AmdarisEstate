@@ -1,4 +1,4 @@
-﻿namespace Entities.Models
+﻿namespace IvanRealEstate.Entities.Models
 {
     using System.ComponentModel.DataAnnotations;
 

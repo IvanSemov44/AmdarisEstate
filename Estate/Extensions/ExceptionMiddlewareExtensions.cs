@@ -1,4 +1,4 @@
-﻿namespace Estate.Extensions
+﻿namespace IvanRealEstate.Extensions
 {
     using Contracts;
     using Entities.ErrorModel;

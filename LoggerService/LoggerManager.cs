@@ -1,4 +1,4 @@
-﻿namespace LoggerService
+﻿namespace IvanRealEstate.LoggerService
 {
     using Contracts;
     using NLog;

@@ -1,4 +1,4 @@
-﻿namespace Shared.DataTransferObject.Country
+﻿namespace IvanRealEstate.Shared.DataTransferObject.Country
 {
     using System.ComponentModel.DataAnnotations;
 

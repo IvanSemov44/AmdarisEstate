@@ -1,9 +1,8 @@
-﻿using Contracts;
-using Estate.Presentation.Controllers;
+﻿
+using IvanRealEstate.Estate.Presentation.Controllers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
-using Shared.DataTransferObject.City;
 using System.Xml.Serialization;
 
 namespace EstateTest.Controller

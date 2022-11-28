@@ -1,11 +1,11 @@
-﻿namespace Estate
+﻿namespace IvanRealEstate
 {
     using AutoMapper;
     using Entities.Models;
-    using Shared.DataTransferObject;
-    using Shared.DataTransferObject.City;
-    using Shared.DataTransferObject.Country;
-    using Shared.DataTransferObject.Estate;
+    using IvanRealEstate.Shared.DataTransferObject;
+    using IvanRealEstate.Shared.DataTransferObject.City;
+    using IvanRealEstate.Shared.DataTransferObject.Country;
+    using IvanRealEstate.Shared.DataTransferObject.Estate;
 
     public class MappingProfile : Profile
     {

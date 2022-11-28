@@ -1,8 +1,8 @@
-﻿namespace Repository
+﻿namespace IvanRealEstate.Repository
 {
-    using Entities.Models;
+    using IvanRealEstate.Entities.Models;
     using Microsoft.EntityFrameworkCore;
-    using Repository.Configuration;
+    using IvanRealEstate.Repository.Configuration;
     public class RepositoryContext : DbContext
     {
         public RepositoryContext(DbContextOptions options) : base(options)
@@ -12,9 +12,9 @@
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.ApplyConfiguration(new CompanyConfiguration());
-            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
-            modelBuilder.ApplyConfiguration(new CityConfiguration());
+            //modelBuilder.ApplyConfiguration(new CompanyConfiguration());
+            //modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
+            //modelBuilder.ApplyConfiguration(new CityConfiguration());
         }
 
 

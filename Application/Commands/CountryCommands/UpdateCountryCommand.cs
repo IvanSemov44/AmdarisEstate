@@ -1,4 +1,4 @@
-﻿namespace Application.Commands.CountryCommands
+﻿namespace IvanRealEstate.Application.Commands.CountryCommands
 {
     using MediatR;
     using Shared.DataTransferObject.Country;

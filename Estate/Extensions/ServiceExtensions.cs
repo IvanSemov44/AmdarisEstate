@@ -1,9 +1,9 @@
-﻿namespace Estate.Extensions
+﻿namespace IvanRealEstate.Extensions
 {
-    using Contracts;
-    using LoggerService;
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.LoggerService;
     using Microsoft.EntityFrameworkCore;
-    using Repository;
+    using IvanRealEstate.Repository;
 
     public static class ServiceExtensions
     {

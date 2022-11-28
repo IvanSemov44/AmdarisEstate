@@ -1,4 +1,4 @@
-﻿namespace Entities.ErrorModel
+﻿namespace IvanRealEstate.Entities.ErrorModel
 {
     using System.Text.Json;
 

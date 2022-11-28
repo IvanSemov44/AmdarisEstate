@@ -1,4 +1,4 @@
-﻿namespace Estate.Presentation.Controllers
+﻿namespace IvanRealEstate.Estate.Presentation.Controllers
 {
     using Application.Commands.CompanyCommands;
     using Application.Queries.CompanyQueries;

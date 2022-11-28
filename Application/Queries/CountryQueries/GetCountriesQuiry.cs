@@ -1,4 +1,4 @@
-﻿namespace Application.Queries.CountryQueries
+﻿namespace IvanRealEstate.Application.Queries.CountryQueries
 {
     using MediatR;
     using Shared.DataTransferObject.Country;

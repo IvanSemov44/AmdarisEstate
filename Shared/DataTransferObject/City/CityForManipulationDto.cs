@@ -1,4 +1,4 @@
-﻿namespace Shared.DataTransferObject.City
+﻿namespace IvanRealEstate.Shared.DataTransferObject.City
 {
     using System.ComponentModel.DataAnnotations;
 

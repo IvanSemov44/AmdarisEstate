@@ -1,4 +1,4 @@
-﻿namespace Contracts
+﻿namespace IvanRealEstate.Contracts
 {
     using Entities.Models;
 

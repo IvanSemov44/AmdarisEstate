@@ -1,4 +1,4 @@
-﻿namespace Application.Commands.EstateCommands
+﻿namespace IvanRealEstate.Application.Commands.EstateCommands
 {
     using MediatR;
     using Shared.DataTransferObject.Estate;

@@ -1,6 +1,6 @@
-﻿namespace Application.Handlers.CompanyHandlers
+﻿namespace IvanRealEstate.Application.Handlers.CompanyHandlers
 {
-    using Application.Commands.CompanyCommands;
+    using IvanRealEstate.Application.Commands.CompanyCommands;
     using AutoMapper;
     using Contracts;
     using Entities.Models;

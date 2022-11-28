@@ -1,4 +1,4 @@
-﻿namespace Estate.ContextFactory
+﻿namespace IvanRealEstate.ContextFactory
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Design;
