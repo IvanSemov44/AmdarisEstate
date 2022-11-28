@@ -1,7 +1,7 @@
-﻿using System.Linq.Expressions;
-
-namespace Contracts
+﻿namespace Contracts
 {
+    using System.Linq.Expressions;
+
     public interface IRepositoryBase<T>
     {
         IQueryable<T> FindAll(bool trackChanges);

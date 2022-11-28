@@ -1,8 +1,7 @@
-﻿
-using Entities.Models;
-
-namespace Contracts
+﻿namespace Contracts
 {
+    using Entities.Models;
+
     public interface ICurencyRepository
     {
         Task<IEnumerable<Curency>> GetCurenciesAsync(bool trackChanges);

@@ -1,7 +1,7 @@
-﻿using Entities.Models;
-
-namespace Contracts
+﻿namespace Contracts
 {
+    using Entities.Models;
+
     public interface IImageRepository
     {
         Task<IEnumerable<Image>> GetImagesAsync(Guid estateId,bool trackChanges);

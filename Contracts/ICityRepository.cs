@@ -1,8 +1,7 @@
-﻿
-using Entities.Models;
-
-namespace Contracts
+﻿namespace Contracts
 {
+    using Entities.Models;
+
     public interface ICityRepository
     {
         Task<IEnumerable<City>> GetCitiesAsync(bool trackChanges);

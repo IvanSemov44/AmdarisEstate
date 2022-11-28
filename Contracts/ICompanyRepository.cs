@@ -1,7 +1,7 @@
-﻿    using Entities.Models;
-
-namespace Contracts
+﻿namespace Contracts
 {
+    using Entities.Models;
+
     public interface ICompanyRepository
     {
         Task<IEnumerable<Company>> GetAllCompaniesAsync(bool trackChanges);
