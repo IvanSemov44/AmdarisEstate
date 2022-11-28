@@ -2,7 +2,7 @@
 {
     public record CurrencyDto
     {
-        public Guid CurrencyId { get; set; }
-        public string? CurrencyName { get; set; }
+        public Guid CurrencyId { get; init; }
+        public string? CurrencyName { get; init; }
     }
 }

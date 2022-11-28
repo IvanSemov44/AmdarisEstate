@@ -6,6 +6,6 @@
     {
         [Required(ErrorMessage = "Curency name is a required field.")]
         [MaxLength(30, ErrorMessage = "Maximum length for the Curency is 30 characters.")]
-        public string? CurencyName { get; set; }
+        public string? CurrencyName { get; init; }
     }
 }
