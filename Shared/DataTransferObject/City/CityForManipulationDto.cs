@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Shared.DataTransferObject.City
+﻿namespace Shared.DataTransferObject.City
 {
+    using System.ComponentModel.DataAnnotations;
+
     public abstract record CityForManipulationDto
     {
         [Required(ErrorMessage = "City name is a required field.")]

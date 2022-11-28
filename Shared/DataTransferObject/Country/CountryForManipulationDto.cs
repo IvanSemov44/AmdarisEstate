@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Shared.DataTransferObject.Country
+﻿namespace Shared.DataTransferObject.Country
 {
+    using System.ComponentModel.DataAnnotations;
+
     public abstract record CountryForManipulationDto
     {
         [Required(ErrorMessage = "Country name is a required field.")]

@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Shared.DataTransferObject.Estate
+﻿namespace Shared.DataTransferObject.Estate
 {
+    using System.ComponentModel.DataAnnotations;
+
     public record EstateForManipulationDto
     {
         [Required]

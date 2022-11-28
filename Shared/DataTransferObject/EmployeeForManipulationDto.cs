@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Shared.DataTransferObject
+﻿namespace Shared.DataTransferObject
 {
+    using System.ComponentModel.DataAnnotations;
+
     public abstract record EmployeeForManipulationDto
     {
         [Required(ErrorMessage = "Employee name is a required field.")]
