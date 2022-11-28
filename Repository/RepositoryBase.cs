@@ -1,11 +1,9 @@
-﻿using System.Linq.Expressions;
-
-using Microsoft.EntityFrameworkCore;
-
-using Contracts;
-
-namespace Repository
+﻿namespace Repository
 {
+    using System.Linq.Expressions;
+    using Microsoft.EntityFrameworkCore;
+    using Contracts;
+
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
 

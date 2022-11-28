@@ -1,9 +1,8 @@
-﻿using Contracts;
-using Entities.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace Repository
+﻿namespace Repository
 {
+    using Contracts;
+    using Entities.Models;
+    using Microsoft.EntityFrameworkCore;
     public class CompanyRepository : RepositoryBase<Company>, ICompanyRepository
     {
         public CompanyRepository(RepositoryContext repositoryContext) : base(repositoryContext)

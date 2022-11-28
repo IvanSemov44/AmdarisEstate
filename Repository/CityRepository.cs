@@ -1,14 +1,13 @@
-﻿using Contracts;
-using Entities.Models;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Repository
+﻿namespace Repository
 {
+    using Contracts;
+    using Entities.Models;
+    using Microsoft.EntityFrameworkCore;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
     public class CityRepository : RepositoryBase<City>, ICityRepository
     {
         public CityRepository(RepositoryContext repositoryContext) : base(repositoryContext)

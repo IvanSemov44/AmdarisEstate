@@ -1,9 +1,8 @@
-﻿using Contracts;
-using Entities.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace Repository
+﻿namespace Repository
 {
+    using Contracts;
+    using Entities.Models;
+    using Microsoft.EntityFrameworkCore;
     public class ImageRepository : RepositoryBase<Image>, IImageRepository
     {
         public ImageRepository(RepositoryContext repositoryContext) : base(repositoryContext)

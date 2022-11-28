@@ -1,10 +1,9 @@
-﻿
-using Contracts;
-using Entities.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace Repository
+﻿namespace Repository
 {
+    using Contracts;
+    using Entities.Models;
+    using Microsoft.EntityFrameworkCore;
+
     public class CurencyRepository : RepositoryBase<Curency>, ICurencyRepository
     {
         public CurencyRepository(RepositoryContext repositoryContext) : base(repositoryContext)

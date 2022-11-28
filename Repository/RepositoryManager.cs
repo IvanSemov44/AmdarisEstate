@@ -1,7 +1,7 @@
-﻿using Contracts;
-
-namespace Repository
+﻿namespace Repository
 {
+    using Contracts;
+
     public class RepositoryManager : IRepositoryManager
     {
         private RepositoryContext _repositoryContex;
