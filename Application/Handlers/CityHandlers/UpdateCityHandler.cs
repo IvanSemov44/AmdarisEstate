@@ -1,11 +1,11 @@
-﻿using Application.Commands.CityCommands;
-using AutoMapper;
-using Contracts;
-using Entities.Exceptions;
-using MediatR;
-
-namespace Application.Handlers.CityHandlers
+﻿namespace Application.Handlers.CityHandlers
 {
+    using Application.Commands.CityCommands;
+    using AutoMapper;
+    using Contracts;
+    using Entities.Exceptions;
+    using MediatR;
+    
     public sealed class UpdateCityHandler : IRequestHandler<UpdateCityCommand, Unit>
     {
         private readonly IMapper _mapper;

@@ -1,12 +1,12 @@
-﻿using Application.Commands.CountryCommands;
-using AutoMapper;
-using Contracts;
-using Entities.Models;
-using MediatR;
-using Shared.DataTransferObject.Country;
-
-namespace Application.Handlers.CountryHandlers
+﻿namespace Application.Handlers.CountryHandlers
 {
+    using Application.Commands.CountryCommands;
+    using AutoMapper;
+    using Contracts;
+    using Entities.Models;
+    using MediatR;
+    using Shared.DataTransferObject.Country;
+
     public sealed class CreateCountryHandler : IRequestHandler<CreateCountryCommand, CountryDto>
     {
 

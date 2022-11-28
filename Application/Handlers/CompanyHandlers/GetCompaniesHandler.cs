@@ -1,11 +1,11 @@
-﻿using Application.Queries.CompanyQueries;
-using AutoMapper;
-using Contracts;
-using MediatR;
-using Shared.DataTransferObject;
-
-namespace Application.Handlers.CompanyHandlers
+﻿namespace Application.Handlers.CompanyHandlers
 {
+    using Application.Queries.CompanyQueries;
+    using AutoMapper;
+    using Contracts;
+    using MediatR;
+    using Shared.DataTransferObject;
+
     internal sealed class GetCompaniesHandler : IRequestHandler<GetCompaniesQuery, IEnumerable<CompanyDto>>
     {
         private readonly IRepositoryManager _repositoryManager;

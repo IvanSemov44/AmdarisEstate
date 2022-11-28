@@ -1,6 +1,6 @@
-﻿using MediatR;
-
-namespace Application.Commands.CountryCommands
+﻿namespace Application.Commands.CountryCommands
 {
+    using MediatR;
+
     public sealed record DeleteCountryCommand(Guid CountryId,bool TrackChanges):IRequest;
 }

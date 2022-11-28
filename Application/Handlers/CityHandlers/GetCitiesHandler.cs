@@ -1,11 +1,11 @@
-﻿using Application.Queries.CityQueties;
-using AutoMapper;
-using Contracts;
-using MediatR;
-using Shared.DataTransferObject.City;
-
-namespace Application.Handlers.CityHandlers
+﻿namespace Application.Handlers.CityHandlers
 {
+    using Application.Queries.CityQueties;
+    using AutoMapper;
+    using Contracts;
+    using MediatR;
+    using Shared.DataTransferObject.City;
+
     public sealed class GetCitiesHandler : IRequestHandler<GetCitiesQuery, IEnumerable<CityDto>>
     {
         private readonly IMapper _mapper;

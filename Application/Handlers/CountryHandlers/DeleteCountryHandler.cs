@@ -1,11 +1,11 @@
-﻿using Application.Commands.CountryCommands;
-using AutoMapper;
-using Contracts;
-using Entities.Exceptions;
-using MediatR;
-
-namespace Application.Handlers.CountryHandlers
+﻿namespace Application.Handlers.CountryHandlers
 {
+    using Application.Commands.CountryCommands;
+    using AutoMapper;
+    using Contracts;
+    using Entities.Exceptions;
+    using MediatR;
+
     public sealed class DeleteCountryHandler : IRequestHandler<DeleteCountryCommand, Unit>
     {
 

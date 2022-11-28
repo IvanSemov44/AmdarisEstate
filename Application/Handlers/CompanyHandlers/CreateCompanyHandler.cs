@@ -1,12 +1,12 @@
-﻿using Application.Commands.CompanyCommands;
-using AutoMapper;
-using Contracts;
-using Entities.Models;
-using MediatR;
-using Shared.DataTransferObject;
-
-namespace Application.Handlers.CompanyHandlers
+﻿namespace Application.Handlers.CompanyHandlers
 {
+    using Application.Commands.CompanyCommands;
+    using AutoMapper;
+    using Contracts;
+    using Entities.Models;
+    using MediatR;
+    using Shared.DataTransferObject;
+
     internal sealed class CreateCompanyHandler : IRequestHandler<CreateCompanyCommand, CompanyDto>
     {
         private readonly IRepositoryManager _repositoryManager;

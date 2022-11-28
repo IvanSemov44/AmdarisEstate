@@ -1,8 +1,8 @@
-﻿using MediatR;
-using Shared.DataTransferObject.Country;
-
-namespace Application.Commands.CountryCommands
+﻿namespace Application.Commands.CountryCommands
 {
+    using MediatR;
+    using Shared.DataTransferObject.Country;
+
     public sealed record UpdateCountryCommand
         (Guid CountryId, CountryForUpdateDto CountryForUpdateDto, bool TrackChanges) : IRequest;
 }

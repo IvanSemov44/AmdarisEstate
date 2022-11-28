@@ -1,11 +1,11 @@
-﻿using Application.Commands.CompanyCommands;
-using AutoMapper;
-using Contracts;
-using Entities.Exceptions;
-using MediatR;
-
-namespace Application.Handlers.CompanyHandlers
+﻿namespace Application.Handlers.CompanyHandlers
 {
+    using Application.Commands.CompanyCommands;
+    using AutoMapper;
+    using Contracts;
+    using Entities.Exceptions;
+    using MediatR;
+
     internal sealed class UpdateCompanyHandler : IRequestHandler<UpdateCompanyCommand, Unit>
     {
         private readonly IRepositoryManager _repositoryManager;

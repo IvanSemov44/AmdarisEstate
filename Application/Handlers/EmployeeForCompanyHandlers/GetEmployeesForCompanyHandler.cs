@@ -1,13 +1,12 @@
-﻿using Application.Queries.EmployeeForCompanyQueries;
-using AutoMapper;
-using Contracts;
-using Entities.Exceptions;
-using MediatR;
-using Shared.DataTransferObject;
-
-
-namespace Application.Handlers.EmployeeForCompanyHandlers
+﻿namespace Application.Handlers.EmployeeForCompanyHandlers
 {
+    using Application.Queries.EmployeeForCompanyQueries;
+    using AutoMapper;
+    using Contracts;
+    using Entities.Exceptions;
+    using MediatR;
+    using Shared.DataTransferObject;
+
     internal sealed class GetEmployeesForCompanyHandler : IRequestHandler<GetEmployeesForCompanyQuery, IEnumerable<EmployeeDto>>
     {
 

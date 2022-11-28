@@ -1,11 +1,11 @@
-﻿using Application.Commands.EmployeeForCompanyCommands;
-using AutoMapper;
-using Contracts;
-using Entities.Exceptions;
-using MediatR;
-
-namespace Application.Handlers.EmployeeForCompanyHandlers
+﻿namespace Application.Handlers.EmployeeForCompanyHandlers
 {
+    using Application.Commands.EmployeeForCompanyCommands;
+    using AutoMapper;
+    using Contracts;
+    using Entities.Exceptions;
+    using MediatR;
+
     internal sealed class DeleteEmployeeForCompanyHandler : IRequestHandler<DeleteEmployeeForCompanyCommand, Unit>
     {
         private readonly IMapper _mapper;

@@ -1,11 +1,11 @@
-﻿using Application.Queries.CountryQueries;
-using AutoMapper;
-using Contracts;
-using MediatR;
-using Shared.DataTransferObject.Country;
-
-namespace Application.Handlers.CountryHandlers
+﻿namespace Application.Handlers.CountryHandlers
 {
+    using Application.Queries.CountryQueries;
+    using AutoMapper;
+    using Contracts;
+    using MediatR;
+    using Shared.DataTransferObject.Country;
+
     public sealed class GetCountriesHandler : IRequestHandler<GetCountriesQuiry, IEnumerable<CountryDto>>
     {
         private readonly IMapper _mapper;

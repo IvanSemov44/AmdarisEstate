@@ -1,12 +1,12 @@
-﻿using Application.Commands.CityCommands;
-using AutoMapper;
-using Contracts;
-using Entities.Models;
-using MediatR;
-using Shared.DataTransferObject.City;
-
-namespace Application.Handlers.CityHandlers
+﻿namespace Application.Handlers.CityHandlers
 {
+    using Application.Commands.CityCommands;
+    using AutoMapper;
+    using Contracts;
+    using Entities.Models;
+    using MediatR;
+    using Shared.DataTransferObject.City;
+
     public sealed class CreateCityHandler:IRequestHandler<CreateCityCommand,CityDto>
     {
         private readonly IRepositoryManager _repositoryManager;

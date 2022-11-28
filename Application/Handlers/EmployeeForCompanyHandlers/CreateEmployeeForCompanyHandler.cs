@@ -1,13 +1,13 @@
-﻿using Application.Commands.EmployeeForCompanyCommands;
-using AutoMapper;
-using Contracts;
-using Entities.Exceptions;
-using Entities.Models;
-using MediatR;
-using Shared.DataTransferObject;
-
-namespace Application.Handlers.EmployeeForCompanyHandlers
+﻿namespace Application.Handlers.EmployeeForCompanyHandlers
 {
+    using Application.Commands.EmployeeForCompanyCommands;
+    using AutoMapper;
+    using Contracts;
+    using Entities.Exceptions;
+    using Entities.Models;
+    using MediatR;
+    using Shared.DataTransferObject;
+
     internal sealed class CreateEmployeeForCompanyHandler : IRequestHandler<CreateEmployeeForCompanyCommand, EmployeeDto>
     {
         private readonly IMapper _mapper;

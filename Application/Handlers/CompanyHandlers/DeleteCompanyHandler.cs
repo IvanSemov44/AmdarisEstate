@@ -1,10 +1,10 @@
-﻿using Application.Commands.CompanyCommands;
-using Contracts;
-using Entities.Exceptions;
-using MediatR;
-
-namespace Application.Handlers.CompanyHandlers
+﻿namespace Application.Handlers.CompanyHandlers
 {
+    using Application.Commands.CompanyCommands;
+    using Contracts;
+    using Entities.Exceptions;
+    using MediatR;
+
     internal sealed class DeleteCompanyHandler : IRequestHandler<DeleteCompanyCommand, Unit>
     {
         private readonly IRepositoryManager _repositoryManager;

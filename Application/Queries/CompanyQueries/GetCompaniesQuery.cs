@@ -1,7 +1,7 @@
-﻿using MediatR;
-using Shared.DataTransferObject;
-
-namespace Application.Queries.CompanyQueries
+﻿namespace Application.Queries.CompanyQueries
 {
+    using MediatR;
+    using Shared.DataTransferObject;
+
     public sealed record GetCompaniesQuery(bool TrackChanges) : IRequest<IEnumerable<CompanyDto>>;
 }

@@ -1,12 +1,12 @@
-﻿using Application.Commands.EstateCommands;
-using AutoMapper;
-using Contracts;
-using Entities.Models;
-using MediatR;
-using Shared.DataTransferObject.Estate;
-
-namespace Application.Handlers.EstateHandlers
+﻿namespace Application.Handlers.EstateHandlers
 {
+    using Application.Commands.EstateCommands;
+    using AutoMapper;
+    using Contracts;
+    using Entities.Models;
+    using MediatR;
+    using Shared.DataTransferObject.Estate;
+
     public sealed class CreateEstateHandler : IRequestHandler<CreateEstateCommand, EstateDto>
     {
         private readonly IRepositoryManager _repositoryManager;

@@ -1,12 +1,12 @@
-﻿using Application.Queries.CityQueties;
-using AutoMapper;
-using Contracts;
-using Entities.Exceptions;
-using MediatR;
-using Shared.DataTransferObject.City;
-
-namespace Application.Handlers.CityHandlers
+﻿namespace Application.Handlers.CityHandlers
 {
+    using Application.Queries.CityQueties;
+    using AutoMapper;
+    using Contracts;
+    using Entities.Exceptions;
+    using MediatR;
+    using Shared.DataTransferObject.City;
+
     public sealed class GetCityHandler : IRequestHandler<GetCityQuery, CityDto>
     {
         private readonly IRepositoryManager _repositoryManager;
