@@ -1,7 +1,7 @@
-﻿using System.Text.Json;
-
-namespace Entities.ErrorModel
+﻿namespace Entities.ErrorModel
 {
+    using System.Text.Json;
+
     public class ErrorDetails
     {
         public int StatusCode { get; set; }

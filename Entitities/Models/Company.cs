@@ -1,9 +1,8 @@
-﻿using Entities.Models;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Entities.Models
+﻿namespace Entities.Models
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public class Company
     {
         [Column("CompanyId")]

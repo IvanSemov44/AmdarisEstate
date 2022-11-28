@@ -1,9 +1,9 @@
-﻿
-namespace Entities.Models
+﻿namespace Entities.Models
 {
     public class Image
     {
         public Guid ImageId { get; set; }
+
         public string? ImageUrl { get; set; }
 
         public Guid EstateId { get; set; }

@@ -1,8 +1,7 @@
-﻿
-using System.ComponentModel.DataAnnotations;
-
-namespace Entities.Models
+﻿namespace Entities.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class Estate
     {
         [Required]

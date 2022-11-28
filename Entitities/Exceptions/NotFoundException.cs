@@ -1,5 +1,4 @@
-﻿
-namespace Entities.Exceptions
+﻿namespace Entities.Exceptions
 {
     public abstract class NotFoundException : Exception
     {
