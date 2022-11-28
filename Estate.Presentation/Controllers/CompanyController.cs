@@ -1,12 +1,12 @@
-﻿using Application.Commands.CompanyCommands;
-using Application.Queries.CompanyQueries;
-using Estate.Presentation.ActionFilter;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Shared.DataTransferObject;
-
-namespace Estate.Presentation.Controllers
+﻿namespace Estate.Presentation.Controllers
 {
+    using Application.Commands.CompanyCommands;
+    using Application.Queries.CompanyQueries;
+    using Estate.Presentation.ActionFilter;
+    using MediatR;
+    using Microsoft.AspNetCore.Mvc;
+    using Shared.DataTransferObject;
+
     [Route("api/companies")]
     [ApiController]
     public class CompanyController : ControllerBase

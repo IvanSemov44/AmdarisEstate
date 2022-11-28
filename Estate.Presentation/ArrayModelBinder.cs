@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.ComponentModel;
-using System.Reflection;
-
-namespace Estate.Presentation
+﻿namespace Estate.Presentation
 {
+    using Microsoft.AspNetCore.Mvc.ModelBinding;
+    using System.ComponentModel;
+    using System.Reflection;
+
     public class ArrayModelBinder : IModelBinder
     {
         public Task BindModelAsync(ModelBindingContext bindingContext)

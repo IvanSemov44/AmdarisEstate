@@ -1,12 +1,12 @@
-﻿using Application.Commands.EmployeeForCompanyCommands;
-using Application.Queries.EmployeeForCompanyQueries;
-using Estate.Presentation.ActionFilter;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Shared.DataTransferObject;
-
-namespace Estate.Presentation.Controllers
+﻿namespace Estate.Presentation.Controllers
 {
+    using Application.Commands.EmployeeForCompanyCommands;
+    using Application.Queries.EmployeeForCompanyQueries;
+    using Estate.Presentation.ActionFilter;
+    using MediatR;
+    using Microsoft.AspNetCore.Mvc;
+    using Shared.DataTransferObject;
+
     [Route("api/companies/{companyId}/employees")]
     [ApiController]
     public class EmployeeController : ControllerBase

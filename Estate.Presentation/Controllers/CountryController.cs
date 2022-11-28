@@ -1,11 +1,11 @@
-﻿using Application.Commands.CountryCommands;
-using Application.Queries.CountryQueries;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Shared.DataTransferObject.Country;
-
-namespace Estate.Presentation.Controllers
+﻿namespace Estate.Presentation.Controllers
 {
+    using Application.Commands.CountryCommands;
+    using Application.Queries.CountryQueries;
+    using MediatR;
+    using Microsoft.AspNetCore.Mvc;
+    using Shared.DataTransferObject.Country;
+
     [Route("api/countries")]
     [ApiController]
     public class CountryController : ControllerBase

@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
-
-namespace Estate.Presentation.ActionFilter
+﻿namespace Estate.Presentation.ActionFilter
 {
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.Filters;
+
     public class ValidationFilterAttribute : IActionFilter
     {
         public void OnActionExecuted(ActionExecutedContext context)

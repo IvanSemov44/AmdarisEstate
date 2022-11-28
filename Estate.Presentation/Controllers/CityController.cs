@@ -1,11 +1,11 @@
-﻿using Application.Commands.CityCommands;
-using Application.Queries.CityQueties;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Shared.DataTransferObject.City;
-
-namespace Estate.Presentation.Controllers
+﻿namespace Estate.Presentation.Controllers
 {
+    using Application.Commands.CityCommands;
+    using Application.Queries.CityQueties;
+    using MediatR;
+    using Microsoft.AspNetCore.Mvc;
+    using Shared.DataTransferObject.City;
+
     [Route("api/cities")]
     [ApiController]
     public class CityController : ControllerBase
