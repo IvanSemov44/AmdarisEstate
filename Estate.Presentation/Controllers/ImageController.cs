@@ -26,12 +26,19 @@
             return Ok(imagesForReturn);
         }
 
+        [HttpGet("{imageId:guid}", Name = "GetImageForEstate")]
+        public async Task<IActionResult> GetImageForEstate(Guid estateId, Guid imageId)
+        {
+            var imageForReturn = await _sender.Send(new GetImageQuery(estateId, imageId, TrackChanges: false));
+
+            return Ok(imageForReturn);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateImage(Guid estateId, [FromBody] ImageForCreationDto imageForCreationDto)
         {
             var imageForReturn = await _sender.Send(new CreateImageCommand(estateId, imageForCreationDto, TrackChanges: false));
 
-            return Ok(imageForReturn);
+            return CreatedAtRoute("GetImageForEstate", new { estateId , imageId = imageForReturn.ImageId}, imageForReturn);
         }
     }
 }
