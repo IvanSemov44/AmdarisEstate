@@ -1,10 +1,12 @@
 ﻿namespace IvanRealEstate.Presentation.Controllers
 {
     using MediatR;
+
     using Microsoft.AspNetCore.Mvc;
+
+    using IvanRealEstate.Application.Queries.EstateQuery;
     using IvanRealEstate.Shared.DataTransferObject.Estate;
     using IvanRealEstate.Application.Commands.EstateCommands;
-    using IvanRealEstate.Application.Queries.EstateQuery;
 
     [Route("api/estates")]
     [ApiController]
@@ -14,6 +16,15 @@
         public EstateController(ISender sender)
         {
             _sender = sender;
+        }
+
+
+        [HttpGet("{estateId:guid}",Name ="GetEstate")]
+        public async Task<IActionResult> GetEstate(Guid estateId)
+        {
+            var estateForReturn = await _sender.Send(new GetEstateQuery(estateId, TrackChanges:false));
+            
+            return Ok(estateForReturn);
         }
 
         [HttpGet]
@@ -29,7 +40,23 @@
         {
             var estateForReturn = await _sender.Send(new CreateEstateCommand(estateForCreationDto));
 
-            return Ok(estateForReturn);
+            return CreatedAtRoute("GetEstate", new { estateId= estateForReturn.EstateId },estateForReturn);
+        }
+
+        [HttpPut("{estateId:guid}")]
+        public async Task<IActionResult> UpdateEstate(Guid estateId, [FromBody] EstateForUpdateDto estateForUpdateDto)
+        {
+            await _sender.Send(new UpdateEstateCommand(estateId, estateForUpdateDto, TrackChanges: true));
+
+            return Ok();
+        }
+
+        [HttpDelete("{estateId:guid}")]
+        public async Task<IActionResult> DeleteEstate(Guid estateId)
+        {
+           await _sender.Send(new DeleteEstateCommand(estateId, TrackChanges: false));
+
+            return Ok();
         }
     }
 }

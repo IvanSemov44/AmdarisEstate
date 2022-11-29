@@ -1,4 +1,6 @@
-﻿namespace IvanRealEstate.Shared.DataTransferObject.Estate
+﻿using IvanRealEstate.Shared.DataTransferObject.Image;
+
+namespace IvanRealEstate.Shared.DataTransferObject.Estate
 {
     public record EstateDto
     {
@@ -14,10 +16,11 @@
         public bool Sell { get; init; }
         public DateTime? Created { get; init; }
         public DateTime? Changed { get; init; }
-        public IEnumerable<ImageDto>? Images { get; init; }
         public Guid CityId { get; init; }
         public Guid CurencyId { get; init; }
         public Guid CountryId { get; init; }
         public Guid EstateTypeId { get; init; }
+        public IEnumerable<ImageDto>? Images { get; init; }
+
     }
 }

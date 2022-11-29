@@ -8,6 +8,7 @@
     using IvanRealEstate.Shared.DataTransferObject.Currency;
     using IvanRealEstate.Shared.DataTransferObject.Estate;
     using IvanRealEstate.Shared.DataTransferObject.EstateType;
+    using IvanRealEstate.Shared.DataTransferObject.Image;
 
     public class MappingProfile : Profile
     {
@@ -27,9 +28,7 @@
 
             CreateMap<CompanyForUpdateDto, Company>();
 
-
             //----Estate Mapper------
-
             CreateMap<EstateForCreationDto, Entities.Models.Estate>();
 
             CreateMap<Entities.Models.Estate, EstateDto>();
@@ -66,6 +65,14 @@
             CreateMap<EstateTypeForCreationDto, EstateType>();
 
             CreateMap<EstateTypeForUpdateDto, EstateType>();
+
+            //----City Mapper------
+
+            CreateMap<Image, ImageDto>();
+
+            CreateMap<ImageForCreationDto, Image>();
+
+            CreateMap<EstateTypeForUpdateDto, Image>();
         }
     }
 }

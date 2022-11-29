@@ -1,6 +1,6 @@
-﻿namespace IvanRealEstate.Shared.DataTransferObject
+﻿namespace IvanRealEstate.Shared.DataTransferObject.Image
 {
-    public class ImageDto
+    public record ImageDto
     {
         public Guid ImageId { get; init; }
         public string? ImageUrl { get; init; }

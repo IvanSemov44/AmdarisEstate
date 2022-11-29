@@ -1,5 +1,6 @@
 ﻿namespace IvanRealEstate.Shared.DataTransferObject.Estate
 {
+    using IvanRealEstate.Shared.DataTransferObject.Image;
     using System.ComponentModel.DataAnnotations;
 
     public record EstateForManipulationDto
@@ -38,8 +39,6 @@
 
         public DateTime? Changed { get; init; }
 
-        public ICollection<ImageDto>? Images { get; init; }
-
         public Guid CityId { get; init; }
 
         public Guid CurencyId { get; init; }
@@ -47,5 +46,8 @@
         public Guid CountryId { get; init; }
 
         public Guid EstateTypeId { get; init; }
+
+        public IEnumerable<ImageDto>? Images { get; init; }
+
     }
 }

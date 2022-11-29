@@ -1,11 +1,12 @@
 ﻿namespace IvanRealEstate.Application.Handlers.CompanyHandlers
 {
-    using Application.Queries.CompanyQueries;
-    using AutoMapper;
-    using Contracts;
-    using Entities.Exceptions;
     using MediatR;
-    using Shared.DataTransferObject;
+    using AutoMapper;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.Exceptions;
+    using IvanRealEstate.Shared.DataTransferObject;
+    using IvanRealEstate.Application.Queries.CompanyQueries;
 
     internal sealed class GetCompanyHandler : IRequestHandler<GetCompanyQuery, CompanyDto>
     {
