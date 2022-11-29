@@ -8,12 +8,10 @@
 
     internal sealed class DeleteEmployeeForCompanyHandler : IRequestHandler<DeleteEmployeeForCompanyCommand, Unit>
     {
-        private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;
 
-        public DeleteEmployeeForCompanyHandler(IMapper mapper, IRepositoryManager repositoryManager)
+        public DeleteEmployeeForCompanyHandler(IRepositoryManager repositoryManager)
         {
-            _mapper = mapper;
             _repositoryManager = repositoryManager;
         }
 

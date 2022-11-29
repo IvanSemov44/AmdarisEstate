@@ -1,6 +1,5 @@
 ﻿namespace IvanRealEstate.Application.Handlers.CityHandlers
 {
-    using AutoMapper;
     using MediatR;
 
     using IvanRealEstate.Contracts;
@@ -9,13 +8,10 @@
 
     public sealed class DeleteCityHandler : IRequestHandler<DeleteCityCommand, Unit>
     {
-
-        private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;
 
-        public DeleteCityHandler(IRepositoryManager repositoryManager, IMapper mapper)
+        public DeleteCityHandler(IRepositoryManager repositoryManager)
         {
-            _mapper = mapper;
             _repositoryManager = repositoryManager;
         }
         public async Task<Unit> Handle(DeleteCityCommand request, CancellationToken cancellationToken)

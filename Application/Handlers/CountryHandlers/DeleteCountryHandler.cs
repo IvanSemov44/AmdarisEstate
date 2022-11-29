@@ -1,20 +1,17 @@
 ﻿namespace IvanRealEstate.Application.Handlers.CountryHandlers
 {
-    using Application.Commands.CountryCommands;
-    using AutoMapper;
-    using Contracts;
-    using Entities.Exceptions;
     using MediatR;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.Exceptions;
+    using IvanRealEstate.Application.Commands.CountryCommands;
 
     public sealed class DeleteCountryHandler : IRequestHandler<DeleteCountryCommand, Unit>
     {
-
-        private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;
 
-        public DeleteCountryHandler(IRepositoryManager repositoryManager, IMapper mapper)
+        public DeleteCountryHandler(IRepositoryManager repositoryManager)
         {
-            _mapper = mapper;
             _repositoryManager = repositoryManager;
         }
         public async Task<Unit> Handle(DeleteCountryCommand request, CancellationToken cancellationToken)

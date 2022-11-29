@@ -1,9 +1,10 @@
 ﻿namespace IvanRealEstate.Application.Handlers.CompanyHandlers
 {
-    using IvanRealEstate.Application.Commands.CompanyCommands;
-    using Contracts;
-    using Entities.Exceptions;
     using MediatR;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.Exceptions;
+    using IvanRealEstate.Application.Commands.CompanyCommands;
 
     internal sealed class DeleteCompanyHandler : IRequestHandler<DeleteCompanyCommand, Unit>
     {

@@ -18,16 +18,18 @@
         [MaxLength(100, ErrorMessage = "Maximum length for the City is 100 characters.")]
         public string? Description { get; set; }
 
-        [Required(ErrorMessage = "City is a required field.")]
-        [MaxLength(100, ErrorMessage = "Maximum length for the City is 100 characters.")]
+        [Required(ErrorMessage = "YearOfCreation is a required field.")]
         public int YearOfCreation { get; set; }
 
         public double Price { get; set; }
 
         public int Floоr { get; set; }
 
+        [Required(ErrorMessage = "Rooms is a required field.")]
         public int Rooms { get; set; }
 
+        [Required(ErrorMessage = "Extras is a required field.")]
+        [MaxLength(1000, ErrorMessage = "Maximum length for the Extras is 1000 characters.")]
         public string? Extras { get; set; }
 
         public bool Sell { get; set; }
