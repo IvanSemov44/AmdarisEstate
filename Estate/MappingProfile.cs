@@ -2,6 +2,7 @@
 {
     using AutoMapper;
     using Entities.Models;
+
     using IvanRealEstate.Shared.DataTransferObject;
     using IvanRealEstate.Shared.DataTransferObject.City;
     using IvanRealEstate.Shared.DataTransferObject.Country;
@@ -50,16 +51,14 @@
 
             CreateMap<CountryForUpdateDto, Country>();
 
-            //----Curency Mapper
-
+            //----Curency Mapper-------
             CreateMap<Currency, CurrencyDto>();
 
             CreateMap<CurrencyForCreationDto, Currency>();
 
             CreateMap<CurrencyForUpdateDto, Currency>();
 
-            //----EstateType Mapper
-
+            //----EstateType Mapper------
             CreateMap<EstateType, EstateTypeDto>();
 
             CreateMap<EstateTypeForCreationDto, EstateType>();
@@ -67,7 +66,6 @@
             CreateMap<EstateTypeForUpdateDto, EstateType>();
 
             //----City Mapper------
-
             CreateMap<Image, ImageDto>();
 
             CreateMap<ImageForCreationDto, Image>();

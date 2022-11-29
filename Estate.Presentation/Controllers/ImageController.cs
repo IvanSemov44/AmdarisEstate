@@ -49,5 +49,13 @@
 
             return Ok();
         }
+
+        [HttpDelete("{imageId:guid}")]
+        public async Task<IActionResult> DeleteImageForEstate(Guid estateId, Guid imageId)
+        {
+            await _sender.Send(new DeleteImageCommand(estateId, imageId, TrackChanges: false));
+
+            return Ok();
+        }
     }
 }
