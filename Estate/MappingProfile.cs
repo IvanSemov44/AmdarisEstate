@@ -27,7 +27,15 @@
 
             CreateMap<CompanyForUpdateDto, Company>();
 
-            CreateMap<EstateForCreationDto, Entities.Models.Estate >();
+
+            //----Estate Mapper------
+
+            CreateMap<EstateForCreationDto, Entities.Models.Estate>();
+
+            CreateMap<Entities.Models.Estate, EstateDto>();
+
+            CreateMap<EstateForUpdateDto, Entities.Models.Estate>();
+
 
             //----City Mapper------
             CreateMap<CityForCreationDto, City>();

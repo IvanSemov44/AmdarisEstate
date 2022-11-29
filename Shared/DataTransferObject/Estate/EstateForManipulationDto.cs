@@ -4,9 +4,6 @@
 
     public record EstateForManipulationDto
     {
-        [Required]
-        public Guid EstateId { get; init; }
-
         [Required(ErrorMessage = "Neighborhood is a required field.")]
         [MaxLength(100, ErrorMessage = "Maximum length for the Neighborhood is 100 characters.")]
         public string? Neighborhood { get; init; }
@@ -42,5 +39,13 @@
         public DateTime? Changed { get; init; }
 
         public ICollection<ImageDto>? Images { get; init; }
+
+        public Guid CityId { get; init; }
+
+        public Guid CurencyId { get; init; }
+
+        public Guid CountryId { get; init; }
+
+        public Guid EstateTypeId { get; init; }
     }
 }

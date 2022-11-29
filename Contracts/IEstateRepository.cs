@@ -6,7 +6,7 @@
     {
         Task<IEnumerable<Estate>> GetAllEstatesAsync(bool trackChanges);
         Task<Estate> GetEstateAsync(Guid estateId,bool trackChanges);
-        void CreateEstate(Estate estate,Guid countryId,Guid cityId,Guid curencyId,Guid estateTypeId);
+        void CreateEstate(Estate estate);
         void DeleteEstate(Estate estate);
     }
 }
