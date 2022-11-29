@@ -72,7 +72,7 @@
 
             CreateMap<ImageForCreationDto, Image>();
 
-            CreateMap<EstateTypeForUpdateDto, Image>();
+            CreateMap<ImageForUpdateDto, Image>();
         }
     }
 }
