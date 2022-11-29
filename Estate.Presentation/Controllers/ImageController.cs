@@ -5,6 +5,7 @@
 
     using IvanRealEstate.Application.Commands.ImageCommads;
     using IvanRealEstate.Shared.DataTransferObject.Image;
+    using IvanRealEstate.Application.Queries.ImageQuery;
 
     [Route("api/estates/{estateId}/images")]
     [ApiController]
@@ -15,6 +16,14 @@
         public ImageController(ISender sender)
         {
             _sender = sender;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllImageForEstate(Guid estateId)
+        {
+            var imagesForReturn = await _sender.Send(new GetImagesQuery(estateId, TrackChanges: false));
+
+            return Ok(imagesForReturn);
         }
 
         [HttpPost]
