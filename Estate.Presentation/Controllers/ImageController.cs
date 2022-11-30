@@ -3,13 +3,12 @@
     using MediatR;
     using Microsoft.AspNetCore.Mvc;
 
-    using IvanRealEstate.Application.Commands.ImageCommads;
-    using IvanRealEstate.Shared.DataTransferObject.Image;
     using IvanRealEstate.Application.Queries.ImageQuery;
-    using IvanRealEstate.Entities.Models;
+    using IvanRealEstate.Shared.DataTransferObject.Image;
+    using IvanRealEstate.Application.Commands.ImageCommads;
 
-    [Route("api/estates/{estateId}/images")]
     [ApiController]
+    [Route("api/estates/{estateId}/images")]
     public class ImageController : ControllerBase
     {
         private readonly ISender _sender;

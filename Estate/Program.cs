@@ -6,7 +6,7 @@ using NLog;
 
 using IvanRealEstate.Contracts;
 using IvanRealEstate.Extensions;
-using IvanRealEstate.Estate.Presentation.ActionFilter;
+using IvanRealEstate.Presentation.ActionFilter;
 
 var builder = WebApplication.CreateBuilder(args);
 

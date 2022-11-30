@@ -1,11 +1,10 @@
-﻿
-using IvanRealEstate.Estate.Presentation.Controllers;
+﻿using IvanRealEstate.Presentation.Controllers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System.Xml.Serialization;
 
-namespace EstateTest.Controller
+namespace IvanRealEstate.Test.Controller
 {
     public class CityControllerTest
     {

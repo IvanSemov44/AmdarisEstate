@@ -1,13 +1,13 @@
-﻿namespace IvanRealEstate.Estate.Presentation.Controllers
+﻿namespace IvanRealEstate.Presentation.Controllers
 {
     using MediatR;
 
     using Microsoft.AspNetCore.Mvc;
 
     using IvanRealEstate.Shared.DataTransferObject;
-    using IvanRealEstate.Estate.Presentation.ActionFilter;
     using IvanRealEstate.Application.Queries.EmployeeForCompanyQueries;
     using IvanRealEstate.Application.Commands.EmployeeForCompanyCommands;
+    using IvanRealEstate.Presentation.ActionFilter;
 
     [Route("api/companies/{companyId}/employees")]
     [ApiController]

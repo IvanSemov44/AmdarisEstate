@@ -1,4 +1,4 @@
-﻿namespace IvanRealEstate.Application.Commands.CurencyCommands
+﻿namespace IvanRealEstate.Application.Commands.CurrencyCommands
 {
     using MediatR;
     using IvanRealEstate.Shared.DataTransferObject.Currency;

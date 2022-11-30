@@ -1,4 +1,4 @@
-﻿namespace IvanRealEstate.Estate.Presentation
+﻿namespace IvanRealEstate.Presentation
 {
     using Microsoft.AspNetCore.Mvc.ModelBinding;
     using System.ComponentModel;

@@ -1,12 +1,12 @@
 ﻿namespace IvanRealEstate.Presentation.Controllers
 {
-    using IvanRealEstate.Application.Commands.CurencyCommands;
-    using IvanRealEstate.Application.Commands.CurrencyCommands;
-    using IvanRealEstate.Application.Queries.CurrencyQueries;
-    using IvanRealEstate.Entities.Models;
-    using IvanRealEstate.Shared.DataTransferObject.Currency;
     using MediatR;
+
     using Microsoft.AspNetCore.Mvc;
+
+    using IvanRealEstate.Shared.DataTransferObject.Currency;
+    using IvanRealEstate.Application.Queries.CurrencyQueries;
+    using IvanRealEstate.Application.Commands.CurrencyCommands;
 
     [Route("api/currencies")]
     [ApiController]

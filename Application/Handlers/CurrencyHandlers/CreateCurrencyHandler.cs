@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using IvanRealEstate.Application.Commands.CurencyCommands;
+using IvanRealEstate.Application.Commands.CurrencyCommands;
 using IvanRealEstate.Contracts;
 using IvanRealEstate.Entities.Models;
 using IvanRealEstate.Shared.DataTransferObject.Currency;

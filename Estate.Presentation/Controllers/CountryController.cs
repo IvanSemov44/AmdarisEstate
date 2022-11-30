@@ -1,4 +1,4 @@
-﻿namespace IvanRealEstate.Estate.Presentation.Controllers
+﻿namespace IvanRealEstate.Presentation.Controllers
 {
     using Application.Commands.CountryCommands;
     using Application.Queries.CountryQueries;
@@ -36,7 +36,7 @@
         [HttpPost]
         public async Task<IActionResult> CreateCountry(CountryForCreationDto countryForCreationDto)
         {
-            var createdCountry = await _sender.Send<CountryDto>(new CreateCountryCommand(countryForCreationDto));
+            var createdCountry = await _sender.Send(new CreateCountryCommand(countryForCreationDto));
 
             return CreatedAtRoute("GetCountryById", new { countryId = createdCountry.CountryId }, createdCountry);
         }

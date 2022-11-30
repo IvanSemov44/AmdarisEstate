@@ -1,11 +1,12 @@
-﻿namespace IvanRealEstate.Estate.Presentation.Controllers
+﻿namespace IvanRealEstate.Presentation.Controllers
 {
-    using Application.Commands.CompanyCommands;
-    using Application.Queries.CompanyQueries;
-    using Estate.Presentation.ActionFilter;
     using MediatR;
     using Microsoft.AspNetCore.Mvc;
-    using Shared.DataTransferObject;
+
+    using IvanRealEstate.Presentation.ActionFilter;
+    using IvanRealEstate.Shared.DataTransferObject;
+    using IvanRealEstate.Application.Queries.CompanyQueries;
+    using IvanRealEstate.Application.Commands.CompanyCommands;
 
     [Route("api/companies")]
     [ApiController]
@@ -15,7 +16,7 @@
 
         public CompanyController(ISender sender)
         {
-            this._sender = sender;
+            _sender = sender;
         }
 
         [HttpGet]
@@ -46,7 +47,7 @@
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateCompany([FromBody] CompanyForCreationDto company)
         {
-            var createdCompany = await _sender.Send<CompanyDto>(new CreateCompanyCommand(company));
+            var createdCompany = await _sender.Send(new CreateCompanyCommand(company));
 
             return CreatedAtRoute("CompanyById", new { id = createdCompany.Id }, createdCompany);
         }
@@ -72,7 +73,7 @@
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteCompany(Guid id)
         {
-            await _sender.Send(new DeleteCompanyCommand(id,TrackChanges:false));
+            await _sender.Send(new DeleteCompanyCommand(id, TrackChanges: false));
 
             return NoContent();
         }
