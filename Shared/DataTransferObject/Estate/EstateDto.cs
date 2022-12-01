@@ -20,7 +20,7 @@ namespace IvanRealEstate.Shared.DataTransferObject.Estate
         public Guid CurencyId { get; init; }
         public Guid CountryId { get; init; }
         public Guid EstateTypeId { get; init; }
-        public IEnumerable<ImageDto>? Images { get; init; }
+        public IEnumerable<ImageDto>? Images { get; set; }
 
     }
 }

@@ -23,7 +23,7 @@ namespace IvanRealEstate.IntegrationTest
             //Assert.Contains("Evelin", responseString);
 
 
-            var postRequest = new HttpRequestMessage(HttpMethod.Post, "/api/cities");
+            var postRequest = new HttpRequestMessage(HttpMethod.Post, "/City/CreateCity");
 
             var formModel = new Dictionary<string, string>
                                 {
@@ -35,6 +35,7 @@ namespace IvanRealEstate.IntegrationTest
             var response = await _client.SendAsync(postRequest);
 
             response.EnsureSuccessStatusCode();
+            
 
             var responseString = await response.Content.ReadAsStringAsync();
 

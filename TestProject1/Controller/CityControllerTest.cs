@@ -1,4 +1,10 @@
-﻿using IvanRealEstate.Presentation.Controllers;
+﻿using AutoMapper;
+using IvanRealEstate.Application.Handlers.CityHandlers;
+using IvanRealEstate.Application.Queries.CityQueties;
+using IvanRealEstate.Contracts;
+using IvanRealEstate.Entities.Models;
+using IvanRealEstate.Presentation.Controllers;
+using IvanRealEstate.Shared.DataTransferObject.City;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
@@ -8,8 +14,11 @@ namespace IvanRealEstate.Test.Controller
 {
     public class CityControllerTest
     {
+        //private readonly IMapper _mapper;
         private readonly Mock<ISender> _mockRepo;
         private readonly CityController _controller;
+        //private readonly Mock<ICityRepository> _city;
+
 
         public CityControllerTest()
         {
@@ -25,11 +34,14 @@ namespace IvanRealEstate.Test.Controller
             Assert.IsType<OkObjectResult>(result);
         }
 
-        [Fact]
-        public void GetCities_ActionExecute_ReturnExactNumberOfCities()
-        {
+        //[Fact]
+        //public async void GetCities_ActionExecute_ReturnExactNumberOfCities()
+        //{
+        //    var handler = new GetCitiesHandler(_city,)
 
-        }
+        //        await _mockRepo.Setup(repo => repo.Send(new GetCitiesQuery(false)))
+        //                .Returns(ISender sender, new List<CityDto>() { new CityDto(), new CityDto() });
+        //}
 
     }
 }
