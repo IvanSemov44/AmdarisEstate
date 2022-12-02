@@ -2,8 +2,9 @@
 {
     using MediatR;
     using AutoMapper;
-    using IvanRealEstate.Contracts;
+
     using IvanRealEstate.Entities;
+    using IvanRealEstate.Contracts;
     using IvanRealEstate.Application.Commands.CurrencyCommands;
 
     internal sealed class UpdateCurrencyHandler : IRequestHandler<UpdateCurrencyCommand, Unit>

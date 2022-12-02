@@ -1,10 +1,11 @@
 ﻿namespace IvanRealEstate.Application.Handlers.CountryHandlers
 {
-    using Application.Commands.CountryCommands;
-    using AutoMapper;
-    using Contracts;
-    using Entities.Exceptions;
     using MediatR;
+    using AutoMapper;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.Exceptions;
+    using IvanRealEstate.Application.Commands.CountryCommands;
 
     public sealed class UpdateCountryHandler : IRequestHandler<UpdateCountryCommand, Unit>
     {

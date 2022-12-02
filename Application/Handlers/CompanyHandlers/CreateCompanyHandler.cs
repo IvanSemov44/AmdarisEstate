@@ -1,11 +1,13 @@
 ﻿namespace IvanRealEstate.Application.Handlers.CompanyHandlers
 {
-    using IvanRealEstate.Application.Commands.CompanyCommands;
-    using AutoMapper;
-    using Contracts;
-    using Entities.Models;
     using MediatR;
-    using Shared.DataTransferObject;
+    using AutoMapper;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.Models;
+    using IvanRealEstate.Shared.DataTransferObject;
+    using IvanRealEstate.Application.Commands.CompanyCommands;
+
 
     internal sealed class CreateCompanyHandler : IRequestHandler<CreateCompanyCommand, CompanyDto>
     {

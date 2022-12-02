@@ -2,6 +2,7 @@
 {
     using MediatR;
     using AutoMapper;
+
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Shared.DataTransferObject.Estate;
     using IvanRealEstate.Application.Queries.EstateQuery;

@@ -1,13 +1,12 @@
-﻿
-
-using AutoMapper;
-using IvanRealEstate.Application.Commands.EstateTypeCommands;
-using IvanRealEstate.Contracts;
-using IvanRealEstate.Entities.Exceptions;
-using MediatR;
-
-namespace IvanRealEstate.Application.Handlers.EstateTypeHandler
+﻿namespace IvanRealEstate.Application.Handlers.EstateTypeHandler
 {
+    using MediatR;
+    using AutoMapper;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.Exceptions;
+    using IvanRealEstate.Application.Commands.EstateTypeCommands;
+
     internal sealed class UpdateEstateTypeHandler : IRequestHandler<UpdateEstateTypeCommand, Unit>
     {
         private readonly IMapper _mapper;

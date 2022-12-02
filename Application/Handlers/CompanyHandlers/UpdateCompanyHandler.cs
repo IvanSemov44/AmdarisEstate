@@ -1,10 +1,11 @@
 ﻿namespace IvanRealEstate.Application.Handlers.CompanyHandlers
 {
-    using Application.Commands.CompanyCommands;
-    using AutoMapper;
-    using Contracts;
-    using Entities.Exceptions;
     using MediatR;
+    using AutoMapper;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.Exceptions;
+    using IvanRealEstate.Application.Commands.CompanyCommands;
 
     internal sealed class UpdateCompanyHandler : IRequestHandler<UpdateCompanyCommand, Unit>
     {

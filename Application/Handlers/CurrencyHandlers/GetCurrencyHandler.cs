@@ -1,14 +1,13 @@
-﻿
-
-using AutoMapper;
-using IvanRealEstate.Application.Queries.CurrencyQueries;
-using IvanRealEstate.Contracts;
-using IvanRealEstate.Entities;
-using IvanRealEstate.Shared.DataTransferObject.Currency;
-using MediatR;
-
-namespace IvanRealEstate.Application.Handlers.CurrencyHandlers
+﻿namespace IvanRealEstate.Application.Handlers.CurrencyHandlers
 {
+    using MediatR;
+    using AutoMapper;
+
+    using IvanRealEstate.Entities;
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Shared.DataTransferObject.Currency;
+    using IvanRealEstate.Application.Queries.CurrencyQueries;
+
     internal sealed class GetCurrencyHandler : IRequestHandler<GetCurrencyQuery, CurrencyDto>
     {
 

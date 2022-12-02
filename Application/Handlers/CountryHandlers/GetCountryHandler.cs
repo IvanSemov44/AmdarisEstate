@@ -1,11 +1,12 @@
 ﻿namespace IvanRealEstate.Application.Handlers.CountryHandlers
 {
-    using Application.Queries.CountryQueries;
-    using AutoMapper;
-    using Contracts;
-    using Entities.Exceptions;
     using MediatR;
-    using Shared.DataTransferObject.Country;
+    using AutoMapper;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.Exceptions;
+    using IvanRealEstate.Shared.DataTransferObject.Country;
+    using IvanRealEstate.Application.Queries.CountryQueries;
 
     public sealed class GetCountryHandler : IRequestHandler<GetCountryQuery, CountryDto>
     {

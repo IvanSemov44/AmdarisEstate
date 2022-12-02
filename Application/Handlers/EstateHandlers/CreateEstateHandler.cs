@@ -3,10 +3,10 @@
     using MediatR;
     using AutoMapper;
 
-    using IvanRealEstate.Shared.DataTransferObject.Estate;
-    using IvanRealEstate.Application.Commands.EstateCommands;
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Entities.Models;
+    using IvanRealEstate.Shared.DataTransferObject.Estate;
+    using IvanRealEstate.Application.Commands.EstateCommands;
 
     public sealed class CreateEstateHandler : IRequestHandler<CreateEstateCommand, EstateDto>
     {

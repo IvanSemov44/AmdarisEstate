@@ -1,7 +1,7 @@
 ﻿namespace IvanRealEstate.Application.Handlers.EstateTypeHandler
 {
     using MediatR;
-    using AutoMapper;
+
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Application.Commands.EstateTypeCommands;

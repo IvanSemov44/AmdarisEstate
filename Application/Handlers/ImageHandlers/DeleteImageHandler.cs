@@ -1,7 +1,6 @@
 ﻿namespace IvanRealEstate.Application.Handlers.ImageHandlers
 {
     using MediatR;
-    using AutoMapper;
 
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Entities.Exceptions;
@@ -9,13 +8,10 @@
 
     internal sealed class DeleteImageHandler : IRequestHandler<DeleteImageCommand, Unit>
     {
-
-        private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;
 
-        public DeleteImageHandler(IRepositoryManager repositoryManager, IMapper mapper)
+        public DeleteImageHandler(IRepositoryManager repositoryManager)
         {
-            _mapper = mapper;
             _repositoryManager = repositoryManager;
         }
 
@@ -26,7 +22,7 @@
                 throw new EstateNotFoundException(request.EstateId);
 
             var image = await _repositoryManager.Image.GetImageAsync(request.EstateId, request.ImageId, request.TrackChanges);
-            if (estate is null)
+            if (image is null)
                 throw new ImageNotFoundException(request.ImageId);
 
             _repositoryManager.Image.DeleteImage(image);

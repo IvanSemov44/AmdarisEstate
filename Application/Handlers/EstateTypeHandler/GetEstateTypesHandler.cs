@@ -1,11 +1,12 @@
-﻿using AutoMapper;
-using IvanRealEstate.Application.Queries.EstateTypeQuery;
-using IvanRealEstate.Contracts;
-using IvanRealEstate.Shared.DataTransferObject.EstateType;
-using MediatR;
-
-namespace IvanRealEstate.Application.Handlers.EstateTypeHandler
+﻿namespace IvanRealEstate.Application.Handlers.EstateTypeHandler
 {
+    using MediatR;
+    using AutoMapper;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Application.Queries.EstateTypeQuery;
+    using IvanRealEstate.Shared.DataTransferObject.EstateType;
+
     internal sealed class GetEstateTypesHandler : IRequestHandler<GetEstateTypesQuery,IEnumerable<EstateTypeDto>>
     {
         private readonly IMapper _mapper;

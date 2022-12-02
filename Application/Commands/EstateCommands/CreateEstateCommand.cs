@@ -1,7 +1,7 @@
 ﻿namespace IvanRealEstate.Application.Commands.EstateCommands
 {
     using MediatR;
-    using Shared.DataTransferObject.Estate;
+    using IvanRealEstate.Shared.DataTransferObject.Estate;
 
     public sealed record CreateEstateCommand(EstateForCreationDto EstateForCreationDto):IRequest<EstateDto>;
 }

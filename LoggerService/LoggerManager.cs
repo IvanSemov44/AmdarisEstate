@@ -1,7 +1,8 @@
 ﻿namespace IvanRealEstate.LoggerService
 {
-    using Contracts;
     using NLog;
+
+    using IvanRealEstate.Contracts;
 
     public class LoggerManager : ILoggerManager
     {

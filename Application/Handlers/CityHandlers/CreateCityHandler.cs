@@ -1,11 +1,13 @@
 ﻿namespace IvanRealEstate.Application.Handlers.CityHandlers
 {
-    using IvanRealEstate.Application.Commands.CityCommands;
-    using AutoMapper;
-    using Contracts;
-    using Entities.Models;
     using MediatR;
+    using AutoMapper;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.Models;
     using IvanRealEstate.Shared.DataTransferObject.City;
+    using IvanRealEstate.Application.Commands.CityCommands;
+
 
     public sealed class CreateCityHandler:IRequestHandler<CreateCityCommand,CityDto>
     {

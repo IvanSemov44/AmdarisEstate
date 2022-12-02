@@ -1,10 +1,11 @@
 ﻿namespace IvanRealEstate.Application.Handlers.EmployeeForCompanyHandlers
 {
-    using Application.Commands.EmployeeForCompanyCommands;
-    using AutoMapper;
-    using Contracts;
-    using Entities.Exceptions;
     using MediatR;
+    using AutoMapper;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.Exceptions;
+    using IvanRealEstate.Application.Commands.EmployeeForCompanyCommands;
 
     internal sealed class UpdateEmployeeForCompanyHandler : IRequestHandler<UpdateEmployeeForCompanyCommand, Unit>
     {

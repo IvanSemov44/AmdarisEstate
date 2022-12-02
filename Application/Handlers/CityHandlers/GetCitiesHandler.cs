@@ -1,10 +1,11 @@
 ﻿namespace IvanRealEstate.Application.Handlers.CityHandlers
 {
-    using AutoMapper;
-    using Contracts;
-    using IvanRealEstate.Application.Queries.CityQueties;
     using MediatR;
-    using Shared.DataTransferObject.City;
+    using AutoMapper;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Shared.DataTransferObject.City;
+    using IvanRealEstate.Application.Queries.CityQueties;
 
     public sealed class GetCitiesHandler : IRequestHandler<GetCitiesQuery, IEnumerable<CityDto>>
     {

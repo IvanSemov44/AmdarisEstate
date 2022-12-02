@@ -1,7 +1,7 @@
 ﻿namespace IvanRealEstate.Application.Commands.EmployeeForCompanyCommands
 {
     using MediatR;
-    using Shared.DataTransferObject;
+    using IvanRealEstate.Shared.DataTransferObject;
 
     public sealed record UpdateEmployeeForCompanyCommand(
         Guid CompanyId,
