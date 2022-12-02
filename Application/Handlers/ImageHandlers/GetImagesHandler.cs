@@ -7,8 +7,9 @@
     using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Application.Queries.ImageQuery;
     using IvanRealEstate.Shared.DataTransferObject.Image;
+    using IvanRealEstate.Application.Handlers.EstateHandlers;
 
-    internal sealed class GetImagesHandler : IRequestHandler<GetImagesQuery,IEnumerable<ImageDto>>
+    internal sealed class GetImagesHandler : IRequestHandler<GetImagesQuery, IEnumerable<ImageDto>>
     {
 
         private readonly IMapper _mapper;
@@ -22,11 +23,9 @@
 
         public async Task<IEnumerable<ImageDto>> Handle(GetImagesQuery request, CancellationToken cancellationToken)
         {
-            var estate = await _repositoryManager.Estate.GetEstateAsync(request.EstateId, request.TrackChanges);
-            if (estate is null)
-                throw new EstateNotFoundException(request.EstateId);
+            await CheckerForEstate.CheckIfEstateExistAndReturnIt(_repositoryManager, request.EstateId, request.TrackChanges);
 
-            var imagesForEstate = await _repositoryManager.Image.GetImagesAsync(request.EstateId,request.TrackChanges);
+            var imagesForEstate = await _repositoryManager.Image.GetImagesAsync(request.EstateId, request.TrackChanges);
 
             var imageForReturn = _mapper.Map<IEnumerable<ImageDto>>(imagesForEstate);
 

@@ -3,8 +3,8 @@
     using MediatR;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Application.Commands.ImageCommads;
+    using IvanRealEstate.Application.Handlers.EstateHandlers;
 
     internal sealed class DeleteImageHandler : IRequestHandler<DeleteImageCommand, Unit>
     {
@@ -17,13 +17,9 @@
 
         public async Task<Unit> Handle(DeleteImageCommand request, CancellationToken cancellationToken)
         {
-            var estate = await _repositoryManager.Estate.GetEstateAsync(request.EstateId, request.TrackChanges);
-            if (estate is null)
-                throw new EstateNotFoundException(request.EstateId);
+            await CheckerForEstate.CheckIfEstateExistAndReturnIt(_repositoryManager, request.EstateId, request.TrackChanges);
 
-            var image = await _repositoryManager.Image.GetImageAsync(request.EstateId, request.ImageId, request.TrackChanges);
-            if (image is null)
-                throw new ImageNotFoundException(request.ImageId);
+            var image = await CheckerForImage.CheckIfImageExistAndReturnIt(_repositoryManager, request.EstateId, request.ImageId, request.TrackChanges);
 
             _repositoryManager.Image.DeleteImage(image);
             await _repositoryManager.SaveAsync();

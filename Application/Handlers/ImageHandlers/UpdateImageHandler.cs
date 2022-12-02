@@ -4,8 +4,8 @@
     using AutoMapper;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Application.Commands.ImageCommads;
+    using IvanRealEstate.Application.Handlers.EstateHandlers;
 
     internal sealed class UpdateImageHandler : IRequestHandler<UpdateImageCommand, Unit>
     {
@@ -21,13 +21,9 @@
 
         public async Task<Unit> Handle(UpdateImageCommand request, CancellationToken cancellationToken)
         {
-            var estate = await _repositoryManager.Estate.GetEstateAsync(request.EstateId, request.EstateTrackChanges);
-            if (estate is null)
-                throw new EstateNotFoundException(request.EstateId);
+            await CheckerForEstate.CheckIfEstateExistAndReturnIt(_repositoryManager, request.EstateId, request.EstateTrackChanges);
 
-            var image = await _repositoryManager.Image.GetImageAsync(request.EstateId,request.ImageId, request.ImageTrackChanges);
-            if (image is null)
-                throw new ImageNotFoundException(request.ImageId);
+            var image = await CheckerForImage.CheckIfImageExistAndReturnIt(_repositoryManager, request.EstateId, request.ImageId, request.ImageTrackChanges);
 
             _mapper.Map(request.ImageForUpdateDto, image);
             await _repositoryManager.SaveAsync();

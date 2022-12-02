@@ -5,9 +5,9 @@
 
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Entities.Models;
-    using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Shared.DataTransferObject.Image;
     using IvanRealEstate.Application.Commands.ImageCommads;
+    using IvanRealEstate.Application.Handlers.EstateHandlers;
 
     internal sealed class CreateImageHandler : IRequestHandler<CreateImageCommand, ImageDto>
     {
@@ -22,9 +22,7 @@
 
         public async Task<ImageDto> Handle(CreateImageCommand request, CancellationToken cancellationToken)
         {
-            var estate = await _repositoryManager.Estate.GetEstateAsync(request.EstateId, request.TrackChanges);
-            if (estate is null)
-                throw new EstateNotFoundException(request.EstateId);
+            var estate = await CheckerForEstate.CheckIfEstateExistAndReturnIt(_repositoryManager, request.EstateId, request.TrackChanges);
 
             var image = _mapper.Map<Image>(request.ImageForCreationDto);
 
