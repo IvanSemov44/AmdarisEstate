@@ -23,13 +23,13 @@
         {
             var estate = await CheckerForEstate.CheckIfEstateExistAndReturnIt(_repositoryManager, request.EstateId, request.TrackChanges);
 
-            var images = await _repositoryManager.Image.GetImagesAsync(request.EstateId, request.TrackChanges);
+            //var images = await _repositoryManager.Image.GetImagesAsync(request.EstateId, request.TrackChanges);
 
-            var imagesForReturn = _mapper.Map<IEnumerable<ImageDto>>(images);
+            //var imagesForReturn = _mapper.Map<IEnumerable<ImageDto>>(images);
 
             var estateForReturn = _mapper.Map<EstateDto>(estate);
 
-            estateForReturn.Images = imagesForReturn;
+            //estateForReturn.Images = imagesForReturn;
 
             return estateForReturn;
         }
