@@ -6,11 +6,9 @@
 
     public static class MockEstateRepository
     {
-        public static class MockCityRepository
+        public static Mock<IRepositoryManager> EstateRepositoryForTest(Guid estateId)
         {
-            public static Mock<IRepositoryManager> GetCitiesRepository(Guid estateId)
-            {
-                var estates = new List<Estate>
+            var estates = new List<Estate>
             {
                 new Estate
                 {
@@ -74,21 +72,20 @@
                 },
             };
 
-                var mockRepo = new Mock<IRepositoryManager>();
+            var mockRepo = new Mock<IRepositoryManager>();
 
-                var estate = estates.Where(c => c.EstateId == estateId).SingleOrDefault();
+            var estate = estates.Where(c => c.EstateId == estateId).SingleOrDefault();
 
-                mockRepo.Setup(r => r.Estate.GetAllEstatesAsync(false)).ReturnsAsync(estates);
+            mockRepo.Setup(r => r.Estate.GetAllEstatesAsync(false)).ReturnsAsync(estates);
 
-                mockRepo.Setup(r => r.Estate.GetEstateAsync(It.IsAny<Guid>(), It.IsAny<bool>()))
-                    .ReturnsAsync(estate);
+            mockRepo.Setup(r => r.Estate.GetEstateAsync(It.IsAny<Guid>(), It.IsAny<bool>()))
+                .ReturnsAsync(estate);
 
-                mockRepo.Setup(r => r.Estate.CreateEstate(It.IsAny<Estate>()));
+            mockRepo.Setup(r => r.Estate.CreateEstate(It.IsAny<Estate>()));
 
-                mockRepo.Setup(r => r.Estate.DeleteEstate(It.IsAny<Estate>()));
+            mockRepo.Setup(r => r.Estate.DeleteEstate(It.IsAny<Estate>()));
 
-                return mockRepo;
-            }
+            return mockRepo;
         }
     }
 }
