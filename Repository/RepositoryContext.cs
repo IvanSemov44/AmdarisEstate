@@ -1,7 +1,8 @@
 ﻿namespace IvanRealEstate.Repository
 {
-    using IvanRealEstate.Entities.Models;
     using Microsoft.EntityFrameworkCore;
+
+    using IvanRealEstate.Entities.Models;
     using IvanRealEstate.Repository.Configuration;
     public class RepositoryContext : DbContext
     {
@@ -11,7 +12,6 @@
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             //modelBuilder.ApplyConfiguration(new CompanyConfiguration());
             //modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
             //modelBuilder.ApplyConfiguration(new CityConfiguration());

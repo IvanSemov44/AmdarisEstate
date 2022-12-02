@@ -1,6 +1,6 @@
 ﻿namespace IvanRealEstate.Repository
 {
-    using Contracts;
+    using IvanRealEstate.Contracts;
 
     public class RepositoryManager : IRepositoryManager
     {

@@ -36,5 +36,7 @@ namespace IvanRealEstate.Test.CityTests
             result.ShouldBeOfType<List<CityDto>>();
             result.Count().ShouldBe(3);
         }
+
+
     }
 }

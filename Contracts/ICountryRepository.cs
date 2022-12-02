@@ -1,12 +1,11 @@
 ﻿namespace IvanRealEstate.Contracts
 {
-    using Entities.Models;
+    using IvanRealEstate.Entities.Models;
 
     public interface ICountryRepository
     {
-        Task<IEnumerable<Country>> GetCountriesAsync(bool trackChanges);
-        Task<Country> GetCountryAsync(Guid id, bool trackChanges);
-        Task<Country> GetCountryByNameAsync(string countryName, bool trackChanges);
+        Task<IEnumerable<Country?>> GetCountriesAsync(bool trackChanges);
+        Task<Country?> GetCountryAsync(Guid id, bool trackChanges);
         void CreateCountry(Country country);
         void DeleteCountry(Country country);
     }

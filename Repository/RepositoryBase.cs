@@ -1,8 +1,10 @@
 ﻿namespace IvanRealEstate.Repository
 {
     using System.Linq.Expressions;
+
     using Microsoft.EntityFrameworkCore;
-    using Contracts;
+
+    using IvanRealEstate.Contracts;
 
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {

@@ -1,8 +1,10 @@
 ﻿namespace IvanRealEstate.Repository
 {
-    using Contracts;
-    using Entities.Models;
     using Microsoft.EntityFrameworkCore;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.Models;
+
     public class ImageRepository : RepositoryBase<Image>, IImageRepository
     {
         public ImageRepository(RepositoryContext repositoryContext) : base(repositoryContext)
@@ -17,7 +19,7 @@
 
         public void DeleteImage(Image image) => Delete(image);
 
-        public async Task<Image> GetImageAsync(Guid estateId, Guid imageId, bool trackChanges) =>
+        public async Task<Image?> GetImageAsync(Guid estateId, Guid imageId, bool trackChanges) =>
             await FindByCondition(i => i.EstateId.Equals(estateId) && i.ImageId.Equals(imageId), trackChanges)
             .SingleOrDefaultAsync();
 
