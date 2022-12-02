@@ -19,7 +19,7 @@
 
         public async Task<Unit> Handle(UpdateEstateCommand request, CancellationToken cancellationToken)
         {
-            var estate = await CheckerForEstate.CheckIfCurrencyExistAndReturnIt(_repositoryManager, request.EstateId, request.TrackChanges);
+            var estate = await CheckerForEstate.CheckIfEstateExistAndReturnIt(_repositoryManager, request.EstateId, request.TrackChanges);
 
             _mapper.Map(request.EstateForUpdateDto, estate);
             await _repositoryManager.SaveAsync();

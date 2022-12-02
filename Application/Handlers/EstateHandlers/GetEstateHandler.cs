@@ -22,7 +22,7 @@
 
         public async Task<EstateDto> Handle(GetEstateQuery request, CancellationToken cancellationToken)
         {
-            var estate = await CheckerForEstate.CheckIfCurrencyExistAndReturnIt(_repositoryManager, request.EstateId, request.TrackChanges);
+            var estate = await CheckerForEstate.CheckIfEstateExistAndReturnIt(_repositoryManager, request.EstateId, request.TrackChanges);
 
             var images = await _repositoryManager.Image.GetImagesAsync(request.EstateId, request.TrackChanges);
 

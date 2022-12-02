@@ -3,5 +3,5 @@
     using MediatR;
     using IvanRealEstate.Shared.DataTransferObject.EstateType;
 
-    public sealed record GetEstateTypeQuery(Guid EstateTypeID,bool TrackChanges):IRequest<EstateTypeDto>;
+    public sealed record GetEstateTypeQuery(Guid EstateTypeId,bool TrackChanges):IRequest<EstateTypeDto>;
 }

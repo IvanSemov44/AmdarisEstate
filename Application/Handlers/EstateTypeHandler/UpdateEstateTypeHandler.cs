@@ -4,7 +4,6 @@
     using AutoMapper;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Application.Commands.EstateTypeCommands;
 
     internal sealed class UpdateEstateTypeHandler : IRequestHandler<UpdateEstateTypeCommand, Unit>
@@ -20,9 +19,7 @@
 
         public async Task<Unit> Handle(UpdateEstateTypeCommand request, CancellationToken cancellationToken)
         {
-            var estateEntity = await _repositoryManager.EstateType.GetEstateTypeAsync(request.EstateTypeId, request.TrackChanges);
-            if (estateEntity is null)
-                throw new EstateTypeNotFoundException(request.EstateTypeId);
+            var estateEntity = await CheckerForEstateType.CheckIfEstateTypeExistAndReturnIt(_repositoryManager, request.EstateTypeId, request.TrackChanges);
 
             _mapper.Map(request.EstateTypeForUpdateDto, estateEntity);
             await _repositoryManager.SaveAsync();

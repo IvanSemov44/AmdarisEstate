@@ -16,7 +16,7 @@
         
         public async Task<Unit> Handle(DeleteEstateCommand request, CancellationToken cancellationToken)
         {
-            var estate = await CheckerForEstate.CheckIfCurrencyExistAndReturnIt(_repositoryManager, request.EstateId, request.TrackChanges);
+            var estate = await CheckerForEstate.CheckIfEstateExistAndReturnIt(_repositoryManager, request.EstateId, request.TrackChanges);
 
             _repositoryManager.Estate.DeleteEstate(estate);
             await _repositoryManager.SaveAsync();

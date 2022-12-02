@@ -5,7 +5,6 @@
     using AutoMapper;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Application.Queries.EstateTypeQuery;
     using IvanRealEstate.Shared.DataTransferObject.EstateType;
 
@@ -21,9 +20,7 @@
         }
         public async Task<EstateTypeDto> Handle(GetEstateTypeQuery request, CancellationToken cancellationToken)
         {
-            var estateType = await _repositoryManager.EstateType.GetEstateTypeAsync(request.EstateTypeID, request.TrackChanges);
-            if (estateType is null)
-                throw new EstateTypeNotFoundException(request.EstateTypeID);
+            var estateType = await CheckerForEstateType.CheckIfEstateTypeExistAndReturnIt(_repositoryManager, request.EstateTypeId, request.TrackChanges);
 
             var estateTypeForReturn = _mapper.Map<EstateTypeDto>(estateType);
 
