@@ -3,7 +3,6 @@
     using MediatR;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Application.Commands.CityCommands;
 
     public sealed class DeleteCityHandler : IRequestHandler<DeleteCityCommand, Unit>
@@ -16,9 +15,7 @@
         }
         public async Task<Unit> Handle(DeleteCityCommand request, CancellationToken cancellationToken)
         {
-            var city = await _repositoryManager.City.GetCityAsync(request.Id, request.TrackChanges);
-            if (city is null)
-                throw new CityNotFoundException(request.Id);
+            var city = await CheckerForCity.CheckIfCityExistAndReturnIt(_repositoryManager, request.CityId, request.TrackChanges);
 
             _repositoryManager.City.DeleteCity(city);
             await _repositoryManager.SaveAsync();

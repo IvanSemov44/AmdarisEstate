@@ -4,7 +4,6 @@
     using AutoMapper;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Application.Commands.CityCommands;
 
     public sealed class UpdateCityHandler : IRequestHandler<UpdateCityCommand, Unit>
@@ -19,9 +18,7 @@
         }
         public async Task<Unit> Handle(UpdateCityCommand request, CancellationToken cancellationToken)
         {
-            var city = await _repositoryManager.City.GetCityAsync(request.CityId, request.TrackChanges);
-            if (city is null)
-                throw new CityNotFoundException(request.CityId);
+            var city = await CheckerForCity.CheckIfCityExistAndReturnIt(_repositoryManager, request.CityId, request.TrackChanges);
 
             _mapper.Map(request.CityForUpdateDto, city);
             await _repositoryManager.SaveAsync();

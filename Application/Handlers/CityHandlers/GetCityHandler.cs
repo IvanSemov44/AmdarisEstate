@@ -4,7 +4,6 @@
     using AutoMapper;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Shared.DataTransferObject.City;
     using IvanRealEstate.Application.Queries.CityQueties;
 
@@ -20,10 +19,7 @@
         }
         public async Task<CityDto> Handle(GetCityQuery request, CancellationToken cancellationToken)
         {
-            var city = await _repositoryManager.City.GetCityAsync(request.CityId, request.TrackChanges);
-
-            if (city is null)
-                throw new CityNotFoundException(request.CityId);
+            var city = await CheckerForCity.CheckIfCityExistAndReturnIt(_repositoryManager,request.CityId, request.TrackChanges);
 
             var cityDto = _mapper.Map<CityDto>(city);
 
