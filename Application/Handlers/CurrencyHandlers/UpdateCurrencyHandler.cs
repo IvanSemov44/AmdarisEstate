@@ -3,7 +3,6 @@
     using MediatR;
     using AutoMapper;
 
-    using IvanRealEstate.Entities;
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Application.Commands.CurrencyCommands;
 
@@ -20,9 +19,7 @@
 
         public async Task<Unit> Handle(UpdateCurrencyCommand request, CancellationToken cancellationToken)
         {
-            var currency = await _repositoryManager.Currency.GetCurrencyAsync(request.CurrencyId, request.TrackChanges);
-            if (currency is null)
-                throw new CurrencyNotFoundException(request.CurrencyId);
+            var currency = await CheckerForCurrency.CheckIfCurrencyExistAndReturnIt(_repositoryManager, request.CurrencyId, request.TrackChanges);
 
             _mapper.Map(request.CurrencyForUpdateDto, currency);
             await _repositoryManager.SaveAsync();
