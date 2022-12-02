@@ -4,7 +4,6 @@
     using AutoMapper;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Shared.DataTransferObject.Country;
     using IvanRealEstate.Application.Queries.CountryQueries;
 
@@ -21,9 +20,7 @@
         }
         public async Task<CountryDto> Handle(GetCountryQuery request, CancellationToken cancellationToken)
         {
-            var countryEntity = await _repositoryManager.Country.GetCountryAsync(request.CountryId, request.TrackChanges);
-            if (countryEntity is null)
-                throw new CountryNotFoundException(request.CountryId);
+            var countryEntity = await CheckerForCountry.CheckIfCountryExistAndReturnIt(_repositoryManager, request.CountryId, request.TrackChanges);
 
             var countryForReturn = _mapper.Map<CountryDto>(countryEntity);
 

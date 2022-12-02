@@ -15,7 +15,7 @@
         }
         public async Task<Unit> Handle(DeleteCityCommand request, CancellationToken cancellationToken)
         {
-            var city = await CheckerForCity.CheckIfCityExistAndReturnIt(_repositoryManager, request.CityId, request.TrackChanges);
+            var city = await CheckerForCity.CheckIfCityExistAndReturnIt(_repositoryManager, request.Id, request.TrackChanges);
 
             _repositoryManager.City.DeleteCity(city);
             await _repositoryManager.SaveAsync();

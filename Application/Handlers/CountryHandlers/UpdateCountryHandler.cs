@@ -4,7 +4,6 @@
     using AutoMapper;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Application.Commands.CountryCommands;
 
     public sealed class UpdateCountryHandler : IRequestHandler<UpdateCountryCommand, Unit>
@@ -20,9 +19,7 @@
         }
         public async Task<Unit> Handle(UpdateCountryCommand request, CancellationToken cancellationToken)
         {
-            var countryEntity = await _repositoryManager.Country.GetCountryAsync(request.CountryId, request.TrackChanges);
-            if (countryEntity is null)
-                throw new CountryNotFoundException(request.CountryId);
+            var countryEntity =  await CheckerForCountry.CheckIfCountryExistAndReturnIt(_repositoryManager, request.CountryId, request.TrackChanges);
 
             _mapper.Map(request.CountryForUpdateDto, countryEntity);
             await _repositoryManager.SaveAsync();
