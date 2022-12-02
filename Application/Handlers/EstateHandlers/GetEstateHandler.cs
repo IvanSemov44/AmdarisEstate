@@ -4,12 +4,11 @@
     using AutoMapper;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Application.Queries.EstateQuery;
     using IvanRealEstate.Shared.DataTransferObject.Estate;
     using IvanRealEstate.Shared.DataTransferObject.Image;
 
-    internal sealed class GetEstateHandler : IRequestHandler<GetEstateQuery, EstateDto>
+    public sealed class GetEstateHandler : IRequestHandler<GetEstateQuery, EstateDto>
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;
