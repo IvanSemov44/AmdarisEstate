@@ -39,7 +39,7 @@
         {
             var handler = new UpdateCityHandler(_mockRepo.Object,_mapper);
 
-            var result = handler.Handle(new UpdateCityCommand(_cityId, _cityForUpdateDto, true),CancellationToken.None);
+            await handler.Handle(new UpdateCityCommand(_cityId, _cityForUpdateDto, true),CancellationToken.None);
 
             var resultfromDB = await _mockRepo.Object.City.GetCityAsync(_cityId, false);
 

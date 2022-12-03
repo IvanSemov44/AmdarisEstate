@@ -23,14 +23,7 @@
         {
             var handler = new DeleteCityHandler(_mockRepo.Object);
 
-            var resultFurst = _mockRepo.Object.City.GetCityAsync(_cityId, false);
-
             await handler.Handle(new DeleteCityCommand(_cityId, false),CancellationToken.None);
-
-            var result = _mockRepo.Object.City.GetCityAsync(_cityId, false);
-
-            //Assert.False(resultFurst is null);
-            //Assert.True(result is null);
 
             _mockRepo.Verify();
         }

@@ -39,7 +39,7 @@
 
             mockRepo.Setup(r => r.City.CreateCity(It.IsAny<City>()));
 
-            mockRepo.Setup(r => r.City.DeleteCity(It.IsAny<City>()));
+            mockRepo.Setup(r => r.City.DeleteCity(It.IsAny<City>())).Verifiable();
 
             return mockRepo;
         }
