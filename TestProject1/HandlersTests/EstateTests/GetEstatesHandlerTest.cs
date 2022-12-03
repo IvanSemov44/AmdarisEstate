@@ -1,5 +1,4 @@
-﻿
-namespace IvanRealEstate.Test.HandlersTests.EstateTests
+﻿namespace IvanRealEstate.Test.HandlersTests.EstateTests
 {
     using Moq;
     using AutoMapper;

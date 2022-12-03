@@ -1,14 +1,13 @@
-﻿
-
-using AutoMapper;
-using IvanRealEstate.Application.Handlers.EstateHandlers;
-using IvanRealEstate.Application.Queries.EstateQuery;
-using IvanRealEstate.Contracts;
-using IvanRealEstate.Shared.DataTransferObject.Estate;
-using Moq;
-
-namespace IvanRealEstate.Test.HandlersTests.EstateTests
+﻿namespace IvanRealEstate.Test.HandlersTests.EstateTests
 {
+    using Moq;
+    using AutoMapper;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Shared.DataTransferObject.Estate;
+    using IvanRealEstate.Application.Queries.EstateQuery;
+    using IvanRealEstate.Application.Handlers.EstateHandlers;
+
     public class GetEstateHandlerTest
     {
         private readonly Guid _estateId;

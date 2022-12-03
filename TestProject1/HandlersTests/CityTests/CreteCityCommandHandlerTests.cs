@@ -7,26 +7,19 @@
     using IvanRealEstate.Shared.DataTransferObject.City;
     using IvanRealEstate.Application.Commands.CityCommands;
     using IvanRealEstate.Application.Handlers.CityHandlers;
+    using IvanRealEstate.Test.HandlersTests;
 
     public class CreteCityCommandHandlerTests
     {
-        private readonly Guid _cityId;
         private readonly IMapper _mapper;
         private readonly Mock<IRepositoryManager> _mockRepo;
         private readonly CityForCreationDto _cityForCreationDto;
 
         public CreteCityCommandHandlerTests()
         {
+            _mockRepo = MockCityRepository.GetCitiesRepository();
 
-            _cityId = Guid.Parse("a7811775-1316-4e2c-4241-08dad234d5b6");
-            _mockRepo = MockCityRepository.GetCitiesRepository(_cityId);
-
-            var mapperConfig = new MapperConfiguration(c =>
-            {
-                c.AddProfile<MappingProfile>();
-            });
-
-            _mapper = mapperConfig.CreateMapper();
+            _mapper = MapperConfig.Configuration();
 
             _cityForCreationDto = new CityForCreationDto
             {
@@ -44,7 +37,6 @@
             Assert.NotNull(result);
             Assert.Equal("Sofia", result.Result.CityName);
             await Assert.IsAssignableFrom<Task<CityDto>>(result);
-
         }
     }
 }
