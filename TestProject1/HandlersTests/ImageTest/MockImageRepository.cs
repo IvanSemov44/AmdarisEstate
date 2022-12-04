@@ -42,6 +42,10 @@
                 .Setup(r => r.Image.GetImageAsync(It.IsAny<Guid>(), It.IsAny<Guid>(), It.IsAny<bool>()))
                 .ReturnsAsync(estate);
 
+            mockRepo
+                .Setup(r => r.Estate.GetEstateAsync(It.IsAny<Guid>(), false))
+                .ReturnsAsync(new Estate());
+
             mockRepo.Setup(r => r.Image.CreateImage(It.IsAny<Guid>(), It.IsAny<Image>()));
 
             mockRepo.Setup(r => r.Image.DeleteImage(It.IsAny<Image>())).Verifiable();
@@ -65,7 +69,7 @@
                 {
                     ImageId = Guid.Parse("ca807a5f-ec3b-47c1-d11a-08dad236fedb"),
                     EstateId = Guid.Parse("387f6683-f763-4e0d-b35c-08dad2038670"),
-                    ImageUrl = "https://pixabay.com/images/search/real%20estate/",
+                    ImageUrl = "https://pixabay.com/images/search/real%20estate/1",
                 },
                 new Image
                 {
