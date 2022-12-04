@@ -83,7 +83,8 @@
 
             mockRepo.Setup(r => r.Estate.CreateEstate(It.IsAny<Estate>()));
 
-            mockRepo.Setup(r => r.Estate.DeleteEstate(It.IsAny<Estate>()));
+            mockRepo.Setup(r => r.Estate.DeleteEstate(It.IsAny<Estate>())).Verifiable();
+            mockRepo.Setup(r => r.SaveAsync()).Verifiable();
 
             return mockRepo;
         }
