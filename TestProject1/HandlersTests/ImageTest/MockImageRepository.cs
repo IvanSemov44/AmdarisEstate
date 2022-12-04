@@ -32,7 +32,7 @@
 
             var mockRepo = new Mock<IRepositoryManager>();
 
-            var estate = images.Where(c => c.EstateId == estateId && c.ImageId == imageId).SingleOrDefault();
+            var image = images.Where(c => c.EstateId == estateId && c.ImageId == imageId).SingleOrDefault();
 
             mockRepo
                 .Setup(r => r.Image.GetImagesAsync(It.IsAny<Guid>(), false))
@@ -40,7 +40,7 @@
 
             mockRepo
                 .Setup(r => r.Image.GetImageAsync(It.IsAny<Guid>(), It.IsAny<Guid>(), It.IsAny<bool>()))
-                .ReturnsAsync(estate);
+                .ReturnsAsync(image);
 
             mockRepo
                 .Setup(r => r.Estate.GetEstateAsync(It.IsAny<Guid>(), false))

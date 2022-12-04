@@ -8,14 +8,14 @@
     using IvanRealEstate.Application.Commands.ImageCommads;
     using IvanRealEstate.Application.Handlers.ImageHandlers;
 
-    public class CreateImageTests
+    public class CreateImageHandlerTests
     {
         private readonly Guid _estateId;
         private readonly IMapper _mapper;
         private readonly Mock<IRepositoryManager> _mockRepo;
         private readonly ImageForCreationDto _imageForCreationDto;
 
-        public CreateImageTests()
+        public CreateImageHandlerTests()
         {
             _estateId = Guid.NewGuid();
             _mapper = MapperConfig.Configuration();
@@ -31,6 +31,7 @@
         public async Task Valid_CreateImageHandler_Test()
         {
             var handler = new CreateImageHandler(_mockRepo.Object, _mapper);
+
             var result = await handler
                 .Handle(new CreateImageCommand(
                     _estateId, _imageForCreationDto, false), CancellationToken.None);
