@@ -1,10 +1,11 @@
-﻿using IvanRealEstate.Application.Commands.ImageCommads;
-using IvanRealEstate.Application.Handlers.ImageHandlers;
-using IvanRealEstate.Contracts;
-using Moq;
-
-namespace IvanRealEstate.Test.HandlersTests.ImageTest
+﻿namespace IvanRealEstate.Test.HandlersTests.ImageTest
 {
+    using Moq;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Application.Commands.ImageCommads;
+    using IvanRealEstate.Application.Handlers.ImageHandlers;
+
     public class DeleteImageHandlerTests
     {
         private readonly Guid _estateId;

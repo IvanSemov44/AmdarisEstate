@@ -10,7 +10,7 @@
         {
             var image = await repositoryManager.Image.GetImageAsync(estateId,imageId, trackChanges);
             if (image is null)
-                throw new EstateNotFoundException(imageId);
+                throw new ImageNotFoundException(imageId);
 
             return image;
         }
