@@ -7,7 +7,7 @@
     using IvanRealEstate.Application.Commands.ImageCommads;
     using IvanRealEstate.Application.Handlers.EstateHandlers;
 
-    internal sealed class UpdateImageHandler : IRequestHandler<UpdateImageCommand, Unit>
+    public sealed class UpdateImageHandler : IRequestHandler<UpdateImageCommand, Unit>
     {
 
         private readonly IMapper _mapper;

@@ -9,11 +9,11 @@
     using IvanRealEstate.Application.Commands.ImageCommads;
     using IvanRealEstate.Application.Handlers.EstateHandlers;
 
-    internal sealed class CreateImageHandler : IRequestHandler<CreateImageCommand, ImageDto>
+    public sealed class CreateImageHandler : IRequestHandler<CreateImageCommand, ImageDto>
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;
-            
+
         public CreateImageHandler(IRepositoryManager repositoryManager, IMapper mapper)
         {
             _mapper = mapper;
@@ -22,7 +22,8 @@
 
         public async Task<ImageDto> Handle(CreateImageCommand request, CancellationToken cancellationToken)
         {
-            var estate = await CheckerForEstate.CheckIfEstateExistAndReturnIt(_repositoryManager, request.EstateId, request.TrackChanges);
+            await CheckerForEstate
+               .CheckIfEstateExistAndReturnIt(_repositoryManager, request.EstateId, request.TrackChanges);
 
             var image = _mapper.Map<Image>(request.ImageForCreationDto);
 

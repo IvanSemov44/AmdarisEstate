@@ -9,7 +9,7 @@
     using IvanRealEstate.Shared.DataTransferObject.Image;
     using IvanRealEstate.Application.Handlers.EstateHandlers;
 
-    internal sealed class GetImagesHandler : IRequestHandler<GetImagesQuery, IEnumerable<ImageDto>>
+    public sealed class GetImagesHandler : IRequestHandler<GetImagesQuery, IEnumerable<ImageDto>>
     {
 
         private readonly IMapper _mapper;

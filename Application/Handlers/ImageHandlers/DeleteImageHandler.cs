@@ -6,7 +6,7 @@
     using IvanRealEstate.Application.Commands.ImageCommads;
     using IvanRealEstate.Application.Handlers.EstateHandlers;
 
-    internal sealed class DeleteImageHandler : IRequestHandler<DeleteImageCommand, Unit>
+    public sealed class DeleteImageHandler : IRequestHandler<DeleteImageCommand, Unit>
     {
         private readonly IRepositoryManager _repositoryManager;
 

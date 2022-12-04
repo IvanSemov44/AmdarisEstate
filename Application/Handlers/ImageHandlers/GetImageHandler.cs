@@ -8,7 +8,7 @@
     using IvanRealEstate.Application.Queries.ImageQuery;
     using IvanRealEstate.Application.Handlers.EstateHandlers;
 
-    internal sealed class GetImageHandler : IRequestHandler<GetImageQuery, ImageDto>
+    public sealed class GetImageHandler : IRequestHandler<GetImageQuery, ImageDto>
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;

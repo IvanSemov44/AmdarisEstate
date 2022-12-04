@@ -20,13 +20,15 @@
             _mockRepo = MockEstateRepository.EstateRepositoryForTest(_estateId);
 
             _estateInvalidId = Guid.Parse("387f6683-f763-4e0d-b35c-08dad2038679");
-            _mockRepoForInvaliEstateId = MockEstateRepository.EstateRepositoryForTest(_estateInvalidId);
+            _mockRepoForInvaliEstateId = MockEstateRepository
+                .EstateRepositoryForTest(_estateInvalidId);
         }
 
         [Fact]
         public async Task Valid_CheckIfEstateExist_Test()
         {
-            var result = await CheckerForEstate.CheckIfEstateExistAndReturnIt(_mockRepo.Object, _estateId, false);
+            var result = await CheckerForEstate
+                .CheckIfEstateExistAndReturnIt(_mockRepo.Object, _estateId, false);
 
             Assert.IsType<Estate>(result);        
         }
@@ -34,9 +36,8 @@
         [Fact]
         public async Task Invalid_CheckIfEstateExist_Test()
         {
-            await Assert.ThrowsAsync<EstateNotFoundException>(
-                () => CheckerForEstate.CheckIfEstateExistAndReturnIt(
-                    _mockRepoForInvaliEstateId.Object, _estateInvalidId, false));
+            await Assert.ThrowsAsync<EstateNotFoundException>(() => CheckerForEstate
+            .CheckIfEstateExistAndReturnIt(_mockRepoForInvaliEstateId.Object, _estateInvalidId, false));
         }
     }
 }
