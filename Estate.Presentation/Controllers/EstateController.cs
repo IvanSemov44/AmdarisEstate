@@ -7,6 +7,7 @@
     using IvanRealEstate.Application.Queries.EstateQuery;
     using IvanRealEstate.Shared.DataTransferObject.Estate;
     using IvanRealEstate.Application.Commands.EstateCommands;
+    using IvanRealEstate.Presentation.ActionFilter;
 
     [Route("api/estates")]
     [ApiController]
@@ -36,6 +37,7 @@
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateEstate([FromBody] EstateForCreationDto estateForCreationDto)
         {
             var estateForReturn = await _sender.Send(new CreateEstateCommand(estateForCreationDto));
@@ -44,6 +46,7 @@
         }
 
         [HttpPut("{estateId:guid}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateEstate(Guid estateId, [FromBody] EstateForUpdateDto estateForUpdateDto)
         {
             await _sender.Send(new UpdateEstateCommand(estateId, estateForUpdateDto, TrackChanges: true));

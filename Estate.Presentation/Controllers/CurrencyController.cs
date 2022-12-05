@@ -7,6 +7,7 @@
     using IvanRealEstate.Shared.DataTransferObject.Currency;
     using IvanRealEstate.Application.Queries.CurrencyQueries;
     using IvanRealEstate.Application.Commands.CurrencyCommands;
+    using IvanRealEstate.Presentation.ActionFilter;
 
     [Route("api/currencies")]
     [ApiController]
@@ -36,6 +37,7 @@
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateCurrency([FromBody] CurrencyForCreationDto currencyForCreationDto)
         {
             var currencyForReturn = await _sender.Send(new CreateCurrencyCommand(currencyForCreationDto));
@@ -44,6 +46,7 @@
         }
 
         [HttpPut("{currencyId:guid}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateCurrency(Guid currencyId, [FromBody] CurrencyForUpdateDto currencyForUpdateDto)
         {
             await _sender.Send(new UpdateCurrencyCommand(currencyId, currencyForUpdateDto, TrackChanges: true));

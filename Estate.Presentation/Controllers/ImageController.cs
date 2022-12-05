@@ -6,6 +6,7 @@
     using IvanRealEstate.Application.Queries.ImageQuery;
     using IvanRealEstate.Shared.DataTransferObject.Image;
     using IvanRealEstate.Application.Commands.ImageCommads;
+    using IvanRealEstate.Presentation.ActionFilter;
 
     [ApiController]
     [Route("api/estates/{estateId}/images")]
@@ -34,6 +35,7 @@
             return Ok(imageForReturn);
         }
         [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateImageForEstate(Guid estateId, [FromBody] ImageForCreationDto imageForCreationDto)
         {
             var imageForReturn = await _sender.Send(new CreateImageCommand(estateId, imageForCreationDto, TrackChanges: false));
@@ -42,6 +44,7 @@
         }
 
         [HttpPut("{imageId:guid}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateImageForEstate(Guid estateId, Guid imageId,ImageForUpdateDto imageForUpdateDto)
         {
             await _sender.Send(new UpdateImageCommand(estateId, imageId, imageForUpdateDto, EstateTrackChanges: false, ImageTrackChanges: true));

@@ -7,6 +7,7 @@
     using IvanRealEstate.Shared.DataTransferObject.EstateType;
     using IvanRealEstate.Application.Commands.EstateTypeCommands;
     using IvanRealEstate.Application.Queries.EstateTypeQuery;
+    using IvanRealEstate.Presentation.ActionFilter;
 
     [Route("api/estatetypes")]
     [ApiController]
@@ -36,6 +37,7 @@
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateEstateType([FromBody] EstateTypeForCreationDto estateTypeForCreationDto)
         {
             var estateTypeForReturn = await _sender.Send(new CreateEstateTypeCommand(estateTypeForCreationDto));
@@ -44,6 +46,7 @@
         }
 
         [HttpPut("{estateTypeId:guid}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateEstateType(Guid estateTypeId, [FromBody] EstateTypeForUpdateDto estateTypeForUpdateDto)
         {
             await _sender.Send(new UpdateEstateTypeCommand(estateTypeId, estateTypeForUpdateDto, TrackChanges: true));
