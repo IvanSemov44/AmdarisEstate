@@ -1,10 +1,12 @@
 ﻿namespace IvanRealEstate.Presentation.Controllers
 {
-    using Application.Commands.CountryCommands;
-    using Application.Queries.CountryQueries;
     using MediatR;
     using Microsoft.AspNetCore.Mvc;
-    using Shared.DataTransferObject.Country;
+
+    using IvanRealEstate.Presentation.ActionFilter;
+    using IvanRealEstate.Shared.DataTransferObject.Country;
+    using IvanRealEstate.Application.Queries.CountryQueries;
+    using IvanRealEstate.Application.Commands.CountryCommands;
 
     [Route("api/countries")]
     [ApiController]
@@ -34,6 +36,7 @@
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateCountry(CountryForCreationDto countryForCreationDto)
         {
             var createdCountry = await _sender.Send(new CreateCountryCommand(countryForCreationDto));
@@ -42,6 +45,7 @@
         }
 
         [HttpPut("{countryId:guid}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateCountry(Guid countryId, [FromBody] CountryForUpdateDto countryForUpdateDto)
         {
             await _sender.Send(new UpdateCountryCommand(countryId, countryForUpdateDto, TrackChanges: true));
