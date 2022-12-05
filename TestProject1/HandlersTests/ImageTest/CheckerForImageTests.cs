@@ -1,11 +1,12 @@
-﻿using IvanRealEstate.Application.Handlers.ImageHandlers;
-using IvanRealEstate.Contracts;
-using IvanRealEstate.Entities.Exceptions;
-using IvanRealEstate.Entities.Models;
-using Moq;
-
-namespace IvanRealEstate.Test.HandlersTests.ImageTest
+﻿namespace IvanRealEstate.Test.HandlersTests.ImageTest
 {
+    using Moq;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.Models;
+    using IvanRealEstate.Entities.Exceptions;
+    using IvanRealEstate.Application.Handlers.ImageHandlers;
+
     public class CheckerForImageTests
     {
         private readonly Guid _imageId;

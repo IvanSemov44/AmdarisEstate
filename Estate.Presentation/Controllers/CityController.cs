@@ -2,6 +2,7 @@
 {
     using Application.Commands.CityCommands;
     using Application.Queries.CityQueties;
+    using IvanRealEstate.Presentation.ActionFilter;
     using MediatR;
     using Microsoft.AspNetCore.Mvc;
     using Shared.DataTransferObject.City;
@@ -34,6 +35,7 @@
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateCity([FromBody] CityForCreationDto cityForCreationDto)
         {
             var createdCity = await _sender.Send(new CreateCityCommand(cityForCreationDto));
@@ -42,6 +44,7 @@
         }
 
         [HttpPut("{id:guid}", Name = "UpdateCityById")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateCityById(Guid id, [FromBody] CityForUpdateDto cityForUpdateDto)
         {
             await _sender.Send(new UpdateCityCommand(id, cityForUpdateDto, TrackChanges: true));

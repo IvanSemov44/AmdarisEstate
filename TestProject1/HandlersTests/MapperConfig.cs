@@ -6,11 +6,6 @@ namespace IvanRealEstate.Test.HandlersTests
     public static class MapperConfig
     {
         public static IMapper Configuration() =>
-            new MapperConfiguration(e =>
-        {
-            e.AddProfile<MappingProfile>();
-        }).CreateMapper();
-
-
+            new MapperConfiguration(e =>e.AddProfile<MappingProfile>()).CreateMapper();
     }
 }

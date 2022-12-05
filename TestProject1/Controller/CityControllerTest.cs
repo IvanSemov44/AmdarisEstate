@@ -34,6 +34,15 @@ namespace IvanRealEstate.Test.Controller
             Assert.IsType<OkObjectResult>(result);
         }
 
+        [Fact]
+        public async void GetCity_ActionExecute_ReturnNotOkObjectResultForGetCity()
+        {
+            var guid = new Guid("35db1981-7501-45bd-e3bd-08dacfa02b23");
+            var result = await _controller.GetCity(guid);
+           
+            Assert.IsType<OkObjectResult>(result);
+        }
+
         //[Fact]
         //public async void GetCities_ActionExecute_ReturnExactNumberOfCities()
         //{
