@@ -4,10 +4,13 @@
 
     using Microsoft.AspNetCore.Mvc;
 
+    using System.Text.Json;
+
     using IvanRealEstate.Application.Queries.EstateQuery;
     using IvanRealEstate.Shared.DataTransferObject.Estate;
     using IvanRealEstate.Application.Commands.EstateCommands;
     using IvanRealEstate.Presentation.ActionFilter;
+    using IvanRealEstate.Shared.RequestFeatures;
 
     [Route("api/estates")]
     [ApiController]
@@ -20,11 +23,11 @@
         }
 
 
-        [HttpGet("{estateId:guid}",Name ="GetEstate")]
+        [HttpGet("{estateId:guid}", Name = "GetEstate")]
         public async Task<IActionResult> GetEstate(Guid estateId)
         {
-            var estateForReturn = await _sender.Send(new GetEstateQuery(estateId, TrackChanges:false));
-            
+            var estateForReturn = await _sender.Send(new GetEstateQuery(estateId, TrackChanges: false));
+
             return Ok(estateForReturn);
         }
 
@@ -36,13 +39,25 @@
             return Ok(estatesForReturn);
         }
 
+        [Route("page")]
+        [HttpGet]
+        public async Task<IActionResult> GetEstateByPage([FromQuery] EstateParameters estateParameters)
+        {
+
+            var pagedResult = await _sender.Send(new GetEstatesByPageQuery(estateParameters, TrackChanges: false));
+
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.metaData));
+
+            return Ok(pagedResult.estatesDto);
+        }
+
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateEstate([FromBody] EstateForCreationDto estateForCreationDto)
         {
             var estateForReturn = await _sender.Send(new CreateEstateCommand(estateForCreationDto));
 
-            return CreatedAtRoute("GetEstate", new { estateId= estateForReturn.EstateId },estateForReturn);
+            return CreatedAtRoute("GetEstate", new { estateId = estateForReturn.EstateId }, estateForReturn);
         }
 
         [HttpPut("{estateId:guid}")]
@@ -57,7 +72,7 @@
         [HttpDelete("{estateId:guid}")]
         public async Task<IActionResult> DeleteEstate(Guid estateId)
         {
-           await _sender.Send(new DeleteEstateCommand(estateId, TrackChanges: false));
+            await _sender.Send(new DeleteEstateCommand(estateId, TrackChanges: false));
 
             return Ok();
         }
