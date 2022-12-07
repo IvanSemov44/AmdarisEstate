@@ -5,6 +5,7 @@
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Entities.Models;
     using IvanRealEstate.Shared.RequestFeatures;
+    using IvanRealEstate.Repository.Extensions;
 
     public class EstateRepository : RepositoryBase<Estate>, IEstateRepository
     {
@@ -21,16 +22,20 @@
         public async Task<PagedList<Estate>> GetEstatesForPageAsync
             (EstateParameters estateParameters, bool trackChanges)
         {
-          var estates = await FindAll(trackChanges)
-            .Include(b => b.Images)
-            .OrderBy(e => e.Created)
-            .Skip((estateParameters.PageNumber - 1) * estateParameters.PageSize)
-            .Take(estateParameters.PageSize)
-            .ToListAsync();
+            var estates = await FindAll(trackChanges)
+                .FilterEstate(estateParameters)
+                .Search(estateParameters.SearchTerm)
+                .Include(b => b.Images)
+                .OrderBy(e => e.Created)
+                .Skip((estateParameters.PageNumber - 1) * estateParameters.PageSize)
+                .Take(estateParameters.PageSize)
+                .ToListAsync();
 
-            var count = await FindAll(trackChanges).CountAsync();
+            var count = await FindAll(trackChanges)
+                .FilterEstate(estateParameters)
+                .Search(estateParameters.SearchTerm).CountAsync();
 
-            return new PagedList<Estate>(estates,count, estateParameters.PageNumber, estateParameters.PageSize);
+            return new PagedList<Estate>(estates, count, estateParameters.PageNumber, estateParameters.PageSize);
         }
 
         public async Task<Estate?> GetEstateAsync(Guid estateId, bool trackChanges) =>

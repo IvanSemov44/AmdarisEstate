@@ -4,9 +4,9 @@
     using AutoMapper;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Application.Queries.EstateQuery;
-    using IvanRealEstate.Shared.DataTransferObject.Estate;
     using IvanRealEstate.Shared.RequestFeatures;
+    using IvanRealEstate.Shared.DataTransferObject.Estate;
+    using IvanRealEstate.Application.Queries.EstateQuery;
 
     internal sealed class GetEstatesByPage
         : IRequestHandler<GetEstatesByPageQuery, (IEnumerable<EstateDto> estatesDto, MetaData? metaData)>
@@ -22,6 +22,9 @@
 
         public async Task<(IEnumerable<EstateDto> estatesDto, MetaData? metaData)> Handle(GetEstatesByPageQuery request, CancellationToken cancellationToken)
         {
+            if (!request.EstateParameters.ValidYearRange)
+                throw new MaxYearRangeBadRequestException();
+
             var estatesWithMetaData = await _repositoryManager.Estate
                 .GetEstatesForPageAsync(request.EstateParameters, request.TrackChanges);
 
