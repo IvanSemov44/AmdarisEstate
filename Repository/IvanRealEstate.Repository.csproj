@@ -8,11 +8,16 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.23" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Contracts\IvanRealEstate.Contracts.csproj" />
     <ProjectReference Include="..\Entitities\IvanRealEstate.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\Utility\" />
   </ItemGroup>
 
 </Project>

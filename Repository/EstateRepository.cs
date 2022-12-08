@@ -26,7 +26,7 @@
                 .FilterEstate(estateParameters)
                 .Search(estateParameters.SearchTerm)
                 .Include(b => b.Images)
-                .OrderBy(e => e.Created)
+                .Sort(estateParameters.OrderBy)
                 .Skip((estateParameters.PageNumber - 1) * estateParameters.PageSize)
                 .Take(estateParameters.PageSize)
                 .ToListAsync();

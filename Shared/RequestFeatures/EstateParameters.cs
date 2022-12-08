@@ -2,6 +2,8 @@
 {
     public class EstateParameters : RequestParameters
     {
+        public EstateParameters() => OrderBy = "created";
+
         public uint MinYear { get; set; }
         public uint MaxYear { get; set; } = int.MaxValue;
 
