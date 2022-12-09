@@ -1,7 +1,8 @@
 ﻿namespace IvanRealEstate
 {
     using AutoMapper;
-    using Entities.Models;
+
+    using IvanRealEstate.Entities.Models;
 
     using IvanRealEstate.Shared.DataTransferObject;
     using IvanRealEstate.Shared.DataTransferObject.City;

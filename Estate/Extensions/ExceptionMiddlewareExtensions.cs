@@ -1,9 +1,10 @@
 ﻿namespace IvanRealEstate.Extensions
 {
-    using Contracts;
-    using Entities.ErrorModel;
-    using Entities.Exceptions;
     using Microsoft.AspNetCore.Diagnostics;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.ErrorModel;
+    using IvanRealEstate.Entities.Exceptions;
 
     public static class ExceptionMiddlewareExtensions
     {

@@ -1,8 +1,9 @@
 ﻿namespace IvanRealEstate.Extensions
 {
+    using Microsoft.EntityFrameworkCore;
+
     using IvanRealEstate.Contracts;
     using IvanRealEstate.LoggerService;
-    using Microsoft.EntityFrameworkCore;
     using IvanRealEstate.Repository;
 
     public static class ServiceExtensions
@@ -11,10 +12,11 @@
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy", bulder =>
-                bulder.AllowAnyOrigin()
-                .AllowAnyMethod()
+                bulder.WithOrigins("http://localhost:3000")
                 .AllowAnyHeader()
-                .WithExposedHeaders("X-Pagination"));
+                .WithExposedHeaders("X-Pagination")
+                .AllowAnyMethod()
+                .SetIsOriginAllowedToAllowWildcardSubdomains());
             });
 
         public static void ConfigureIISIntegration(this IServiceCollection services) =>

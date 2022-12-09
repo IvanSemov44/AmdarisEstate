@@ -2,7 +2,8 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Design;
-    using Repository;
+
+    using IvanRealEstate.Repository;
 
     public class RepositoryContextFactory : IDesignTimeDbContextFactory<RepositoryContext>
     {

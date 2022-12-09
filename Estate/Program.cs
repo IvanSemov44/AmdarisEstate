@@ -47,15 +47,17 @@ if (app.Environment.IsProduction())
 
 // Configure the HTTP request pipeline.
 
-app.UseHttpsRedirection();
 
 app.UseStaticFiles();
+
 app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.All
 });
 
-//app.UseCors("CorsPolicy");
+app.UseRouting();
+
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 
