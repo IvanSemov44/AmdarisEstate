@@ -11,7 +11,7 @@
         {
             new Currency
             {
-                CurrencyId = Guid.NewGuid(),
+                CurrencyId = Guid.Parse("4bb67d01-13cb-47d5-d499-08dad1453af0"),
                 CurrencyName = "Euro"
             },
             new Currency
