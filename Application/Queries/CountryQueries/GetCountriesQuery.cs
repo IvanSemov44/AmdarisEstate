@@ -3,5 +3,5 @@
     using MediatR;
     using IvanRealEstate.Shared.DataTransferObject.Country;
 
-    public sealed record GetCountriesQuiry(bool TrackChanges) : IRequest<IEnumerable<CountryDto>>;
+    public sealed record GetCountriesQuery(bool TrackChanges) : IRequest<IEnumerable<CountryDto>>;
 }

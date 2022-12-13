@@ -32,7 +32,7 @@
 
             var city = cities.Where(c => c.CityId == cityId).SingleOrDefault();
 
-            mockRepo.Setup(r => r.City.GetCitiesAsync(false)).ReturnsAsync(cities);
+            mockRepo.Setup(r => r.City.GetCitiesAsync(It.IsAny<bool>())).ReturnsAsync(cities);
 
             mockRepo.Setup(r => r.City.GetCityAsync(It.IsAny<Guid>(), It.IsAny<bool>()))
                 .ReturnsAsync(city);

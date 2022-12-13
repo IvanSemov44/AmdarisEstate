@@ -10,21 +10,13 @@
 
     public class GetEstatesHandlerTest
     {
-        private readonly Guid _estateId;
         private readonly IMapper _mapper;
         private readonly Mock<IRepositoryManager> _mockRepo;
 
         public GetEstatesHandlerTest()
         {
-            _estateId = Guid.Parse("387f6683-f763-4e0d-b35c-08dad2038670");
-
-            _mockRepo = MockEstateRepository.EstateRepositoryForTest(_estateId);
-
-            var mapperConfig = new MapperConfiguration(m =>
-            {
-                m.AddProfile<MappingProfile>();
-            });
-            _mapper = mapperConfig.CreateMapper();
+            _mapper = MapperConfig.Configuration();
+            _mockRepo = MockEstateRepository.EstateRepositoryForTest();
         }
 
         [Fact]

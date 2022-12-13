@@ -30,7 +30,7 @@
         [HttpGet]
         public async Task<IActionResult> GetCountries()
         {
-            var countries = await _sender.Send(new GetCountriesQuiry(TrackChanges: false));
+            var countries = await _sender.Send(new GetCountriesQuery(TrackChanges: false));
 
             return Ok(countries);
         }

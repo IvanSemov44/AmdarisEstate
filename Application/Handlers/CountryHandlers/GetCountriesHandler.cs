@@ -7,7 +7,7 @@
     using IvanRealEstate.Application.Queries.CountryQueries;
     using IvanRealEstate.Shared.DataTransferObject.Country;
 
-    public sealed class GetCountriesHandler : IRequestHandler<GetCountriesQuiry, IEnumerable<CountryDto>>
+    public sealed class GetCountriesHandler : IRequestHandler<GetCountriesQuery, IEnumerable<CountryDto>>
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;
@@ -18,7 +18,7 @@
             _repositoryManager = repositoryManager;
         }
 
-        public async Task<IEnumerable<CountryDto>> Handle(GetCountriesQuiry request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<CountryDto>> Handle(GetCountriesQuery request, CancellationToken cancellationToken)
         {
             var countries = await _repositoryManager.Country.GetCountriesAsync(request.TrackChanges);
 

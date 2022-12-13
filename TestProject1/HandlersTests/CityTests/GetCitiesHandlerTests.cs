@@ -39,9 +39,5 @@
             //Assert.Collection<CityDto>(result, 3);
             Assert.True(result.Count() == 3);
         }
-
-
-
-
     }
 }
