@@ -11,7 +11,7 @@
             {
                 new Country
                 {
-                    CountryId = Guid.NewGuid(),
+                    CountryId = Guid.Parse("f8c5ce88-54ee-4feb-9605-08dad0620656"),
                     CountryName = "Bulgaria"
                 },
                 new Country
