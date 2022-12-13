@@ -8,7 +8,7 @@
     using IvanRealEstate.Shared.DataTransferObject.Currency;
     using IvanRealEstate.Application.Commands.CurrencyCommands;
 
-    internal sealed class CreateCurrencyHandler : IRequestHandler<CreateCurrencyCommand, CurrencyDto>
+    public sealed class CreateCurrencyHandler : IRequestHandler<CreateCurrencyCommand, CurrencyDto>
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;
