@@ -32,7 +32,7 @@
 
             var country = countries.Where(c => c.CountryId == countryId).SingleOrDefault();
 
-            mockRepo.Setup(r => r.Country.GetCountryAsync(It.IsAny<Guid>(), It.IsAny<bool>()))
+            mockRepo.Setup(r => r.Country.GetCountryAsync(countryId, It.IsAny<bool>()))
                 .ReturnsAsync(country);
 
             mockRepo.Setup(r => r.Country.CreateCountry(It.IsAny<Country>()));

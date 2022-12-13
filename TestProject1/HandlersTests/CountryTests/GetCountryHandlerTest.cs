@@ -11,14 +11,12 @@
     public class GetCountryHandlerTest
     {
         private readonly Guid _countryId;
-        private readonly Guid _incorrectCountryId;
         private readonly IMapper _mapper;
         private readonly Mock<IRepositoryManager> _mockRepo;
 
         public GetCountryHandlerTest()
         {
             _countryId = Guid.Parse("f8c5ce88-54ee-4feb-9605-08dad0620656");
-            _incorrectCountryId = Guid.Parse("f8c5ce88-54ee-4feb-9605-08dad0620655");
             _mapper = MapperConfig.Configuration();
             _mockRepo = MockCountryRepository.GetCountryRespository(_countryId);
         }

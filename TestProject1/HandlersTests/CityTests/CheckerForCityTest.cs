@@ -31,7 +31,8 @@
         {
             var id = Guid.Parse("a7811775-1316-4e2c-4241-08dad234d5b7");
 
-            Assert.ThrowsAsync<CityNotFoundException>(() => CheckerForCity.CheckIfCityExistAndReturnIt(_mockRepo.Object, id, false));
+            Assert.ThrowsAsync<CityNotFoundException>(() => 
+            CheckerForCity.CheckIfCityExistAndReturnIt(_mockRepo.Object, id, false));
         }
     }
 }
