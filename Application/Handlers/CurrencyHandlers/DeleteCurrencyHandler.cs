@@ -5,7 +5,7 @@
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Application.Commands.CurrencyCommands;
 
-    internal sealed class DeleteCurrencyHandler : IRequestHandler<DeleteCurrencyCommand, Unit>
+    public sealed class DeleteCurrencyHandler : IRequestHandler<DeleteCurrencyCommand, Unit>
     {
 
         private readonly IRepositoryManager _repositoryManager;
