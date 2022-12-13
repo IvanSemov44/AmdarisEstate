@@ -6,7 +6,7 @@
     using IvanRealEstate.Shared.DataTransferObject.Currency;
     using IvanRealEstate.Application.Queries.CurrencyQueries;
 
-    internal sealed class GetCurrenciesHandler : IRequestHandler<GetCurrenciesQuery, IEnumerable<CurrencyDto>>
+    public sealed class GetCurrenciesHandler : IRequestHandler<GetCurrenciesQuery, IEnumerable<CurrencyDto>>
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;
