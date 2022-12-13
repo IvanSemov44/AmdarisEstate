@@ -6,7 +6,7 @@
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Application.Commands.CurrencyCommands;
 
-    internal sealed class UpdateCurrencyHandler : IRequestHandler<UpdateCurrencyCommand, Unit>
+    public sealed class UpdateCurrencyHandler : IRequestHandler<UpdateCurrencyCommand, Unit>
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;
