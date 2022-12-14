@@ -34,7 +34,6 @@
 
             mockRepo.Setup(r => r.EstateType.GetEstateTypeAsync(It.IsAny<Guid>(), It.IsAny<bool>()))
                 .ReturnsAsync(estate);
-            mockRepo.Setup(r => r.EstateType.CreateEstateType(It.IsAny<EstateType>()));
             mockRepo.Setup(r => r.EstateType.DeleteEstateType(It.IsAny<EstateType>())).Verifiable();
             mockRepo.Setup(r => r.SaveAsync()).Verifiable();
 
@@ -47,6 +46,7 @@
 
             mockRepo.Setup(r => r.EstateType.GetEstateTypesAsync(It.IsAny<bool>()))
                 .ReturnsAsync(estateTypes);
+            mockRepo.Setup(r => r.EstateType.CreateEstateType(It.IsAny<EstateType>()));
 
             return mockRepo;
         }
