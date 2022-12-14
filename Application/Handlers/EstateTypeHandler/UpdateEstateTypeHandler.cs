@@ -6,7 +6,7 @@
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Application.Commands.EstateTypeCommands;
 
-    internal sealed class UpdateEstateTypeHandler : IRequestHandler<UpdateEstateTypeCommand, Unit>
+    public sealed class UpdateEstateTypeHandler : IRequestHandler<UpdateEstateTypeCommand, Unit>
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;
