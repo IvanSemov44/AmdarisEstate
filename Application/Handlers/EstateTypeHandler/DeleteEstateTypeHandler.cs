@@ -5,7 +5,7 @@
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Application.Commands.EstateTypeCommands;
 
-    internal sealed class DeleteEstateTypeHandler : IRequestHandler<DeleteEstateTypeCommand, Unit>
+    public sealed class DeleteEstateTypeHandler : IRequestHandler<DeleteEstateTypeCommand, Unit>
     {
         private readonly IRepositoryManager _repositoryManager;
 

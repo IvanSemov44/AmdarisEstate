@@ -27,8 +27,8 @@
         [Fact]
         public async Task Valid_DeleteEstate_Test()
         {
-            var handler = new DeleteEstateHandler(_mockRepo.Object);
-            await handler.Handle(new DeleteEstateCommand(_estateId, false), CancellationToken.None);
+            await new DeleteEstateHandler(_mockRepo.Object)
+                .Handle(new DeleteEstateCommand(_estateId, false), CancellationToken.None);
 
             _mockRepo.Verify();
         }
