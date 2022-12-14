@@ -8,7 +8,7 @@
     using IvanRealEstate.Application.Queries.EstateTypeQuery;
     using IvanRealEstate.Shared.DataTransferObject.EstateType;
 
-    internal sealed class GetEstateTypeHandler : IRequestHandler<GetEstateTypeQuery, EstateTypeDto>
+    public sealed class GetEstateTypeHandler : IRequestHandler<GetEstateTypeQuery, EstateTypeDto>
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;

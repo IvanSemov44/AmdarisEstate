@@ -11,7 +11,7 @@
         {
             new EstateType
             {
-                EstateTypeId = Guid.NewGuid(),
+                EstateTypeId = Guid.Parse("f9fec971-f109-4679-0c67-08dad1555662"),
                 TypeName = "Apartment"
             },
             new EstateType
