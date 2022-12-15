@@ -66,7 +66,7 @@
         {
             await _sender.Send(new UpdateEstateCommand(estateId, estateForUpdateDto, TrackChanges: true));
 
-            return Ok();
+            return NoContent();
         }
 
         [HttpDelete("{estateId:guid}")]
@@ -74,7 +74,7 @@
         {
             await _sender.Send(new DeleteEstateCommand(estateId, TrackChanges: false));
 
-            return Ok();
+            return NoContent();
         }
     }
 }
