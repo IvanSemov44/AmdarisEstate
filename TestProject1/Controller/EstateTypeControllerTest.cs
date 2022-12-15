@@ -1,6 +1,4 @@
-﻿
-
-namespace IvanRealEstate.Test.Controller
+﻿namespace IvanRealEstate.Test.Controller
 {
     using Moq;
     using MediatR;

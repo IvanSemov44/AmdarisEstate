@@ -49,7 +49,7 @@
         {
             await _sender.Send(new UpdateImageCommand(estateId, imageId, imageForUpdateDto, EstateTrackChanges: false, ImageTrackChanges: true));
 
-            return Ok();
+            return NoContent();
         }
 
         [HttpDelete("{imageId:guid}")]
@@ -57,7 +57,7 @@
         {
             await _sender.Send(new DeleteImageCommand(estateId, imageId, TrackChanges: false));
 
-            return Ok();
+            return NoContent();
         }
     }
 }
