@@ -2,17 +2,18 @@
 {
     using Moq;
     using MediatR;
+    using System.Net;
     using Microsoft.AspNetCore.Mvc;
 
     using IvanRealEstate.Presentation.Controllers;
     using IvanRealEstate.Application.Queries.CityQueties;
     using IvanRealEstate.Shared.DataTransferObject.City;
+    using IvanRealEstate.Application.Commands.CityCommands;
 
     public class CityControllerTest
     {
         private readonly Mock<IMediator> _mockRepo;
         private readonly CityController _controller;
-
 
         public CityControllerTest()
         {
@@ -80,9 +81,81 @@
             var result = await _controller.GetCity(cityId);
 
             var resultObjerct = Assert.IsType<OkObjectResult>(result);
-            Assert.Equal("Varna",(resultObjerct.Value as CityDto)?.CityName);
+            Assert.Equal((int)HttpStatusCode.OK, resultObjerct.StatusCode);
+            Assert.Equal("Varna", (resultObjerct.Value as CityDto)?.CityName);
             Assert.Equal(guid.ToString(), cityId.ToString());
         }
+
+        [Fact]
+        public async Task Create_ActionExecure_ReturnCreatedAtRouteResult()
+        {
+            _mockRepo.Setup(r => r.Send(
+                It.IsAny<CreateCityCommand>(),
+                It.IsAny<CancellationToken>()))
+                  .ReturnsAsync(
+                    new CityDto
+                    {
+                        CityId = Guid.NewGuid(),
+                        CityName = "Varna"
+                    }
+                 );
+
+            var city = new CityForCreationDto { CityName = "Varna" };
+
+            var result = await _controller.CreateCity(city);
+
+            var resultRouteStatus = (result as CreatedAtRouteResult)?.StatusCode;
+            var resultRouteDto = ((result as CreatedAtRouteResult)?.Value as CityDto);
+
+            Assert.IsType<CreatedAtRouteResult>(result);
+            Assert.True((int)HttpStatusCode.Created == resultRouteStatus);
+            Assert.True(resultRouteDto?.CityName == city.CityName);
+        }
+
+        [Fact]
+        public async Task Update_ActionExecure_ReturnNoContentResult()
+        {
+            var id = Guid.NewGuid();
+            var city = new CityForUpdateDto { CityName = "Varna" };
+
+            var result = await _controller.UpdateCityById(id, city);
+
+            _mockRepo.Verify(r => r.Send(
+                It.IsAny<UpdateCityCommand>(),
+                It.IsAny<CancellationToken>()), Times.Once);
+
+            Assert.IsType<NoContentResult>(result);
+        }
+
+        [Fact]
+        public async Task Delete_ActionExecure_ReturnNoContentResult()
+        {
+            var id = Guid.NewGuid();
+
+            var result = await _controller.DeleteCityById(id);
+
+            _mockRepo.Verify(r => r.Send(
+                It.IsAny<DeleteCityCommand>(),
+                It.IsAny<CancellationToken>()), Times.Once);
+
+            Assert.IsType<NoContentResult>(result);
+        }
+
+
+        //[Fact]
+        //public async Task CreateCity_InvalidModelState_CreateCityNeverExecutes()
+        //{
+        //    var city = new CityForCreationDto { CityName = null};
+
+        //    var result = await _controller.CreateCity(city);
+
+        //    _mockRepo.Verify(x => x.Send(
+        //        It.IsAny<CreateCityCommand>(),
+        //        It.IsAny<CancellationToken>()),
+        //        Times.Never);
+
+        //    //Assert.Equal(422, resul);
+        //}
 
 
 
