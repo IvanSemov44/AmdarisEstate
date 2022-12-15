@@ -51,7 +51,7 @@
         {
             await _sender.Send(new UpdateCurrencyCommand(currencyId, currencyForUpdateDto, TrackChanges: true));
             
-            return Ok();
+            return NoContent();
         }
 
         [HttpDelete("{currencyId:guid}")]
@@ -59,9 +59,7 @@
         {
             await _sender.Send(new DeleteCurrencyCommand(currencyId, TrackChanges: false));
 
-            return Ok();
+            return NoContent();
         }
-
-
     }
 }
