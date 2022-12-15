@@ -51,14 +51,14 @@
         {
             await _sender.Send(new UpdateEstateTypeCommand(estateTypeId, estateTypeForUpdateDto, TrackChanges: true));
 
-            return Ok();
+            return NoContent();
         }
         [HttpDelete("{estateTypeId:guid}")]
         public async Task<IActionResult> DeleteEstateType(Guid estateTypeId)
         {
             await _sender.Send(new DeleteEstateTypeCommand(estateTypeId, TrackChanges: false));
 
-            return Ok();
+            return NoContent();
         }
     }
 }
