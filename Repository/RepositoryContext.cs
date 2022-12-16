@@ -12,9 +12,9 @@
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.ApplyConfiguration(new CompanyConfiguration());
-            //modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
-            //modelBuilder.ApplyConfiguration(new CityConfiguration());
+            modelBuilder.ApplyConfiguration(new CompanyConfiguration());
+            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
+            modelBuilder.ApplyConfiguration(new CityConfiguration());
         }
 
 
