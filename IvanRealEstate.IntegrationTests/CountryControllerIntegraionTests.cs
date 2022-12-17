@@ -91,7 +91,7 @@
         }
 
         [TestMethod]
-        public async Task PostCountry_ReturnCreatedBook()
+        public async Task PostCountry_ReturnCreatedCountry()
         {
             var country = new CountryForCreationDto { CountryName = "England" };
             var client = _factory.CreateClient();

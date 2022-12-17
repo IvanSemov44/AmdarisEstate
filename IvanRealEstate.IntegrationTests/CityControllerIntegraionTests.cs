@@ -91,7 +91,7 @@ namespace IvanRealEstate.IntegrationTests
         }
 
         [TestMethod]
-        public async Task PostCity_ReturnCreatedBook()
+        public async Task PostCity_ReturnCreatedCity()
         {
             var city = new CityForCreationDto { CityName = "Plovdiv" };
             var client = _factory.CreateClient();

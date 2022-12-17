@@ -16,6 +16,8 @@
             modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
             modelBuilder.ApplyConfiguration(new CityConfiguration());
             modelBuilder.ApplyConfiguration(new CountryConfiguration());
+            modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
+            modelBuilder.ApplyConfiguration(new EstateTypeConfiguration ());
         }
 
 
