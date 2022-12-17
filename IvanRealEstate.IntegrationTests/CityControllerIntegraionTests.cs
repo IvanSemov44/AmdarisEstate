@@ -131,7 +131,7 @@ namespace IvanRealEstate.IntegrationTests
         [TestMethod]
         public async Task PutCity_ReturnNoContent()
         {
-            var city = new CityForCreationDto { CityName = "Plovdiv" };
+            var city = new CityForUpdateDto { CityName = "Plovdiv" };
             var guid = Guid.Parse("ecab16f0-779a-4c87-994e-cb20b041cb91");
 
             var client = _factory.CreateClient();
@@ -144,7 +144,7 @@ namespace IvanRealEstate.IntegrationTests
         [TestMethod]
         public async Task PutCity_ReturnNotFound()
         {
-            var city = new CityForCreationDto { CityName = "Plovdiv" };
+            var city = new CityForUpdateDto { CityName = "Plovdiv" };
             var guid = Guid.Parse("ecab16f0-779a-4c87-994e-cb20b041cb92");
 
             var client = _factory.CreateClient();
@@ -169,7 +169,7 @@ namespace IvanRealEstate.IntegrationTests
         [TestMethod]
         public async Task PutCity_ReturnUnprocessableEntity()
         {
-            var city = new CityForCreationDto { CityName = null };
+            var city = new CityForUpdateDto { CityName = null };
             var guid = Guid.Parse("ecab16f0-779a-4c87-994e-cb20b041cb92");
 
             var client = _factory.CreateClient();
