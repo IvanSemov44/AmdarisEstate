@@ -1,13 +1,14 @@
-﻿using IvanRealEstate.IntegrationTests.Helpers;
-using IvanRealEstate.Repository;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.Data.Sqlite;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace IvanRealEstate.IntegrationTests
+﻿namespace IvanRealEstate.IntegrationTests
 {
+    using IvanRealEstate.Repository;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Mvc.Testing;
+    using Microsoft.Data.Sqlite;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.DependencyInjection;
+
+    using IvanRealEstate.IntegrationTests.Helpers;
+
     public class TestingWebAppFactory<TEntryPoin> 
         : WebApplicationFactory<Program> where TEntryPoin : Program
     {
