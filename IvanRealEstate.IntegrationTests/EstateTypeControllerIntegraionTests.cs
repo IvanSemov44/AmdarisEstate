@@ -1,6 +1,5 @@
 ﻿namespace IvanRealEstate.IntegrationTests
 {
-
     using System.Net;
     using System.Text;
     using Newtonsoft.Json;

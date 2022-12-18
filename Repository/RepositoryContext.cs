@@ -17,7 +17,9 @@
             modelBuilder.ApplyConfiguration(new CityConfiguration());
             modelBuilder.ApplyConfiguration(new CountryConfiguration());
             modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
-            modelBuilder.ApplyConfiguration(new EstateTypeConfiguration ());
+            modelBuilder.ApplyConfiguration(new EstateTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new ImageConfiguration());
+            modelBuilder.ApplyConfiguration(new EstateConfiguration());
         }
 
 
