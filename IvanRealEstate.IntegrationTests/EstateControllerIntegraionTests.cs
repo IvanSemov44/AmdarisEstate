@@ -1,14 +1,13 @@
-﻿using IvanRealEstate.Shared.DataTransferObject.City;
-using IvanRealEstate.Shared.DataTransferObject.Estate;
-using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
-using System;
-using System.Net;
-using System.Text;
-
-namespace IvanRealEstate.IntegrationTests
+﻿namespace IvanRealEstate.IntegrationTests
 {
+
+    using System.Net;
+    using System.Text;
+    using Newtonsoft.Json;
+    using Microsoft.AspNetCore.Mvc.Testing;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using IvanRealEstate.Shared.DataTransferObject.Estate;
+
     [TestClass]
     public class EstateControllerIntegraionTests
     {
