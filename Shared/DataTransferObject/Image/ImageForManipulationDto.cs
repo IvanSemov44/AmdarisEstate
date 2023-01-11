@@ -6,5 +6,7 @@ namespace IvanRealEstate.Shared.DataTransferObject.Image
     {
         [Required(ErrorMessage = "ImageUrl is a required field.")]
         public string? ImageUrl { get; init; }
+        public bool? DefaultImg { get; set; }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace IvanRealEstate.Shared.DataTransferObject.Estate
+﻿    namespace IvanRealEstate.Shared.DataTransferObject.Estate
 {
     using IvanRealEstate.Shared.DataTransferObject.Image;
     using System.ComponentModel.DataAnnotations;
@@ -34,6 +34,8 @@
         public string? Extras { get; init; }
 
         public bool Sell { get; init; }
+
+        public double? EstateArea { get; set; }
 
         public DateTime? Created { get; init; }
 

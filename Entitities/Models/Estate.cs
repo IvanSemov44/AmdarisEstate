@@ -32,6 +32,8 @@
         [MaxLength(1000, ErrorMessage = "Maximum length for the Extras is 1000 characters.")]
         public string? Extras { get; set; }
 
+        public double? EstateArea { get; set; }
+
         public bool Sell { get; set; }
 
         public DateTime? Created { get; set; }

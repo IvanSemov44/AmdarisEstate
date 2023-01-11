@@ -10,8 +10,8 @@
     [TestClass]
     public class CountryControllerIntegraionTests
     {
-        private static TestContext _testContext;
-        private static WebApplicationFactory<Program> _factory;
+        private static TestContext? _testContext;
+        private static WebApplicationFactory<Program>? _factory;
 
         [ClassInitialize]
         public static void ClassInit(TestContext testContext)

@@ -12,14 +12,14 @@
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new CompanyConfiguration());
-            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
-            modelBuilder.ApplyConfiguration(new CityConfiguration());
-            modelBuilder.ApplyConfiguration(new CountryConfiguration());
-            modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
-            modelBuilder.ApplyConfiguration(new EstateTypeConfiguration());
-            modelBuilder.ApplyConfiguration(new ImageConfiguration());
-            modelBuilder.ApplyConfiguration(new EstateConfiguration());
+            //modelBuilder.ApplyConfiguration(new CompanyConfiguration());
+            //modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
+            //modelBuilder.ApplyConfiguration(new CityConfiguration());
+            //modelBuilder.ApplyConfiguration(new CountryConfiguration());
+            //modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
+            //modelBuilder.ApplyConfiguration(new EstateTypeConfiguration());
+            //modelBuilder.ApplyConfiguration(new ImageConfiguration());
+            //modelBuilder.ApplyConfiguration(new EstateConfiguration());
         }
 
 

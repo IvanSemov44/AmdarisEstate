@@ -4,6 +4,7 @@ using IvanRealEstate.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IvanRealEstate.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20230111155628_updateEstateAndImageEntity")]
+    partial class updateEstateAndImageEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -155,9 +157,6 @@ namespace IvanRealEstate.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<double?>("EstateArea")
-                        .HasColumnType("float");
-
                     b.Property<Guid>("EstateTypeId")
                         .HasColumnType("uniqueidentifier");
 
@@ -217,9 +216,6 @@ namespace IvanRealEstate.Migrations
                     b.Property<Guid>("ImageId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool?>("DefaultImg")
-                        .HasColumnType("bit");
 
                     b.Property<Guid>("EstateId")
                         .HasColumnType("uniqueidentifier");
