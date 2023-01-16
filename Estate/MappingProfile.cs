@@ -11,6 +11,7 @@
     using IvanRealEstate.Shared.DataTransferObject.Estate;
     using IvanRealEstate.Shared.DataTransferObject.EstateType;
     using IvanRealEstate.Shared.DataTransferObject.Image;
+    using IvanRealEstate.Shared.DataTransferObject.Users;
 
     public class MappingProfile : Profile
     {
@@ -72,6 +73,10 @@
             CreateMap<ImageForCreationDto, Image>();
 
             CreateMap<ImageForUpdateDto, Image>();
+
+
+            //----City Mapper------
+            CreateMap<UserForRegistrationDto, User>();
         }
     }
 }
