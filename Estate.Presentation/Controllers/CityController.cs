@@ -4,6 +4,7 @@
     using Application.Queries.CityQueties;
     using IvanRealEstate.Presentation.ActionFilter;
     using MediatR;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Shared.DataTransferObject.City;
 
@@ -27,6 +28,7 @@
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetCities()
         {
             var cities = await _sender.Send(new GetCitiesQuery(TrackChanges: false));
