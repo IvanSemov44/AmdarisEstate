@@ -24,7 +24,7 @@
         public double Price { get; init; }
 
         [Range(int.MinValue, int.MaxValue, ErrorMessage = "Floоr is Required.")]
-        public int Floоr { get; init; }
+        public int Floor { get; init; }
 
         [Range(0, int.MaxValue, ErrorMessage = "Rooms is Required and it can't be lower than 0.")]
         public int Rooms { get; init; }

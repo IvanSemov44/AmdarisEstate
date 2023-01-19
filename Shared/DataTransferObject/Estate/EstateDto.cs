@@ -10,7 +10,7 @@ namespace IvanRealEstate.Shared.DataTransferObject.Estate
         public string? Description { get; init; }
         public int YearOfCreation { get; init; }
         public double Price { get; init; }
-        public int Floоr { get; init; }
+        public int Floor { get; init; }
         public int Rooms { get; init; }
         public string? Extras { get; init; }
         public bool Sell { get; init; }

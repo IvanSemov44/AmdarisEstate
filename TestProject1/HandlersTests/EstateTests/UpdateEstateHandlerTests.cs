@@ -27,7 +27,7 @@
                 Description = "Very Big",//update
                 YearOfCreation = 2000,//update
                 Price = 199000,
-                Floоr = 8,//update
+                Floor = 8,//update
                 Rooms = 5,
                 Extras = "asansior i parking magazin",
                 Sell = true,
@@ -49,7 +49,7 @@
 
             var result = await _mockRepo.Object.Estate.GetEstateAsync(_estateId, false);
 
-            Assert.True(_estateForUpdateDto.Floоr == result?.Floоr);
+            Assert.True(_estateForUpdateDto.Floor == result?.Floor);
             Assert.True(_estateForUpdateDto.Description == result?.Description);
             Assert.True(_estateForUpdateDto.YearOfCreation == result?.YearOfCreation);
         }

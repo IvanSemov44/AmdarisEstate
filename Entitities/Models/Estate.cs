@@ -23,7 +23,7 @@
 
         public double Price { get; set; }
 
-        public int Floоr { get; set; }
+        public int Floor { get; set; }
 
         [Required(ErrorMessage = "Rooms is a required field.")]
         public int Rooms { get; set; }
