@@ -4,6 +4,7 @@ using IvanRealEstate.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IvanRealEstate.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20230120141748_ConnectUserWithEstate")]
+    partial class ConnectUserWithEstate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -173,9 +175,6 @@ namespace IvanRealEstate.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<Guid>("OwnerId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
@@ -184,9 +183,6 @@ namespace IvanRealEstate.Migrations
 
                     b.Property<bool>("Sell")
                         .HasColumnType("bit");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("YearOfCreation")
                         .HasColumnType("int");
@@ -200,8 +196,6 @@ namespace IvanRealEstate.Migrations
                     b.HasIndex("CurrencyId");
 
                     b.HasIndex("EstateTypeId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Estates");
                 });
@@ -338,6 +332,29 @@ namespace IvanRealEstate.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "93ca2f4c-4d0d-4fef-9038-159a17444f0a",
+                            ConcurrencyStamp = "a71e12f4-8956-431c-ad2b-316f4cf5567f",
+                            Name = "Manager",
+                            NormalizedName = "MANAGER"
+                        },
+                        new
+                        {
+                            Id = "d06cb408-7553-4711-afaf-d318411e0257",
+                            ConcurrencyStamp = "0b54d147-74c3-48f0-9185-3c7e27f3e9ff",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "3f5bbefc-ff79-4ff7-9ba5-9bb68dd13eee",
+                            ConcurrencyStamp = "a986a0ef-2056-405c-bc47-139dd32c97b5",
+                            Name = "Employee",
+                            NormalizedName = "EMPLOYEE"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -481,10 +498,6 @@ namespace IvanRealEstate.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("IvanRealEstate.Entities.Models.User", "User")
-                        .WithMany("Estate")
-                        .HasForeignKey("UserId");
-
                     b.Navigation("City");
 
                     b.Navigation("Country");
@@ -492,8 +505,6 @@ namespace IvanRealEstate.Migrations
                     b.Navigation("Currency");
 
                     b.Navigation("EstateType");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Image", b =>
@@ -586,11 +597,6 @@ namespace IvanRealEstate.Migrations
             modelBuilder.Entity("IvanRealEstate.Entities.Models.EstateType", b =>
                 {
                     b.Navigation("Estates");
-                });
-
-            modelBuilder.Entity("IvanRealEstate.Entities.Models.User", b =>
-                {
-                    b.Navigation("Estate");
                 });
 #pragma warning restore 612, 618
         }

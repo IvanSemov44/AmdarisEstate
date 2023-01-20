@@ -4,6 +4,7 @@ namespace IvanRealEstate.Shared.DataTransferObject.Estate
 {
     public record EstateDto
     {
+        public Guid OwnerId { get; init; }
         public Guid EstateId { get; init; }
         public string? Neighborhood { get; init; }
         public string? Address { get; init; }

@@ -5,6 +5,8 @@
 
     public record EstateForManipulationDto
     {
+        public Guid? OwnerId { get; init; }
+
         [Required(ErrorMessage = "Neighborhood is a required field.")]
         [MaxLength(100, ErrorMessage = "Maximum length for the Neighborhood is 100 characters.")]
         public string? Neighborhood { get; init; }

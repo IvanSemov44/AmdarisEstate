@@ -15,7 +15,7 @@
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfiguration(new RoleConfiguration());
+            //modelBuilder.ApplyConfiguration(new RoleConfiguration());
             //modelBuilder.ApplyConfiguration(new CompanyConfiguration());
             //modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
             //modelBuilder.ApplyConfiguration(new CityConfiguration());

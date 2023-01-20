@@ -53,6 +53,9 @@
 
         public Guid EstateTypeId { get; set; }
         public EstateType? EstateType { get; set; }
+
+        public Guid OwnerId { get; set; }
+        public User? User { get; set; }
         //public Curency Curency { get; set; }
 
     }
