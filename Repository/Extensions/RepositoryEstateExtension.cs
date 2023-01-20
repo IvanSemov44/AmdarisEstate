@@ -19,12 +19,12 @@
              e.Price <= estateParameters.MaxPrice);
 
             returnEstates = returnEstates.Where(e =>
-             e.Rooms >= estateParameters.MinPrice &&
-             e.Rooms <= estateParameters.MaxPrice);
+             e.Rooms >= estateParameters.MinRooms &&
+             e.Rooms <= estateParameters.MaxRooms);
 
             returnEstates = returnEstates.Where(e =>
-             e.Floor >= estateParameters.MinPrice &&
-             e.Floor <= estateParameters.MaxPrice);
+             e.Floor >= estateParameters.MinFloor &&
+             e.Floor <= estateParameters.MaxFloor);
 
             returnEstates = returnEstates.Where(e =>
              e.EstateArea >= estateParameters.MinArea &&
@@ -60,7 +60,11 @@
 
             var lowerCaseTerm = searchTerm.Trim().ToLower();
 
-            return estates.Where(e => e.Neighborhood.ToLower().Contains(lowerCaseTerm));
+            return estates.Where(e =>
+            e.Neighborhood.ToLower().Contains(lowerCaseTerm) ||
+            e.Extras.ToLower().Contains(lowerCaseTerm) ||
+            e.Description.ToLower().Contains(lowerCaseTerm) ||
+            e.Address.ToLower().Contains(lowerCaseTerm));
         }
 
         public static IQueryable<Estate> Sort(this IQueryable<Estate> estate, string? orderByQueryString)

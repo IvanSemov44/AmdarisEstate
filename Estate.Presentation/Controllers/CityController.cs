@@ -29,7 +29,7 @@
         }
 
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> GetCities()
         {
             var cities = await _sender.Send(new GetCitiesQuery(TrackChanges: false));
