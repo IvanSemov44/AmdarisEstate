@@ -13,7 +13,7 @@
         ICurrencyRepository Currency { get; }
         IEstateTypeRepository EstateType { get; }
         IImageRepository Image { get; }
-
+        IMessageRepository Message { get; }
         Task SaveAsync();
     }
 }

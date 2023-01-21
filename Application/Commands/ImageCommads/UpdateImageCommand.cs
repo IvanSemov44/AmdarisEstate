@@ -9,5 +9,5 @@
         ImageForUpdateDto ImageForUpdateDto,
         bool EstateTrackChanges,
         bool ImageTrackChanges)
-        :IRequest;
+        : IRequest;
 }
