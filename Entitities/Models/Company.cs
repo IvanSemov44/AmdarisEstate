@@ -16,8 +16,13 @@
         [MaxLength(60, ErrorMessage = "Maximum length for the Address is 60 characters.")]
         public string? Address { get; set; }
 
-        public string? Country { get; set; }
+        public ICollection<User>? Employees { get; set; }
+        public ICollection<Image>? Images { get; set; }
 
-        public ICollection<Employee>? Employees { get; set; }
+        public Guid CompanyCityId { get; set; }
+        public City? City { get; set; }
+
+        public Guid CompanyCountryId { get; set; }
+        public Country? Country { get; set; }
     }
 }
