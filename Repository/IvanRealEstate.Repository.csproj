@@ -16,8 +16,4 @@
     <ProjectReference Include="..\Entitities\IvanRealEstate.Entities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Extensions\Utility\" />
-  </ItemGroup>
-
 </Project>

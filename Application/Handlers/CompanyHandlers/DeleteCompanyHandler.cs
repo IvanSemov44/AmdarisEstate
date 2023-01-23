@@ -3,7 +3,7 @@
     using MediatR;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
+    using IvanRealEstate.Entities.Exceptions.NotFound;
     using IvanRealEstate.Application.Commands.CompanyCommands;
 
     internal sealed class DeleteCompanyHandler : IRequestHandler<DeleteCompanyCommand, Unit>

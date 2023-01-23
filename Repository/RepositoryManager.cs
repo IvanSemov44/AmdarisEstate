@@ -7,7 +7,6 @@
         private RepositoryContext _repositoryContex;
 
         private Lazy<ICompanyRepository> _companyRepository;
-        private Lazy<IEmployeeRepository> _employeeRepository;
 
         private Lazy<IEstateRepository> _estateRepository;
         private Lazy<ICountryRepository> _countryRepository;
@@ -22,8 +21,6 @@
             _repositoryContex = repositoryContext;
 
             _companyRepository = new Lazy<ICompanyRepository>(() => new CompanyRepository(repositoryContext));
-            _employeeRepository = new Lazy<IEmployeeRepository>(() => new EmployeeRepository(repositoryContext));
-
             _estateRepository = new Lazy<IEstateRepository>(() => new EstateRepository(repositoryContext));
             _countryRepository = new Lazy<ICountryRepository>(() => new CountryRepository(repositoryContext));
             _cityRepository = new Lazy<ICityRepository>(() => new CityRepository(repositoryContext));
@@ -34,8 +31,6 @@
         }
 
         public ICompanyRepository Company => _companyRepository.Value;
-
-        public IEmployeeRepository Employee => _employeeRepository.Value;
 
         public IEstateRepository Estate => _estateRepository.Value;
 

@@ -1,8 +1,8 @@
+using NLog;
+using MediatR;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.HttpOverrides;
-
-using MediatR;
-using NLog;
 
 using IvanRealEstate.Contracts;
 using IvanRealEstate.Extensions;
@@ -17,7 +17,6 @@ builder.Services.ConfigureCORS();
 builder.Services.AddAuthentication();
 builder.Services.ConfigureIdentity();
 builder.Services.ConfigureJWT(builder.Configuration);
-builder.Services.ConfigureIISIntegration();
 builder.Services.ConfigureLoggerService();
 builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureSqlContext(builder.Configuration);

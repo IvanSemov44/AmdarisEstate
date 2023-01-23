@@ -3,9 +3,8 @@
     using AutoMapper;
 
     using IvanRealEstate.Entities.Models;
-
-    using IvanRealEstate.Shared.DataTransferObject;
     using IvanRealEstate.Shared.DataTransferObject.City;
+    using IvanRealEstate.Shared.DataTransferObject.Company;
     using IvanRealEstate.Shared.DataTransferObject.Country;
     using IvanRealEstate.Shared.DataTransferObject.Currency;
     using IvanRealEstate.Shared.DataTransferObject.Estate;
@@ -25,12 +24,6 @@
             CreateMap<Company, CompanyDto>();
 
             CreateMap<CompanyForCreationDto, Company>();
-
-            CreateMap<Employee,EmployeeDto>();
-
-            CreateMap<EmployeeForCreationDto, Employee>();
-
-            CreateMap<EmployeeForUpdateDto, Employee>();
 
             CreateMap<CompanyForUpdateDto, Company>();
 

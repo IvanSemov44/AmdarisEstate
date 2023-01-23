@@ -4,10 +4,10 @@
     using AutoMapper;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Shared.RequestFeatures;
     using IvanRealEstate.Shared.DataTransferObject.Estate;
     using IvanRealEstate.Application.Queries.EstateQuery;
+    using IvanRealEstate.Entities.Exceptions.BadRequest;
 
     internal sealed class GetEstatesByPage
         : IRequestHandler<GetEstatesByPageQuery, (IEnumerable<EstateDto> estatesDto, MetaData? metaData)>

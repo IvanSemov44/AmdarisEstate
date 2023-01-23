@@ -1,5 +1,5 @@
 ﻿using IvanRealEstate.Contracts;
-using IvanRealEstate.Entities.Exceptions;
+using IvanRealEstate.Entities.Exceptions.NotFound;
 using IvanRealEstate.Entities.Models;
 
 namespace IvanRealEstate.Application.Handlers.MessageHandlers

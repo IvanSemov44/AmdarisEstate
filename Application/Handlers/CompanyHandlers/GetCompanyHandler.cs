@@ -4,9 +4,9 @@
     using AutoMapper;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
-    using IvanRealEstate.Shared.DataTransferObject;
+    using IvanRealEstate.Entities.Exceptions.NotFound;
     using IvanRealEstate.Application.Queries.CompanyQueries;
+    using IvanRealEstate.Shared.DataTransferObject.Company;
 
     internal sealed class GetCompanyHandler : IRequestHandler<GetCompanyQuery, CompanyDto>
     {

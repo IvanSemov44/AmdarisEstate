@@ -4,8 +4,8 @@
     using AutoMapper;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Shared.DataTransferObject;
     using IvanRealEstate.Application.Queries.CompanyQueries;
+    using IvanRealEstate.Shared.DataTransferObject.Company;
 
     internal sealed class GetCompaniesHandler : IRequestHandler<GetCompaniesQuery, IEnumerable<CompanyDto>>
     {
