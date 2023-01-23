@@ -16,6 +16,10 @@
         [MaxLength(60, ErrorMessage = "Maximum length for the Address is 60 characters.")]
         public string? Address { get; set; }
 
+        [Required(ErrorMessage = "Description address is a required field.")]
+        [MaxLength(200, ErrorMessage = "Maximum length for the Description is 200 characters.")]
+        public string? Description { get; set; }
+
         public ICollection<User>? Employees { get; set; }
         public ICollection<Image>? Images { get; set; }
 

@@ -52,6 +52,5 @@
         public Guid EstateTypeId { get; init; }
 
         public IEnumerable<ImageDto>? Images { get; init; }
-
     }
 }
