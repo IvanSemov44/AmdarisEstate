@@ -74,6 +74,8 @@
             //----User Mapper------
             CreateMap<UserForRegistrationDto, User>();
 
+            CreateMap<User, UserDto>();
+
             //----Message Mapper------
             CreateMap<MessageForCreationDto, Message>();
 

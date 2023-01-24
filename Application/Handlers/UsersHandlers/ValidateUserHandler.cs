@@ -33,54 +33,55 @@
             var result = (_user != null &&
                 await _userManager.CheckPasswordAsync(_user, request.UserForAuthentication.Password));
 
+            //result = await _userManager.GetUsersInRoleAsync();
             return result;
         }
 
-        public async Task<string> CreateToken()
-        {
-            var signingCredentials = GetSigningCredentials();
-            var claims = await GetClaims();
-            var tokenOptions = GenerateTokenOptions(signingCredentials, claims);
+        //public async Task<string> CreateToken()
+        //{
+        //    var signingCredentials = GetSigningCredentials();
+        //    var claims = await GetClaims();
+        //    var tokenOptions = GenerateTokenOptions(signingCredentials, claims);
 
-            return new JwtSecurityTokenHandler().WriteToken(tokenOptions);
-        }
+        //    return new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+        //}
 
-        private SigningCredentials GetSigningCredentials()
-        {
-            var key = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET"));
-            var secret = new SymmetricSecurityKey(key);
+        //private SigningCredentials GetSigningCredentials()
+        //{
+        //    var key = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET"));
+        //    var secret = new SymmetricSecurityKey(key);
 
-            return new SigningCredentials(secret, SecurityAlgorithms.HmacSha256);
-        }
+        //    return new SigningCredentials(secret, SecurityAlgorithms.HmacSha256);
+        //}
 
-        private async Task<List<Claim>> GetClaims()
-        {
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, _user.UserName)
-            };
+        //private async Task<List<Claim>> GetClaims()
+        //{
+        //    var claims = new List<Claim>
+        //    {
+        //        new Claim(ClaimTypes.Name, _user.UserName)
+        //    };
 
-            var roles = await _userManager.GetRolesAsync(_user);
-            foreach (var role in roles)
-            {
-                claims.Add(new Claim(ClaimTypes.Role, role));
-            }
+        //    var roles = await _userManager.GetRolesAsync(_user);
+        //    foreach (var role in roles)
+        //    {
+        //        claims.Add(new Claim(ClaimTypes.Role, role));
+        //    }
 
-            return claims;
-        }
+        //    return claims;
+        //}
 
-        private JwtSecurityToken GenerateTokenOptions(SigningCredentials signingCredentials, List<Claim> claims)
-        {
-            var jwtSettings = _config.GetSection("JWTSetting");
+        //private JwtSecurityToken GenerateTokenOptions(SigningCredentials signingCredentials, List<Claim> claims)
+        //{
+        //    var jwtSettings = _config.GetSection("JWTSetting");
 
-            var tokenOptions = new JwtSecurityToken(
-                issuer: jwtSettings["validIssuer"],
-                audience: jwtSettings["validAudience"],
-                claims: claims,
-                expires: DateTime.Now.AddMinutes(Convert.ToDouble(jwtSettings["expires"])),
-                signingCredentials: signingCredentials);
+        //    var tokenOptions = new JwtSecurityToken(
+        //        issuer: jwtSettings["validIssuer"],
+        //        audience: jwtSettings["validAudience"],
+        //        claims: claims,
+        //        expires: DateTime.Now.AddMinutes(Convert.ToDouble(jwtSettings["expires"])),
+        //        signingCredentials: signingCredentials);
 
-            return tokenOptions;
-        }
+        //    return tokenOptions;
+        //}
     }
 }

@@ -20,6 +20,6 @@
         public Guid? CompanyCityId { get; init; }
         public Guid? CompanyCountryId { get; set; }
 
-        public ICollection<ImageDto>? Images { get; set; }
+        public ICollection<ImageForManipulationDto>? Images { get; set; }
     };
 }

@@ -2,6 +2,7 @@
 {
     using MediatR;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Authorization;
 
     using IvanRealEstate.Presentation.ActionFilter;
     using IvanRealEstate.Shared.DataTransferObject.Country;
@@ -36,6 +37,7 @@
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateCountry(CountryForCreationDto countryForCreationDto)
         {
@@ -45,6 +47,7 @@
         }
 
         [HttpPut("{countryId:guid}")]
+        [Authorize(Roles = "Admin")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateCountry(Guid countryId, [FromBody] CountryForUpdateDto countryForUpdateDto)
         {
@@ -54,6 +57,7 @@
         }
 
         [HttpDelete("{countryId:guid}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteCountry(Guid countryId)
         {
             await _sender.Send(new DeleteCountryCommand(countryId, TrackChanges: false));

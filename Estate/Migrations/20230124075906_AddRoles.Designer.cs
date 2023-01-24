@@ -4,6 +4,7 @@ using IvanRealEstate.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IvanRealEstate.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20230124075906_AddRoles")]
+    partial class AddRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +35,7 @@ namespace IvanRealEstate.Migrations
 
                     b.HasKey("CityId");
 
-                    b.ToTable("Cities", (string)null);
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Company", b =>
@@ -76,7 +78,7 @@ namespace IvanRealEstate.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("Companies", (string)null);
+                    b.ToTable("Companies");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Country", b =>
@@ -92,7 +94,7 @@ namespace IvanRealEstate.Migrations
 
                     b.HasKey("CountryId");
 
-                    b.ToTable("Countries", (string)null);
+                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Currency", b =>
@@ -106,7 +108,7 @@ namespace IvanRealEstate.Migrations
 
                     b.HasKey("CurrencyId");
 
-                    b.ToTable("Currencies", (string)null);
+                    b.ToTable("Currencies");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Estate", b =>
@@ -191,7 +193,7 @@ namespace IvanRealEstate.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Estates", (string)null);
+                    b.ToTable("Estates");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.EstateType", b =>
@@ -205,7 +207,7 @@ namespace IvanRealEstate.Migrations
 
                     b.HasKey("EstateTypeId");
 
-                    b.ToTable("EstateTypes", (string)null);
+                    b.ToTable("EstateTypes");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Image", b =>
@@ -243,7 +245,7 @@ namespace IvanRealEstate.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Images", (string)null);
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Message", b =>
@@ -277,7 +279,7 @@ namespace IvanRealEstate.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Messages", (string)null);
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.User", b =>
