@@ -23,7 +23,7 @@
 
         public double Price { get; set; }
 
-        public int Floоr { get; set; }
+        public int Floor { get; set; }
 
         [Required(ErrorMessage = "Rooms is a required field.")]
         public int Rooms { get; set; }
@@ -53,6 +53,9 @@
 
         public Guid EstateTypeId { get; set; }
         public EstateType? EstateType { get; set; }
+
+        public Guid OwnerId { get; set; }
+        public User? User { get; set; }
         //public Curency Curency { get; set; }
 
     }

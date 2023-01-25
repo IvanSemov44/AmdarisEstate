@@ -5,9 +5,8 @@
 
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Entities.Models;
-    using IvanRealEstate.Shared.DataTransferObject;
     using IvanRealEstate.Application.Commands.CompanyCommands;
-
+    using IvanRealEstate.Shared.DataTransferObject.Company;
 
     internal sealed class CreateCompanyHandler : IRequestHandler<CreateCompanyCommand, CompanyDto>
     {

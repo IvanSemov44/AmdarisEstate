@@ -4,9 +4,9 @@
     using Microsoft.AspNetCore.Mvc;
 
     using IvanRealEstate.Presentation.ActionFilter;
-    using IvanRealEstate.Shared.DataTransferObject;
     using IvanRealEstate.Application.Queries.CompanyQueries;
     using IvanRealEstate.Application.Commands.CompanyCommands;
+    using IvanRealEstate.Shared.DataTransferObject.Company;
 
     [Route("api/companies")]
     [ApiController]

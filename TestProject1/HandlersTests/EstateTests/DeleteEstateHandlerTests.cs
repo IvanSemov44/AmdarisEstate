@@ -3,9 +3,9 @@
     using Moq;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Application.Commands.EstateCommands;
     using IvanRealEstate.Application.Handlers.EstateHandlers;
+    using IvanRealEstate.Entities.Exceptions.NotFound;
 
     public class DeleteEstateHandlerTests
     {

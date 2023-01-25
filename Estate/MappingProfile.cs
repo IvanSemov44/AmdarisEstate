@@ -3,30 +3,27 @@
     using AutoMapper;
 
     using IvanRealEstate.Entities.Models;
-
-    using IvanRealEstate.Shared.DataTransferObject;
     using IvanRealEstate.Shared.DataTransferObject.City;
+    using IvanRealEstate.Shared.DataTransferObject.Company;
     using IvanRealEstate.Shared.DataTransferObject.Country;
     using IvanRealEstate.Shared.DataTransferObject.Currency;
     using IvanRealEstate.Shared.DataTransferObject.Estate;
     using IvanRealEstate.Shared.DataTransferObject.EstateType;
     using IvanRealEstate.Shared.DataTransferObject.Image;
+    using IvanRealEstate.Shared.DataTransferObject.Message;
+    using IvanRealEstate.Shared.DataTransferObject.Users;
 
     public class MappingProfile : Profile
     {
         public MappingProfile()
         {
-            CreateMap<Company, CompanyDto>()
-                .ForMember(c=>c.FullAddress,
-                opt => opt.MapFrom(x => string.Join(" ", x.Address, x.Country)));
+            //CreateMap<Company, CompanyDto>()
+            //    .ForMember(c=>c.FullAddress,
+            //    opt => opt.MapFrom(x => string.Join(" ", x.Address, x.Country)));
+
+            CreateMap<Company, CompanyDto>();
 
             CreateMap<CompanyForCreationDto, Company>();
-
-            CreateMap<Employee,EmployeeDto>();
-
-            CreateMap<EmployeeForCreationDto, Employee>();
-
-            CreateMap<EmployeeForUpdateDto, Employee>();
 
             CreateMap<CompanyForUpdateDto, Company>();
 
@@ -72,6 +69,20 @@
             CreateMap<ImageForCreationDto, Image>();
 
             CreateMap<ImageForUpdateDto, Image>();
+
+
+            //----User Mapper------
+            CreateMap<UserForRegistrationDto, User>();
+
+            CreateMap<User, UserDto>();
+
+            //----Message Mapper------
+            CreateMap<MessageForCreationDto, Message>();
+
+            CreateMap<Message, MessageDto>();
+
+            CreateMap<MessageForUpdateDto, Message>();
+
         }
     }
 }

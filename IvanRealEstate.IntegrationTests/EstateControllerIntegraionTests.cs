@@ -88,7 +88,7 @@
                 Description = "With Nice Bars",
                 YearOfCreation = 2010,
                 Price = 259000,
-                Floоr = 11,
+                Floor = 11,
                 Rooms = 4,
                 Extras = "asansior, parking, magazin",
                 Sell = true,
@@ -117,7 +117,7 @@
                 Description = "With Nice Bars",
                 YearOfCreation = 2010,
                 Price = 259000,
-                Floоr = 11,
+                Floor = 11,
                 Rooms = 4,
                 Extras = "asansior, parking, magazin",
                 Sell = true,
@@ -141,7 +141,7 @@
             Assert.AreEqual(estate.Description, estateResponse.Description);
             Assert.AreEqual(estate.YearOfCreation, estateResponse.YearOfCreation);
             Assert.AreEqual(estate.Price, estateResponse.Price);
-            Assert.AreEqual(estate.Floоr, estateResponse.Floоr);
+            Assert.AreEqual(estate.Floor, estateResponse.Floor);
             Assert.AreEqual(estate.Rooms, estateResponse.Rooms);
             Assert.AreEqual(estate.Extras, estateResponse.Extras);
             Assert.AreEqual(estate.Sell, estateResponse.Sell);
@@ -161,7 +161,7 @@
                 Description = "With Nice Bars",
                 YearOfCreation = 2010,
                 Price = 259000,
-                Floоr = 11,
+                Floor = 11,
                 Rooms = 4,
                 Extras = "asansior, parking, magazin",
                 Sell = true,
@@ -202,7 +202,7 @@
                 Description = "With Nice Bars",
                 YearOfCreation = 2010,
                 Price = 259000,
-                Floоr = 11,
+                Floor = 11,
                 Rooms = 4,
                 Extras = "asansior, parking, magazin",
                 Sell = true,
@@ -233,7 +233,7 @@
                 Description = "With Nice Bars",
                 YearOfCreation = 2010,
                 Price = 259000,
-                Floоr = 11,
+                Floor = 11,
                 Rooms = 4,
                 Extras = "asansior, parking, magazin",
                 Sell = true,
@@ -275,7 +275,7 @@
                 Description = "With Nice Bars",
                 YearOfCreation = 2010,
                 Price = 259000,
-                Floоr = 11,
+                Floor = 11,
                 Rooms = 4,
                 Extras = "asansior, parking, magazin",
                 Sell = true,

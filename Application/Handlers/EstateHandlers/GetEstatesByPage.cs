@@ -7,6 +7,7 @@
     using IvanRealEstate.Shared.RequestFeatures;
     using IvanRealEstate.Shared.DataTransferObject.Estate;
     using IvanRealEstate.Application.Queries.EstateQuery;
+    using IvanRealEstate.Entities.Exceptions.BadRequest;
 
     internal sealed class GetEstatesByPage
         : IRequestHandler<GetEstatesByPageQuery, (IEnumerable<EstateDto> estatesDto, MetaData? metaData)>
@@ -25,8 +26,20 @@
             if (!request.EstateParameters.ValidYearRange)
                 throw new MaxYearRangeBadRequestException();
 
+            if (!request.EstateParameters.ValidPriceRange)
+                throw new MaxPriceRangeBadRequestException();
+
+            if (!request.EstateParameters.ValidRoomsRange)
+                throw new MaxRoomsRangeBadRequestException();
+
+            if (!request.EstateParameters.ValidFloorRange)
+                throw new MaxFloorRangeBadRequestException();
+
+            if (!request.EstateParameters.ValidAreaRange)
+                throw new MaxAreaRangeBadRequestException();
+
             var estatesWithMetaData = await _repositoryManager.Estate
-                .GetEstatesForPageAsync(request.EstateParameters, request.TrackChanges);
+            .GetEstatesForPageAsync(request.EstateParameters, request.TrackChanges);
 
             var estateForReturn = _mapper.Map<IEnumerable<EstateDto>>(estatesWithMetaData);
 

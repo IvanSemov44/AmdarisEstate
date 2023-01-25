@@ -8,7 +8,6 @@
     using IvanRealEstate.Shared.DataTransferObject.City;
     using IvanRealEstate.Application.Commands.CityCommands;
 
-
     public sealed class CreateCityHandler:IRequestHandler<CreateCityCommand,CityDto>
     {
         private readonly IRepositoryManager _repositoryManager;

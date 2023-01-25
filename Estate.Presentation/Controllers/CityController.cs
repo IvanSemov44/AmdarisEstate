@@ -1,11 +1,13 @@
 ﻿namespace IvanRealEstate.Presentation.Controllers
 {
-    using Application.Commands.CityCommands;
-    using Application.Queries.CityQueties;
-    using IvanRealEstate.Presentation.ActionFilter;
     using MediatR;
     using Microsoft.AspNetCore.Mvc;
-    using Shared.DataTransferObject.City;
+    using Microsoft.AspNetCore.Authorization;
+
+    using IvanRealEstate.Presentation.ActionFilter;
+    using IvanRealEstate.Shared.DataTransferObject.City;
+    using IvanRealEstate.Application.Queries.CityQueties;
+    using IvanRealEstate.Application.Commands.CityCommands;
 
     [Route("api/cities")]
     [ApiController]
@@ -27,6 +29,7 @@
         }
 
         [HttpGet]
+        //[Authorize]
         public async Task<IActionResult> GetCities()
         {
             var cities = await _sender.Send(new GetCitiesQuery(TrackChanges: false));
@@ -36,6 +39,7 @@
 
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateCity([FromBody] CityForCreationDto cityForCreationDto)
         {
             var createdCity = await _sender.Send(new CreateCityCommand(cityForCreationDto));
@@ -44,6 +48,7 @@
         }
 
         [HttpPut("{id:guid}", Name = "UpdateCityById")]
+        [Authorize(Roles = "Admin")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateCityById(Guid id, [FromBody] CityForUpdateDto cityForUpdateDto)
         {
@@ -52,6 +57,7 @@
         }
 
         [HttpDelete("{id:guid}", Name = "DeleteCityById")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteCityById(Guid id)
         {
             await _sender.Send(new DeleteCityCommand(id, TrackChanges: false));

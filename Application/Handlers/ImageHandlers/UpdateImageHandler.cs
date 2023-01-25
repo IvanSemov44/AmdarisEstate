@@ -9,7 +9,6 @@
 
     public sealed class UpdateImageHandler : IRequestHandler<UpdateImageCommand, Unit>
     {
-
         private readonly IMapper _mapper;
         private readonly IRepositoryManager _repositoryManager;
 

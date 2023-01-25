@@ -77,7 +77,7 @@
                              Description = "With Nice Bars",
                              YearOfCreation = 2010,
                              Price = 259000,
-                             Floоr = 11,
+                             Floor = 11,
                              Rooms = 4,
                              Extras = "asansior, parking, magazin",
                              Sell = true,
@@ -107,7 +107,7 @@
 
             Assert.True(2010 == returnEstate?.YearOfCreation);
             Assert.True(259000 == returnEstate?.Price);
-            Assert.True(11 == returnEstate?.Floоr);
+            Assert.True(11 == returnEstate?.Floor);
             Assert.True(4 == returnEstate?.Rooms);
             Assert.True(true == returnEstate?.Sell);
         }
@@ -126,7 +126,7 @@
                         Description = "With Nice Bars",
                         YearOfCreation = 2010,
                         Price = 259000,
-                        Floоr = 11,
+                        Floor = 11,
                         Rooms = 4,
                         Extras = "asansior, parking, magazin",
                         Sell = true,
@@ -146,7 +146,7 @@
                 Description = "With Nice Bars",
                 YearOfCreation = 2010,
                 Price = 259000,
-                Floоr = 11,
+                Floor = 11,
                 Rooms = 4,
                 Extras = "asansior, parking, magazin",
                 Sell = true,
@@ -174,7 +174,7 @@
 
             Assert.True(2010 == resultRouteDto?.YearOfCreation);
             Assert.True(259000 == resultRouteDto?.Price);
-            Assert.True(11 == resultRouteDto?.Floоr);
+            Assert.True(11 == resultRouteDto?.Floor);
             Assert.True(4 == resultRouteDto?.Rooms);
             Assert.True(true == resultRouteDto?.Sell);
         }
@@ -191,7 +191,7 @@
                 Description = "With Nice Bars",
                 YearOfCreation = 2010,
                 Price = 259000,
-                Floоr = 11,
+                Floor = 11,
                 Rooms = 4,
                 Extras = "asansior, parking, magazin",
                 Sell = true,
