@@ -76,7 +76,7 @@
 
             if (string.IsNullOrWhiteSpace(orderQuery))
                 return estate.OrderBy(e => e.Changed);
-
+                
             return estate.OrderBy(orderQuery);
         }
     }
