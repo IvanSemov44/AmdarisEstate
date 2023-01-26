@@ -7,7 +7,6 @@
         private RepositoryContext _repositoryContex;
 
         private Lazy<ICompanyRepository> _companyRepository;
-
         private Lazy<IEstateRepository> _estateRepository;
         private Lazy<ICountryRepository> _countryRepository;
         private Lazy<ICityRepository> _cityRepository;
@@ -15,6 +14,8 @@
         private Lazy<IEstateTypeRepository> _estateTypeRepository;
         private Lazy<IImageRepository> _imageRepository;
         private Lazy<IMessageRepository> _messageRepository;
+        private Lazy<IOwnerImageRepository> _ownerImageRepository;
+        private Lazy<ICompanyImageRepository> _companyImageRepository;
 
         public RepositoryManager(RepositoryContext repositoryContext)
         {
@@ -28,6 +29,8 @@
             _estateTypeRepository = new Lazy<IEstateTypeRepository>(() => new EstateTypeRepository(repositoryContext));
             _imageRepository = new Lazy<IImageRepository>(() => new ImageRepository(repositoryContext));
             _messageRepository = new Lazy<IMessageRepository>(() => new MessageRepository(repositoryContext));
+            _ownerImageRepository = new Lazy<IOwnerImageRepository>(() => new OwnerImageRepository(repositoryContext));
+            _companyImageRepository = new Lazy<ICompanyImageRepository>(() => new CompanyImageRepository(repositoryContext));
         }
 
         public ICompanyRepository Company => _companyRepository.Value;
@@ -45,6 +48,11 @@
         public IImageRepository Image => _imageRepository.Value;
 
         public IMessageRepository Message => _messageRepository.Value;
+
+        public IOwnerImageRepository OwnerImage => _ownerImageRepository.Value;
+
+        public ICompanyImageRepository CompanyImage => _companyImageRepository.Value;
+
 
         public async Task SaveAsync() => await _repositoryContex.SaveChangesAsync();
     }

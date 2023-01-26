@@ -2,5 +2,5 @@
 {
     using MediatR;
 
-    public sealed record DeleteImageCommand(Guid EstateId, Guid ImageId,bool TrackChanges) :IRequest;
+    public sealed record DeleteCountryImageCommand(Guid EstateId, Guid ImageId,bool TrackChanges) :IRequest;
 }

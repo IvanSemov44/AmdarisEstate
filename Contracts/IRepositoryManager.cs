@@ -12,6 +12,8 @@
         IEstateTypeRepository EstateType { get; }
         IImageRepository Image { get; }
         IMessageRepository Message { get; }
+        IOwnerImageRepository OwnerImage { get; }
+        ICompanyImageRepository CompanyImage { get; }
         Task SaveAsync();
     }
 }

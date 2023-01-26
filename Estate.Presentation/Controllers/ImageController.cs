@@ -56,7 +56,7 @@
         [HttpDelete("{imageId:guid}")]
         public async Task<IActionResult> DeleteImageForEstate(Guid estateId, Guid imageId)
         {
-            await _sender.Send(new DeleteImageCommand(estateId, imageId, TrackChanges: false));
+            await _sender.Send(new DeleteCountryImageCommand(estateId, imageId, TrackChanges: false));
 
             return NoContent();
         }

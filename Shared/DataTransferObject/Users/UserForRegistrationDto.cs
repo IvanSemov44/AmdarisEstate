@@ -17,6 +17,8 @@
         public string? Email { get; init; }
 
         public string? PhoneNumber { get; init; }
+        public Guid? UserCityId { get; init; }
+        public Guid? UserCountryId { get; init; }
 
         public ICollection<string>? Roles { get; init; }
     }

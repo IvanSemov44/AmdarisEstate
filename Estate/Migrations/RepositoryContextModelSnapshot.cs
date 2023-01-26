@@ -33,7 +33,7 @@ namespace IvanRealEstate.Migrations
 
                     b.HasKey("CityId");
 
-                    b.ToTable("Cities", (string)null);
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Company", b =>
@@ -76,7 +76,34 @@ namespace IvanRealEstate.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("Companies", (string)null);
+                    b.ToTable("Companies");
+                });
+
+            modelBuilder.Entity("IvanRealEstate.Entities.Models.CompanyImage", b =>
+                {
+                    b.Property<Guid>("CompanyImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CompnayId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool?>("DefaultImg")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CompanyImageId");
+
+                    b.HasIndex("CompanyId");
+
+                    b.HasIndex("CompnayId");
+
+                    b.ToTable("CompanyImages");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Country", b =>
@@ -92,7 +119,7 @@ namespace IvanRealEstate.Migrations
 
                     b.HasKey("CountryId");
 
-                    b.ToTable("Countries", (string)null);
+                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Currency", b =>
@@ -106,7 +133,7 @@ namespace IvanRealEstate.Migrations
 
                     b.HasKey("CurrencyId");
 
-                    b.ToTable("Currencies", (string)null);
+                    b.ToTable("Currencies");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Estate", b =>
@@ -191,7 +218,7 @@ namespace IvanRealEstate.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Estates", (string)null);
+                    b.ToTable("Estates");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.EstateType", b =>
@@ -205,7 +232,7 @@ namespace IvanRealEstate.Migrations
 
                     b.HasKey("EstateTypeId");
 
-                    b.ToTable("EstateTypes", (string)null);
+                    b.ToTable("EstateTypes");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Image", b =>
@@ -229,21 +256,13 @@ namespace IvanRealEstate.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<Guid>("ownerId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("ImageId");
 
                     b.HasIndex("CompanyId");
 
                     b.HasIndex("EstateId");
 
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Images", (string)null);
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Message", b =>
@@ -277,7 +296,32 @@ namespace IvanRealEstate.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Messages", (string)null);
+                    b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("IvanRealEstate.Entities.Models.OwnerImage", b =>
+                {
+                    b.Property<Guid>("OwnerImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool?>("DefaultImg")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("OwnerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("OwnerImageId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("OwnerImages");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.User", b =>
@@ -404,22 +448,22 @@ namespace IvanRealEstate.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "37b80c3d-8faf-4ebf-91df-75be19b406aa",
-                            ConcurrencyStamp = "e7731988-1cd6-465d-9b3e-f6e2e54091cf",
+                            Id = "4e647f86-b984-4212-8eed-86fbafec6ee4",
+                            ConcurrencyStamp = "41438401-a281-4a96-9fed-7cb823cc5566",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
-                            Id = "078b78c1-3743-4ab0-b99d-d4050ae77473",
-                            ConcurrencyStamp = "44665320-362a-4ac7-b77e-f401e558d53f",
+                            Id = "03d9f727-ddaf-4c11-8e82-1ca90a2f79ae",
+                            ConcurrencyStamp = "5cee4f62-e7bb-4043-b87d-cc5ce224cb3b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "3ba3cac4-9816-4548-a307-63f67ca5f0fd",
-                            ConcurrencyStamp = "eeb469c5-4d09-43c2-a96d-b42f91d3f74e",
+                            Id = "44a41444-0434-4faf-8f7c-2977f5d3d1db",
+                            ConcurrencyStamp = "55a497f8-9a96-4ca0-932b-afd734c98a30",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         });
@@ -546,6 +590,21 @@ namespace IvanRealEstate.Migrations
                     b.Navigation("Country");
                 });
 
+            modelBuilder.Entity("IvanRealEstate.Entities.Models.CompanyImage", b =>
+                {
+                    b.HasOne("IvanRealEstate.Entities.Models.Company", null)
+                        .WithMany("Images")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("IvanRealEstate.Entities.Models.User", "Compnay")
+                        .WithMany()
+                        .HasForeignKey("CompnayId");
+
+                    b.Navigation("Compnay");
+                });
+
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Estate", b =>
                 {
                     b.HasOne("IvanRealEstate.Entities.Models.City", "City")
@@ -588,7 +647,7 @@ namespace IvanRealEstate.Migrations
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Image", b =>
                 {
                     b.HasOne("IvanRealEstate.Entities.Models.Company", "Company")
-                        .WithMany("Images")
+                        .WithMany()
                         .HasForeignKey("CompanyId");
 
                     b.HasOne("IvanRealEstate.Entities.Models.Estate", "Estate")
@@ -597,21 +656,24 @@ namespace IvanRealEstate.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("IvanRealEstate.Entities.Models.User", "User")
-                        .WithMany("Images")
-                        .HasForeignKey("UserId");
-
                     b.Navigation("Company");
 
                     b.Navigation("Estate");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("IvanRealEstate.Entities.Models.Message", b =>
                 {
                     b.HasOne("IvanRealEstate.Entities.Models.User", "User")
                         .WithMany("Message")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("IvanRealEstate.Entities.Models.OwnerImage", b =>
+                {
+                    b.HasOne("IvanRealEstate.Entities.Models.User", "User")
+                        .WithMany("Images")
                         .HasForeignKey("UserId");
 
                     b.Navigation("User");

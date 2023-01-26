@@ -150,7 +150,7 @@
             var result = await _controller.DeleteImageForEstate(guidEstate,id);
 
             _mockRepo.Verify(r => r.Send(
-                It.IsAny<DeleteImageCommand>(),
+                It.IsAny<DeleteCountryImageCommand>(),
                 It.IsAny<CancellationToken>()), Times.Once);
 
             Assert.IsType<NoContentResult>(result);

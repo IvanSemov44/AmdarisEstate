@@ -23,7 +23,7 @@
         {
             await CheckerForEstate.CheckIfEstateExistAndReturnIt(_repositoryManager, request.EstateId, request.TrackChanges);
 
-            var image = await CheckerForImage.CheckIfImageExistAndReturnIt(_repositoryManager, request.EstateId, request.ImageId, request.TrackChanges);
+            var image = await CheckerForCompanyImage.CheckIfImageExistAndReturnIt(_repositoryManager, request.EstateId, request.ImageId, request.TrackChanges);
 
             var imageForReturn = _mapper.Map<ImageDto>(image);
 

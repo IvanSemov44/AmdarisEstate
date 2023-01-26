@@ -1,0 +1,29 @@
+﻿namespace IvanRealEstate.Repository
+{
+    using Microsoft.EntityFrameworkCore;
+
+    using IvanRealEstate.Contracts;
+    using IvanRealEstate.Entities.Models;
+
+    public class CompanyImageRepository : RepositoryBase<CompanyImage>, ICompanyImageRepository
+    {
+        public CompanyImageRepository(RepositoryContext repositoryContext) : base(repositoryContext)
+        {
+        }
+
+        public void CreateCompanyImage(Guid companyId, CompanyImage image)
+        {
+            image.CompanyId = companyId;
+            Create(image);
+        }
+
+        public void DeleteCompanyImage(CompanyImage image) => Delete(image);
+
+        public async Task<CompanyImage?> GetCompanyImageAsync(Guid companyId, Guid imageId, bool trackChanges) =>
+             await FindByCondition(i => i.CompanyId.Equals(companyId) && i.CompanyImageId.Equals(imageId), trackChanges)
+            .SingleOrDefaultAsync();
+
+        public async Task<IEnumerable<CompanyImage>> GetCompanyImagesAsync(Guid companyId, bool trackChanges) =>
+        await FindByCondition(i => i.CompanyId.Equals(companyId), trackChanges).ToListAsync();
+    }
+}

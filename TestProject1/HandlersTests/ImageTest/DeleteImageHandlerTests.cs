@@ -23,7 +23,7 @@
         public async Task Valid_DeleteImageHandler_Test()
         {
             var handler = new DeleteImageHandler(_mockRepo.Object);
-            await handler.Handle(new DeleteImageCommand(_estateId, _imageId, false),CancellationToken.None);
+            await handler.Handle(new DeleteCountryImageCommand(_estateId, _imageId, false),CancellationToken.None);
 
             _mockRepo.Verify();
         }

@@ -6,7 +6,7 @@
     using IvanRealEstate.Application.Commands.ImageCommads;
     using IvanRealEstate.Application.Handlers.EstateHandlers;
 
-    public sealed class DeleteImageHandler : IRequestHandler<DeleteImageCommand, Unit>
+    public sealed class DeleteImageHandler : IRequestHandler<DeleteCountryImageCommand, Unit>
     {
         private readonly IRepositoryManager _repositoryManager;
 
@@ -15,11 +15,11 @@
             _repositoryManager = repositoryManager;
         }
 
-        public async Task<Unit> Handle(DeleteImageCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteCountryImageCommand request, CancellationToken cancellationToken)
         {
             await CheckerForEstate.CheckIfEstateExistAndReturnIt(_repositoryManager, request.EstateId, request.TrackChanges);
 
-            var image = await CheckerForImage.CheckIfImageExistAndReturnIt(_repositoryManager, request.EstateId, request.ImageId, request.TrackChanges);
+            var image = await CheckerForCompanyImage.CheckIfImageExistAndReturnIt(_repositoryManager, request.EstateId, request.ImageId, request.TrackChanges);
 
             _repositoryManager.Image.DeleteImage(image);
             await _repositoryManager.SaveAsync();

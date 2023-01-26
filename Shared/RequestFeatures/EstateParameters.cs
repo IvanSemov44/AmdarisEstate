@@ -26,6 +26,7 @@
         public Guid? Country { get; set; }
         public Guid? Currency { get; set; }
         public Guid? EstateType { get; set; }
+        public Guid? OwnerId { get; set; }
 
         public string SearchTerm { get; set; }
 

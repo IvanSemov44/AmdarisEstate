@@ -10,7 +10,7 @@ namespace IvanRealEstate.Entities.Models
 
         public ICollection<Estate>? Estate { get; set; }
         public ICollection<Message>? Message { get; set; }
-        public ICollection<Image>? Images { get; set; }
+        public ICollection<OwnerImage>? Images { get; set; }
 
         public Guid UserCityId { get; set; }
         public City? City { get; set; }

@@ -42,6 +42,11 @@
                 returnEstates = returnEstates.Where(e =>
                 e.CountryId == estateParameters.Country);
 
+            if (estateParameters.OwnerId is not null)
+                returnEstates = returnEstates.Where(e =>
+                e.OwnerId == estateParameters.OwnerId);
+
+
             if (estateParameters.Currency is not null)
                 returnEstates = returnEstates.Where(e =>
                 e.CurencyId == estateParameters.Currency);

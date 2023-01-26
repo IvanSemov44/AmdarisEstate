@@ -29,7 +29,7 @@
         [Fact]
         public async Task Valid_CheckerForImage_Test()
         {
-            var result = await CheckerForImage
+            var result = await CheckerForCompanyImage
                 .CheckIfImageExistAndReturnIt(_mockRepo.Object, _estateId, _imageId, false);
 
             Assert.IsType<Image>(result);
@@ -39,7 +39,7 @@
         public async Task InValid_CheckerForImage_Test()
         {
            await Assert.ThrowsAsync<ImageNotFoundException>(async ()=>
-           await CheckerForImage
+           await CheckerForCompanyImage
                 .CheckIfImageExistAndReturnIt(_mockRepoForInvalidIds.Object, _estateId, _imageInvalidId, false));
         }
 

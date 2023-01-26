@@ -35,5 +35,7 @@
         public DbSet<EstateType>? EstateTypes { get; set; }
         public DbSet<Message>? Messages { get; set; }
         public DbSet<Company>? Companies { get; set; }
+        public DbSet<OwnerImage>? OwnerImages { get; set; }
+        public DbSet<CompanyImage>? CompanyImages { get; set; }
     }
 }

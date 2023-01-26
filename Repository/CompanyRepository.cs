@@ -18,7 +18,7 @@
             .ToListAsync();
 
         public async Task<IEnumerable<Company?>> GetByIdsAsync(IEnumerable<Guid> ids, bool trackChanges) =>
-           await FindByCondition(x => ids.Contains(x.Id), trackChanges).ToListAsync();
+           await FindByCondition(x => ids.Contains(x.Id), trackChanges).Include(z=>z.Employees).ToListAsync();
 
         public async  Task<Company?> GetCompanyAsync(Guid companyId, bool trackChanges) =>
             await FindByCondition(c => c.Id.Equals(companyId), trackChanges).SingleOrDefaultAsync();

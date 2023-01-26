@@ -21,7 +21,7 @@
         public string? Description { get; set; }
 
         public ICollection<User>? Employees { get; set; }
-        public ICollection<Image>? Images { get; set; }
+        public ICollection<CompanyImage>? Images { get; set; }
 
         public Guid CompanyCityId { get; set; }
         public City? City { get; set; }

@@ -4,7 +4,7 @@
     using IvanRealEstate.Entities.Models;
     using IvanRealEstate.Entities.Exceptions.NotFound;
 
-    public static class CheckerForImage
+    public static class CheckerForCompanyImage
     {
         public async static Task<Image> CheckIfImageExistAndReturnIt(IRepositoryManager repositoryManager,Guid estateId ,Guid imageId, bool trackChanges)
         {

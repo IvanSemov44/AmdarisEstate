@@ -14,7 +14,7 @@
         public Guid ImageCompanyId { get; set; }
         public Company? Company { get; set; }
 
-        public Guid ownerId { get; set; }
-        public User? User { get; set; }
+        //public Guid OwnerId { get; set; }
+        //public User? User { get; set; }
     }
 }

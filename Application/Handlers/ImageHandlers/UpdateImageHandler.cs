@@ -22,7 +22,7 @@
         {
             await CheckerForEstate.CheckIfEstateExistAndReturnIt(_repositoryManager, request.EstateId, request.EstateTrackChanges);
 
-            var image = await CheckerForImage.CheckIfImageExistAndReturnIt(_repositoryManager, request.EstateId, request.ImageId, request.ImageTrackChanges);
+            var image = await CheckerForCompanyImage.CheckIfImageExistAndReturnIt(_repositoryManager, request.EstateId, request.ImageId, request.ImageTrackChanges);
 
             _mapper.Map(request.ImageForUpdateDto, image);
             await _repositoryManager.SaveAsync();

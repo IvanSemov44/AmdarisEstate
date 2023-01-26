@@ -5,12 +5,14 @@
     using IvanRealEstate.Entities.Models;
     using IvanRealEstate.Shared.DataTransferObject.City;
     using IvanRealEstate.Shared.DataTransferObject.Company;
+    using IvanRealEstate.Shared.DataTransferObject.CompanyImage;
     using IvanRealEstate.Shared.DataTransferObject.Country;
     using IvanRealEstate.Shared.DataTransferObject.Currency;
     using IvanRealEstate.Shared.DataTransferObject.Estate;
     using IvanRealEstate.Shared.DataTransferObject.EstateType;
     using IvanRealEstate.Shared.DataTransferObject.Image;
     using IvanRealEstate.Shared.DataTransferObject.Message;
+    using IvanRealEstate.Shared.DataTransferObject.OwnerImage;
     using IvanRealEstate.Shared.DataTransferObject.Users;
 
     public class MappingProfile : Profile
@@ -82,6 +84,21 @@
             CreateMap<Message, MessageDto>();
 
             CreateMap<MessageForUpdateDto, Message>();
+
+            //----OwnerImage Mapper------
+            CreateMap<OwnerImageForCreationDto, OwnerImage>();
+
+            CreateMap<OwnerImage, OwnerImageDto>();
+
+            CreateMap<OwnerImageForUpdateDto, OwnerImage>();
+
+            //----CompanyImage Mapper------
+            CreateMap<CompanyImageForCreationDto, CompanyImage>();
+
+            CreateMap<CompanyImage, CompanyImageDto>();
+
+            CreateMap<CompanyImageForUpdateDto, CompanyImage>();
+
 
         }
     }

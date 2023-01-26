@@ -1,6 +1,7 @@
 ﻿namespace IvanRealEstate.Shared.DataTransferObject.Company
 {
     using IvanRealEstate.Shared.DataTransferObject.Image;
+    using IvanRealEstate.Shared.DataTransferObject.Users;
     using System.ComponentModel.DataAnnotations;
 
     public record CompanyDto
@@ -12,5 +13,6 @@
         public Guid? CompanyCityId { get; init; }
         public Guid? CompanyCountryId { get; set; }
         public ICollection<ImageDto>? Images { get; set; }
+        public ICollection<UserDto>? Employees { get; set; }
     };
 }
