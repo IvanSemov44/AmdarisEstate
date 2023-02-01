@@ -30,11 +30,11 @@
             CreateMap<CompanyForUpdateDto, Company>();
 
             //----Estate Mapper------
-            CreateMap<EstateForCreationDto, Entities.Models.Estate>();
+            CreateMap<EstateForCreationDto, Estate>();
 
-            CreateMap<Entities.Models.Estate, EstateDto>();
+            CreateMap<Estate, EstateDto>();
 
-            CreateMap<EstateForUpdateDto, Entities.Models.Estate>();
+            CreateMap<EstateForUpdateDto, Estate>();
 
 
             //----City Mapper------
@@ -67,6 +67,7 @@
 
             //----City Mapper------
             CreateMap<Image, ImageDto>();
+            CreateMap<ImageDto, Image>();
 
             CreateMap<ImageForCreationDto, Image>();
 
@@ -93,11 +94,12 @@
             CreateMap<OwnerImageForUpdateDto, OwnerImage>();
 
             //----CompanyImage Mapper------
-            CreateMap<CompanyImageForCreationDto, CompanyImage>();
+            CreateMap<CompanyImageForCreationDto, Image>();
 
-            CreateMap<CompanyImage, CompanyImageDto>();
+            CreateMap<CompanyImage, ImageDto>();
 
-            CreateMap<CompanyImageForUpdateDto, CompanyImage>();
+            CreateMap<CompanyImageForUpdateDto, Image>();
+            CreateMap<Image, CompanyImageDto>();
 
 
         }

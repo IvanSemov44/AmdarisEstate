@@ -4,6 +4,7 @@ using IvanRealEstate.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IvanRealEstate.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20230128105403_UpdateImageForCompany")]
+    partial class UpdateImageForCompany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -242,10 +244,13 @@ namespace IvanRealEstate.Migrations
                     b.Property<Guid?>("CompanyId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("CompanyImageId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<bool?>("DefaultImg")
                         .HasColumnType("bit");
 
-                    b.Property<Guid?>("EstateId")
+                    b.Property<Guid>("EstateId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ImageUrl")
@@ -443,22 +448,22 @@ namespace IvanRealEstate.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "60e20a03-1ff3-4e16-9187-489350536f41",
-                            ConcurrencyStamp = "0a925b74-887f-4c23-9be0-978a8b7c04a7",
+                            Id = "a10ddeeb-6a65-4583-982e-7d265a840729",
+                            ConcurrencyStamp = "8c9d7edd-9027-430f-9457-e9e1dacc84bc",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
-                            Id = "728f89e2-d5eb-4eba-a6c3-a6ac0b26d33b",
-                            ConcurrencyStamp = "c83e0e7c-a92e-4022-828d-f62cf497d486",
+                            Id = "51ce9213-98d6-4139-b39b-df12a3064c59",
+                            ConcurrencyStamp = "95417204-eb08-4c92-9d12-01600df69d48",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "a78b7778-f116-4bc8-b6fa-5b44f3b4ed7c",
-                            ConcurrencyStamp = "43a62285-3fb6-481b-b994-92ce92fb29ac",
+                            Id = "23e961ee-de20-4a28-93a2-7cc60a7e9353",
+                            ConcurrencyStamp = "d1c9b2b0-b3c6-4cea-bb2c-f09e0e892c9a",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         });
@@ -641,7 +646,9 @@ namespace IvanRealEstate.Migrations
 
                     b.HasOne("IvanRealEstate.Entities.Models.Estate", "Estate")
                         .WithMany("Images")
-                        .HasForeignKey("EstateId");
+                        .HasForeignKey("EstateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Company");
 

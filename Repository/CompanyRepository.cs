@@ -4,6 +4,7 @@
 
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Entities.Models;
+    using System.Linq.Dynamic.Core;
 
     public class CompanyRepository : RepositoryBase<Company>, ICompanyRepository
     {
@@ -18,10 +19,10 @@
             .ToListAsync();
 
         public async Task<IEnumerable<Company?>> GetByIdsAsync(IEnumerable<Guid> ids, bool trackChanges) =>
-           await FindByCondition(x => ids.Contains(x.Id), trackChanges).Include(z=>z.Employees).ToListAsync();
+           await FindByCondition(x => ids.Contains(x.Id), trackChanges).Include(x=>x.Employees).ToListAsync();
 
         public async  Task<Company?> GetCompanyAsync(Guid companyId, bool trackChanges) =>
-            await FindByCondition(c => c.Id.Equals(companyId), trackChanges).SingleOrDefaultAsync();
+            await FindByCondition(c => c.Id.Equals(companyId), trackChanges).Include(x => x.Employees).SingleOrDefaultAsync();
 
         public void CreateCompany(Company company) => Create(company);
 

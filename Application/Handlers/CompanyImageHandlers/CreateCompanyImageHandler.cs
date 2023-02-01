@@ -26,7 +26,7 @@
             await CheckerForCompany
                .CheckIfCompanyExistAndReturnIt(_repositoryManager, request.CompanyId, request.TrackChanges);
 
-            var image = _mapper.Map<CompanyImage>(request.CompanyImageForCreationDto);
+            var image = _mapper.Map<Image>(request.CompanyImageForCreationDto);
 
             _repositoryManager.CompanyImage.CreateCompanyImage(request.CompanyId, image);
             await _repositoryManager.SaveAsync();

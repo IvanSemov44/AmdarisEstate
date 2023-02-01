@@ -6,7 +6,7 @@
 
     public class CheckerForCompanyImage
     {
-        public async static Task<CompanyImage> CheckIfCompanyImageExistAndReturnIt(IRepositoryManager repositoryManager, Guid companyId, Guid companyImageId, bool trackChanges)
+        public async static Task<Image> CheckIfCompanyImageExistAndReturnIt(IRepositoryManager repositoryManager, Guid companyId, Guid companyImageId, bool trackChanges)
         {
             var image = await repositoryManager.CompanyImage.GetCompanyImageAsync(companyId, companyImageId, trackChanges);
             if (image is null)

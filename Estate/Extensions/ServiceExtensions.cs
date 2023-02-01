@@ -18,7 +18,7 @@
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy", bulder =>
-                bulder.WithOrigins("http://localhost:3000")
+                bulder.WithOrigins("http://localhost:3000","https://ivan-realestate.web.app")
                 .AllowAnyHeader()
                 .WithExposedHeaders("X-Pagination")
                 .AllowAnyMethod()

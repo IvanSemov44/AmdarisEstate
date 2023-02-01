@@ -4,10 +4,10 @@
 
     public interface ICompanyImageRepository
     {
-        Task<IEnumerable<CompanyImage>> GetCompanyImagesAsync(Guid companyId, bool trackChanges);
-        Task<CompanyImage?> GetCompanyImageAsync(Guid companyId, Guid imageId, bool trackChanges);
-        void CreateCompanyImage(Guid companyId, CompanyImage image);
-        void DeleteCompanyImage(CompanyImage companyId);
+        Task<IEnumerable<Image>> GetCompanyImagesAsync(Guid companyId, bool trackChanges);
+        Task<Image?> GetCompanyImageAsync(Guid companyId, Guid imageId, bool trackChanges);
+        void CreateCompanyImage(Guid companyId, Image image);
+        void DeleteCompanyImage(Image companyId);
     }
 }
     
