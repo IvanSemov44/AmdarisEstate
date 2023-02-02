@@ -27,7 +27,7 @@
                 Description = "With Nice Bars",
                 YearOfCreation = 2010,
                 Price = 259000,
-                Floоr = 11,
+                Floor = 11,
                 Rooms = 4,
                 Extras = "asansior, parking, magazin",
                 Sell = true,
@@ -57,7 +57,7 @@
 
             Assert.True(2010 == result.YearOfCreation);
             Assert.True(259000 == result.Price);
-            Assert.True(11 == result.Floоr);
+            Assert.True(11 == result.Floor);
             Assert.True(4 == result.Rooms);
             Assert.True(true == result.Sell);
         }

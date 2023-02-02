@@ -34,6 +34,7 @@
 
             return Ok(imageForReturn);
         }
+
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateImageForEstate(Guid estateId, [FromBody] ImageForCreationDto imageForCreationDto)

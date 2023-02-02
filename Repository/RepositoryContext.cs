@@ -33,8 +33,7 @@
         public DbSet<Currency>? Currencies { get; set; }
         public DbSet<Country>? Countries { get; set; }
         public DbSet<EstateType>? EstateTypes { get; set; }
-
-        public DbSet<Employee>? Employees { get; set; }
+        public DbSet<Message>? Messages { get; set; }
         public DbSet<Company>? Companies { get; set; }
     }
 }

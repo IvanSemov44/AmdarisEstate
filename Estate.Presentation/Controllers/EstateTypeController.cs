@@ -1,13 +1,13 @@
 ﻿namespace IvanRealEstate.Presentation.Controllers
 {
     using MediatR;
-
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Authorization;
 
+    using IvanRealEstate.Presentation.ActionFilter;
+    using IvanRealEstate.Application.Queries.EstateTypeQuery;
     using IvanRealEstate.Shared.DataTransferObject.EstateType;
     using IvanRealEstate.Application.Commands.EstateTypeCommands;
-    using IvanRealEstate.Application.Queries.EstateTypeQuery;
-    using IvanRealEstate.Presentation.ActionFilter;
 
     [Route("api/estatetypes")]
     [ApiController]
@@ -37,6 +37,7 @@
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateEstateType([FromBody] EstateTypeForCreationDto estateTypeForCreationDto)
         {
@@ -46,6 +47,7 @@
         }
 
         [HttpPut("{estateTypeId:guid}")]
+        [Authorize(Roles = "Admin")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateEstateType(Guid estateTypeId, [FromBody] EstateTypeForUpdateDto estateTypeForUpdateDto)
         {
@@ -54,6 +56,7 @@
             return NoContent();
         }
         [HttpDelete("{estateTypeId:guid}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteEstateType(Guid estateTypeId)
         {
             await _sender.Send(new DeleteEstateTypeCommand(estateTypeId, TrackChanges: false));

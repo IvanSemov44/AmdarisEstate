@@ -5,7 +5,5 @@
     using IvanRealEstate.Shared.DataTransferObject.Users;
 
     public sealed record RegisterUsersCommand(UserForRegistrationDto UserForRegistration)
-        : IRequest<IdentityResult>
-    {
-    }
+        : IRequest<IdentityResult>;
 }

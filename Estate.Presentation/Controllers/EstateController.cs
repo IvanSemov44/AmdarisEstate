@@ -11,6 +11,7 @@
     using IvanRealEstate.Application.Commands.EstateCommands;
     using IvanRealEstate.Presentation.ActionFilter;
     using IvanRealEstate.Shared.RequestFeatures;
+    using Microsoft.AspNetCore.Authorization;
 
     [Route("api/estates")]
     [ApiController]
@@ -52,6 +53,7 @@
         }
 
         [HttpPost]
+        [Authorize]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateEstate([FromBody] EstateForCreationDto estateForCreationDto)
         {
@@ -61,6 +63,7 @@
         }
 
         [HttpPut("{estateId:guid}")]
+        [Authorize]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateEstate(Guid estateId, [FromBody] EstateForUpdateDto estateForUpdateDto)
         {
@@ -70,6 +73,7 @@
         }
 
         [HttpDelete("{estateId:guid}")]
+        [Authorize]
         public async Task<IActionResult> DeleteEstate(Guid estateId)
         {
             await _sender.Send(new DeleteEstateCommand(estateId, TrackChanges: false));

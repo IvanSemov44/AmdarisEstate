@@ -1,10 +1,9 @@
 ﻿namespace IvanRealEstate.Test.HandlersTests.CurrencyTest
 {
     using Moq;
-
-    using IvanRealEstate.Entities;
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Application.Handlers.CurrencyHandlers;
+    using IvanRealEstate.Entities.Exceptions.NotFound;
 
     public class CheckerForCurrencyTest
     {

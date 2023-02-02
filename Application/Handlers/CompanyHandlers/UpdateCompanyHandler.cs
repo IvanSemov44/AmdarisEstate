@@ -4,7 +4,7 @@
     using AutoMapper;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
+    using IvanRealEstate.Entities.Exceptions.NotFound;
     using IvanRealEstate.Application.Commands.CompanyCommands;
 
     internal sealed class UpdateCompanyHandler : IRequestHandler<UpdateCompanyCommand, Unit>

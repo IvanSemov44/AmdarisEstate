@@ -1,13 +1,13 @@
 ﻿namespace IvanRealEstate.Presentation.Controllers
 {
     using MediatR;
-
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Authorization;
 
+    using IvanRealEstate.Presentation.ActionFilter;
     using IvanRealEstate.Shared.DataTransferObject.Currency;
     using IvanRealEstate.Application.Queries.CurrencyQueries;
     using IvanRealEstate.Application.Commands.CurrencyCommands;
-    using IvanRealEstate.Presentation.ActionFilter;
 
     [Route("api/currencies")]
     [ApiController]
@@ -37,6 +37,7 @@
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateCurrency([FromBody] CurrencyForCreationDto currencyForCreationDto)
         {
@@ -46,6 +47,7 @@
         }
 
         [HttpPut("{currencyId:guid}")]
+        [Authorize(Roles = "Admin")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateCurrency(Guid currencyId, [FromBody] CurrencyForUpdateDto currencyForUpdateDto)
         {
@@ -55,6 +57,7 @@
         }
 
         [HttpDelete("{currencyId:guid}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteCurrency(Guid currencyId)
         {
             await _sender.Send(new DeleteCurrencyCommand(currencyId, TrackChanges: false));

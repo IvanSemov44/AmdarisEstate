@@ -1,8 +1,8 @@
 ﻿namespace IvanRealEstate.Application.Handlers.CurrencyHandlers
 {
-    using IvanRealEstate.Entities;
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Entities.Models;
+    using IvanRealEstate.Entities.Exceptions.NotFound;
 
     public static class CheckerForCurrency
     {

@@ -4,8 +4,8 @@
 
     using IvanRealEstate.Contracts;
     using IvanRealEstate.Entities.Models;
-    using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Application.Handlers.EstateHandlers;
+    using IvanRealEstate.Entities.Exceptions.NotFound;
 
     public class CheckerForEstateTests
     {

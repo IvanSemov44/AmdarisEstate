@@ -11,6 +11,8 @@
         public string? CountryName { get; set; }
 
         public ICollection<Estate>? Estates { get; set; }
+        public ICollection<Company>? Companies { get; set; }
+        public ICollection<User>? Users { get; set; }
 
     }
 }

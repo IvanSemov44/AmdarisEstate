@@ -28,7 +28,7 @@
 
             var result = await _userManager.CreateAsync(user, request.UserForRegistration.Password);
 
-            if (!result.Succeeded)
+            if (result.Succeeded)
                 await _userManager.AddToRolesAsync(user, request.UserForRegistration.Roles);
 
             return result;

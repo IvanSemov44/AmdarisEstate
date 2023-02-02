@@ -3,8 +3,8 @@
     using Moq;
 
     using IvanRealEstate.Contracts;
-    using IvanRealEstate.Entities.Exceptions;
     using IvanRealEstate.Application.Handlers.CountryHandlers;
+    using IvanRealEstate.Entities.Exceptions.NotFound;
 
     public class CheckerForCountryTest
     {

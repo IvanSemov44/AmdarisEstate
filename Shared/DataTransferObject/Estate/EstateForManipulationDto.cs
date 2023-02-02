@@ -5,6 +5,8 @@
 
     public record EstateForManipulationDto
     {
+        public Guid? OwnerId { get; init; }
+
         [Required(ErrorMessage = "Neighborhood is a required field.")]
         [MaxLength(100, ErrorMessage = "Maximum length for the Neighborhood is 100 characters.")]
         public string? Neighborhood { get; init; }
@@ -24,7 +26,7 @@
         public double Price { get; init; }
 
         [Range(int.MinValue, int.MaxValue, ErrorMessage = "Floоr is Required.")]
-        public int Floоr { get; init; }
+        public int Floor { get; init; }
 
         [Range(0, int.MaxValue, ErrorMessage = "Rooms is Required and it can't be lower than 0.")]
         public int Rooms { get; init; }
@@ -50,6 +52,5 @@
         public Guid EstateTypeId { get; init; }
 
         public IEnumerable<ImageDto>? Images { get; init; }
-
     }
 }
