@@ -33,7 +33,7 @@
 
         public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration) =>
             services.AddDbContext<RepositoryContext>(opt =>
-            opt.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
+            opt.UseSqlServer(configuration.GetConnectionString("defaultConnection")));
 
         public static void ConfigureIdentity(this IServiceCollection services)
         {
